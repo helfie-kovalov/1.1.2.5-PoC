@@ -1,6 +1,6 @@
 import React, { ChangeEvent, useState } from "react";
 import { Hex } from "viem";
-import { Address, useAccount, useSignMessage } from "wagmi";
+import { Address, useSignMessage } from "wagmi";
 import { claimSignature } from "~~/services/functions";
 
 interface SignatureData {
@@ -14,7 +14,6 @@ interface Errors {
 }
 
 const SignatureInput = () => {
-  const { address } = useAccount();
   const { signMessageAsync } = useSignMessage();
   const [sigData, setSigData] = useState<SignatureData>({
     identityAddress: "",
@@ -35,7 +34,7 @@ const SignatureInput = () => {
 
   const createSig = async () => {
     const mess = claimSignature(sigData.identityAddress as Address, BigInt(sigData.claimTopic), sigData.data as Hex);
-    const signature = await signMessageAsync({ message: { raw: mess }, account: address });
+    const signature = await signMessageAsync({ message: { raw: mess } as any });
     setSign(signature);
   };
 
