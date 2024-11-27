@@ -5,6 +5,7 @@ import { useContractRead } from "wagmi";
 import { ArrowPathIcon } from "@heroicons/react/24/outline";
 import { displayTxResult } from "~~/components/scaffold-eth";
 import { useAnimationConfig } from "~~/hooks/scaffold-eth";
+import { getClaimTopicName, getTokenClaimTopicName } from "~~/services/functions";
 import { notification } from "~~/utils/scaffold-eth";
 
 type DisplayVariableProps = {
@@ -26,6 +27,7 @@ export const DisplayVariable = ({ contractAddress, abiFunction, refreshDisplayVa
       notification.error(error.message);
     },
   });
+  console.log(result);
 
   const { showAnimation } = useAnimationConfig(result);
 
@@ -52,7 +54,11 @@ export const DisplayVariable = ({ contractAddress, abiFunction, refreshDisplayVa
               showAnimation ? "bg-warning rounded-sm animate-pulse-fast" : ""
             }`}
           >
-            {displayTxResult(result)}
+            {abiFunction.name === "getClaimTopics" && Array.isArray(result)
+              ? (result as Array<bigint>)?.map(el => `${el} = ${getClaimTopicName(el)}`).toString()
+              : abiFunction.name === "getTokenClaimTopics"
+              ? (result as Array<bigint>)?.map(el => `${el} = ${getTokenClaimTopicName(el)}`).toString()
+              : displayTxResult(result)}
           </div>
         </div>
       </div>
