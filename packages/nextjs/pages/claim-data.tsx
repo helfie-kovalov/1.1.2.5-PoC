@@ -115,7 +115,10 @@ const SignatureInput = () => {
         <div className="mt-4">
           <button
             type="button"
-            onClick={async () => await handleCopy()}
+            onClick={async () => {
+              await createSig();
+              handleCopy();
+            }}
             className={`bg-blue-500 text-white p-2 rounded-md ${
               Object.values(errors).some(error => error) ? "opacity-50 cursor-not-allowed" : ""
             }`}
