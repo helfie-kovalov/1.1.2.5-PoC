@@ -54,6 +54,12 @@ export const Header = () => {
           Tuple Builder
         </NavLink>
       </li>
+      <li>
+        <NavLink href="/claim-data">
+          <SparklesIcon className="h-4 w-4" />
+          Sign
+        </NavLink>
+      </li>
     </>
   );
 
