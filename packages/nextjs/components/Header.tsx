@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { MagnifyingGlassIcon, SparklesIcon } from "@heroicons/react/24/outline";
 import { FaucetButton, RainbowKitCustomConnectButton } from "~~/components/scaffold-eth";
-import contracts from '~~/generated/deployedContracts';
+import contracts from "~~/generated/deployedContracts";
 
 const NavLink = ({ href, children }: { href: string; children: React.ReactNode }) => {
   const router = useRouter();
@@ -30,15 +30,15 @@ export const Header = () => {
   const [tokenAddress, setTokenAddress] = useState("");
   const [identityAddress, setIdentityAddress] = useState("");
   async function handleLoadToken() {
-    if(tokenAddress !== "") {
+    if (tokenAddress !== "") {
       contracts[11155111][0].contracts.Token.address = tokenAddress;
     }
   }
   async function handleLoadIdentity() {
-    if(identityAddress !== "") {
+    if (identityAddress !== "") {
       contracts[11155111][0].contracts.Identity.address = identityAddress;
     }
-}
+  }
 
   const navLinks = (
     <>
@@ -73,16 +73,16 @@ export const Header = () => {
       </div>
       <div className="navbar-end flex-grow mr-4 w-9/12">
         <div className="flex items-center gap-2 mr-4">
-            <input
-              type="text"
-              placeholder="Enter Identity Address"
-              value={identityAddress}
-              onChange={e => setIdentityAddress(e.target.value)}
-              className="input input-bordered"
-            />
-            <button onClick={handleLoadIdentity} className="btn btn-primary">
-              Load Identity
-            </button>
+          <input
+            type="text"
+            placeholder="Enter Identity Address"
+            value={identityAddress}
+            onChange={e => setIdentityAddress(e.target.value)}
+            className="input input-bordered"
+          />
+          <button onClick={handleLoadIdentity} className="btn btn-primary">
+            Load Identity
+          </button>
         </div>
         <div className="flex items-center gap-2">
           <input
