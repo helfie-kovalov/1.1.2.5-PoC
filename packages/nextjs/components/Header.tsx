@@ -1,10 +1,10 @@
-import React, { useCallback, useRef, useState } from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { Bars3Icon, MagnifyingGlassIcon, SparklesIcon } from "@heroicons/react/24/outline";
+import { MagnifyingGlassIcon, SparklesIcon } from "@heroicons/react/24/outline";
 import { FaucetButton, RainbowKitCustomConnectButton } from "~~/components/scaffold-eth";
-import { useOutsideClick } from "~~/hooks/scaffold-eth";
+import contracts from '~~/generated/deployedContracts';
 
 const NavLink = ({ href, children }: { href: string; children: React.ReactNode }) => {
   const router = useRouter();
@@ -28,28 +28,17 @@ const NavLink = ({ href, children }: { href: string; children: React.ReactNode }
  */
 export const Header = () => {
   const [tokenAddress, setTokenAddress] = useState("");
-  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
-  const burgerMenuRef = useRef<HTMLDivElement>(null);
+  const [identityAddress, setIdentityAddress] = useState("");
   async function handleLoadToken() {
-    try {
-      const response = await fetch("http://localhost:4000/update-contracts", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ tokenAddress }),
-      });
-
-      const data = await response.json();
-      console.log(data.message);
-    } catch (error) {
-      console.error("Error:", error);
+    if(tokenAddress !== "") {
+      contracts[11155111][0].contracts.Token.address = tokenAddress;
     }
   }
-  useOutsideClick(
-    burgerMenuRef,
-    useCallback(() => setIsDrawerOpen(false), []),
-  );
+  async function handleLoadIdentity() {
+    if(identityAddress !== "") {
+      contracts[11155111][0].contracts.Identity.address = identityAddress;
+    }
+}
 
   const navLinks = (
     <>
@@ -71,28 +60,6 @@ export const Header = () => {
   return (
     <div className="sticky lg:static top-0 navbar bg-base-100 min-h-0 flex-shrink-0 justify-between z-20 shadow-md shadow-secondary px-0 sm:px-2">
       <div className="navbar-start w-auto lg:w-1/2">
-        <div className="lg:hidden dropdown" ref={burgerMenuRef}>
-          <label
-            tabIndex={0}
-            className={`ml-1 btn btn-ghost ${isDrawerOpen ? "hover:bg-secondary" : "hover:bg-transparent"}`}
-            onClick={() => {
-              setIsDrawerOpen(prevIsOpenState => !prevIsOpenState);
-            }}
-          >
-            <Bars3Icon className="h-1/2" />
-          </label>
-          {isDrawerOpen && (
-            <ul
-              tabIndex={0}
-              className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
-              onClick={() => {
-                setIsDrawerOpen(false);
-              }}
-            >
-              {navLinks}
-            </ul>
-          )}
-        </div>
         <Link href="/" passHref className="hidden lg:flex items-center gap-2 ml-4 mr-6 shrink-0">
           <div className="flex relative w-10 h-10">
             <Image alt="SE2 logo" className="cursor-pointer" fill src="/logo.svg" />
@@ -104,7 +71,19 @@ export const Header = () => {
         </Link>
         <ul className="hidden lg:flex lg:flex-nowrap menu menu-horizontal px-1 gap-2">{navLinks}</ul>
       </div>
-      <div className="navbar-end flex-grow mr-4">
+      <div className="navbar-end flex-grow mr-4 w-9/12">
+        <div className="flex items-center gap-2 mr-4">
+            <input
+              type="text"
+              placeholder="Enter Identity Address"
+              value={identityAddress}
+              onChange={e => setIdentityAddress(e.target.value)}
+              className="input input-bordered"
+            />
+            <button onClick={handleLoadIdentity} className="btn btn-primary">
+              Load Identity
+            </button>
+        </div>
         <div className="flex items-center gap-2">
           <input
             type="text"
