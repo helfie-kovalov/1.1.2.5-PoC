@@ -4,7 +4,11 @@ import { Address, Hex, encodeAbiParameters, keccak256, parseAbiParameters, toByt
 export const claimSignature = (identityAddress: Address, claimTopic: bigint, data: Hex): Uint8Array => {
   const sign = toBytes(
     keccak256(
-      encodeAbiParameters(parseAbiParameters(["address", "uint256", "bytes"]), [identityAddress, claimTopic, data] as any),
+      encodeAbiParameters(parseAbiParameters(["address", "uint256", "bytes"]), [
+        identityAddress,
+        claimTopic,
+        data,
+      ] as any),
     ),
   );
   return sign;

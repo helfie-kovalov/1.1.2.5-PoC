@@ -55,19 +55,6 @@ const SignatureInput = () => {
     }));
   };
 
-  const handleCopy = async () => {
-    navigator.clipboard
-      .writeText(sign)
-      .then(() => {
-        setTimeout(async () => {
-          alert("Sign copied to clipboard!");
-        }, 100);
-      })
-      .catch(err => {
-        alert("Failed to copy Sign: " + err);
-      });
-  };
-
   return (
     <div className="container mx-auto p-4">
       <h2 className="text-2xl mb-4">Signature Input</h2>
@@ -111,19 +98,25 @@ const SignatureInput = () => {
           />
           {errors.data && <p className="text-red-500 text-xs">{errors.data}</p>}
         </div>
+        {sign !== "" && (
+          <div title="Signature">
+            <label className="block text-sm font-medium">Signature: {sign}</label>
+          </div>
+        )}
         <div className="mt-4">
           <button
             type="button"
             onClick={async () => {
-              await createSig();
-              handleCopy();
+              if (sigData.identityAddress !== "") {
+                await createSig();
+              }
             }}
             className={`bg-blue-500 text-white p-2 rounded-md ${
               Object.values(errors).some(error => error) ? "opacity-50 cursor-not-allowed" : ""
             }`}
             disabled={Object.values(errors).some(error => error)}
           >
-            Copy Sig
+            Sign
           </button>
         </div>
       </form>
