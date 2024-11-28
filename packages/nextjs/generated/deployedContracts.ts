@@ -14,6 +14,7 @@ import { OM_ABI } from "./abis/om.abi";
 import { TIR_ABI } from "./abis/tir.abi";
 import { TOKEN_FACTORY_ABI } from "./abis/token-factory.abi";
 import { TOKEN_ABI } from "./abis/token.abi";
+import { USDT_ABI } from "./abis/usdt.abi";
 
 const contracts = {
   11155111: [
@@ -84,6 +85,10 @@ const contracts = {
         DVDTransferManager: {
           address: "0xa6bf127901e21f6CD490dABC3a9d38Ae74023E57",
           abi: DVD_ABI,
+        },
+        USDT: {
+          address: "0x7C1b58de844a2974852A9F6bb672e9Fde3031265",
+          abi: USDT_ABI,
         },
       },
     },

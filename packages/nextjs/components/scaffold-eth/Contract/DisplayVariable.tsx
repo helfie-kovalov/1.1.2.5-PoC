@@ -58,6 +58,8 @@ export const DisplayVariable = ({ contractAddress, abiFunction, refreshDisplayVa
               ? (result as Array<bigint>)?.map(el => `${el} = ${getClaimTopicName(el)}`).toString()
               : abiFunction.name === "getTokenClaimTopics"
               ? (result as Array<bigint>)?.map(el => `${el} = ${getTokenClaimTopicName(el)}`).toString()
+              : abiFunction.name === "totalSupply"
+              ? result?.toString()
               : displayTxResult(result)}
           </div>
         </div>
