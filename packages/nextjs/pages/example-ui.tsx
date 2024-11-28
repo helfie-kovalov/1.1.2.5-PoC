@@ -1,5 +1,7 @@
 import React, { ChangeEvent, useState } from "react";
-import { encodeFunctionData, parseUnits, zeroAddress } from "viem";
+import { Hex, encodeFunctionData, parseUnits, zeroAddress } from "viem";
+import { useAccount, usePublicClient } from "wagmi";
+import { IR_ABI } from "~~/generated/abis/ir.abi";
 import { COUNTRY_ALLOW_ABI } from "~~/generated/abis/modules/country-allow.abi";
 import { TIME_TRANSFER_LIMIT_ABI } from "~~/generated/abis/modules/transfer-limit.abi";
 import contracts from "~~/generated/deployedContracts";
@@ -18,6 +20,9 @@ interface Errors {
 }
 
 const TokenDetailsInput = () => {
+  const { address } = useAccount();
+  const publicClient = usePublicClient();
+
   const [tokenDetails, setTokenDetails] = useState<TokenDetails>({
     name: "Gold_test",
     symbol: "GT",
@@ -31,6 +36,17 @@ const TokenDetailsInput = () => {
   const [amount, setAmount] = useState("1000");
   const [errors, setErrors] = useState<Errors>({});
 
+  const getSenderCountry = async () => {
+    const country = await publicClient.readContract({
+      abi: IR_ABI,
+      address: contracts[11155111][0].contracts.IdentityRegistry.address,
+      functionName: "investorCountry",
+      args: [address as Hex],
+    });
+    console.warn(country);
+    return country;
+  };
+
   const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setTokenDetails(prevDetails => ({
@@ -40,11 +56,11 @@ const TokenDetailsInput = () => {
     validateField(name, value);
   };
 
-  const createModuleForCountry = () => {
+  const createModuleForCountry = (value: number) => {
     const resEncoded = encodeFunctionData({
       abi: COUNTRY_ALLOW_ABI,
       functionName: "batchAllowCountries",
-      args: [[Number(country)]],
+      args: [[Number(country), value]],
     });
     return resEncoded;
   };
@@ -195,9 +211,10 @@ const TokenDetailsInput = () => {
             </div>
             <button
               type="button"
-              onClick={() =>
+              onClick={async () => {
+                const app = await getSenderCountry();
                 navigator.clipboard
-                  .writeText(createModuleForCountry())
+                  .writeText(createModuleForCountry(app))
                   .then(() => {
                     setTimeout(() => {
                       alert("Country copied to clipboard!");
@@ -205,8 +222,8 @@ const TokenDetailsInput = () => {
                   })
                   .catch(err => {
                     alert("Failed to copy Country: " + err);
-                  })
-              }
+                  });
+              }}
               className={`bg-blue-500 text-white p-2 rounded-md ${
                 Object.values(errors).some(error => error) ? "opacity-50 cursor-not-allowed" : ""
               }`}

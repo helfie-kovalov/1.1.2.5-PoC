@@ -2,8 +2,10 @@ import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import { usePublicClient } from "wagmi";
 import { MagnifyingGlassIcon, SparklesIcon } from "@heroicons/react/24/outline";
 import { FaucetButton, RainbowKitCustomConnectButton } from "~~/components/scaffold-eth";
+import { TOKEN_ABI } from "~~/generated/abis/token.abi";
 import contracts from "~~/generated/deployedContracts";
 
 const NavLink = ({ href, children }: { href: string; children: React.ReactNode }) => {
@@ -27,11 +29,18 @@ const NavLink = ({ href, children }: { href: string; children: React.ReactNode }
  * Site header
  */
 export const Header = () => {
+  const publicClient = usePublicClient();
   const [tokenAddress, setTokenAddress] = useState("");
   const [identityAddress, setIdentityAddress] = useState("");
   async function handleLoadToken() {
     if (tokenAddress !== "") {
+      const mc = await publicClient.readContract({
+        abi: TOKEN_ABI,
+        address: tokenAddress,
+        functionName: "compliance",
+      });
       contracts[11155111][0].contracts.Token.address = tokenAddress;
+      contracts[11155111][0].contracts.ModularCompliance.address = mc;
     }
   }
   async function handleLoadIdentity() {
@@ -81,24 +90,24 @@ export const Header = () => {
         <div className="flex items-center gap-2 mr-4">
           <input
             type="text"
-            placeholder="Enter Identity Address"
+            placeholder="Id Addr"
             value={identityAddress}
             onChange={e => setIdentityAddress(e.target.value)}
-            className="input input-bordered"
+            className="input input-bordered w-28"
           />
-          <button onClick={handleLoadIdentity} className="btn btn-primary">
-            Load Identity
+          <button onClick={handleLoadIdentity} className="btn btn-warning btn-sm">
+            Load Id
           </button>
         </div>
         <div className="flex items-center gap-2">
           <input
             type="text"
-            placeholder="Enter Token Address"
+            placeholder="Token Addr"
             value={tokenAddress}
             onChange={e => setTokenAddress(e.target.value)}
-            className="input input-bordered"
+            className="input input-bordered w-28"
           />
-          <button onClick={handleLoadToken} className="btn btn-primary">
+          <button onClick={handleLoadToken} className="btn btn-warning btn-sm">
             Load Token
           </button>
         </div>
