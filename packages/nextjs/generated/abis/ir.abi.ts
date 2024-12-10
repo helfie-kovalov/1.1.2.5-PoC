@@ -1,504 +1,421 @@
 export const IR_ABI = [
   {
-    inputs: [],
-    stateMutability: "nonpayable",
-    type: "constructor",
+    "inputs": [],
+    "name": "IsNotFalse",
+    "type": "error"
   },
   {
-    inputs: [
+    "inputs": [
       {
-        internalType: "address",
-        name: "caller",
-        type: "address",
-      },
+        "internalType": "address",
+        "name": "caller",
+        "type": "address"
+      }
     ],
-    name: "NotOperator",
-    type: "error",
+    "name": "NotOperator",
+    "type": "error"
   },
   {
-    inputs: [
+    "inputs": [
       {
-        internalType: "address",
-        name: "_address",
-        type: "address",
-      },
+        "internalType": "address",
+        "name": "caller",
+        "type": "address"
+      }
     ],
-    name: "ZeroAddress",
-    type: "error",
+    "name": "NotTrustedIssuer",
+    "type": "error"
   },
   {
-    anonymous: false,
-    inputs: [
+    "inputs": [
       {
-        indexed: true,
-        internalType: "address",
-        name: "claimTopicsRegistry",
-        type: "address",
-      },
+        "internalType": "address",
+        "name": "_address",
+        "type": "address"
+      }
     ],
-    name: "ClaimTopicsRegistrySet",
-    type: "event",
+    "name": "ZeroAddress",
+    "type": "error"
   },
   {
-    anonymous: false,
-    inputs: [
+    "anonymous": false,
+    "inputs": [
       {
-        indexed: true,
-        internalType: "address",
-        name: "investorAddress",
-        type: "address",
+        "indexed": true,
+        "internalType": "address",
+        "name": "investorAddress",
+        "type": "address"
       },
       {
-        indexed: true,
-        internalType: "uint16",
-        name: "country",
-        type: "uint16",
-      },
+        "indexed": true,
+        "internalType": "uint16",
+        "name": "country",
+        "type": "uint16"
+      }
     ],
-    name: "CountryUpdated",
-    type: "event",
+    "name": "CountryUpdated",
+    "type": "event"
   },
   {
-    anonymous: false,
-    inputs: [
+    "anonymous": false,
+    "inputs": [
       {
-        indexed: true,
-        internalType: "address",
-        name: "investorAddress",
-        type: "address",
+        "indexed": true,
+        "internalType": "address",
+        "name": "investorAddress",
+        "type": "address"
       },
       {
-        indexed: true,
-        internalType: "contract IIdentity",
-        name: "identity",
-        type: "address",
-      },
+        "indexed": true,
+        "internalType": "contract IIdentity",
+        "name": "identity",
+        "type": "address"
+      }
     ],
-    name: "IdentityRegistered",
-    type: "event",
+    "name": "IdentityRegistered",
+    "type": "event"
   },
   {
-    anonymous: false,
-    inputs: [
+    "anonymous": false,
+    "inputs": [
       {
-        indexed: true,
-        internalType: "address",
-        name: "investorAddress",
-        type: "address",
+        "indexed": true,
+        "internalType": "address",
+        "name": "investorAddress",
+        "type": "address"
       },
       {
-        indexed: true,
-        internalType: "contract IIdentity",
-        name: "identity",
-        type: "address",
-      },
+        "indexed": true,
+        "internalType": "contract IIdentity",
+        "name": "identity",
+        "type": "address"
+      }
     ],
-    name: "IdentityRemoved",
-    type: "event",
+    "name": "IdentityRemoved",
+    "type": "event"
   },
   {
-    anonymous: false,
-    inputs: [
+    "anonymous": false,
+    "inputs": [
       {
-        indexed: true,
-        internalType: "address",
-        name: "identityStorage",
-        type: "address",
+        "indexed": true,
+        "internalType": "contract IIdentity",
+        "name": "oldIdentity",
+        "type": "address"
       },
+      {
+        "indexed": true,
+        "internalType": "contract IIdentity",
+        "name": "newIdentity",
+        "type": "address"
+      }
     ],
-    name: "IdentityStorageSet",
-    type: "event",
+    "name": "IdentityUpdated",
+    "type": "event"
   },
   {
-    anonymous: false,
-    inputs: [
+    "anonymous": false,
+    "inputs": [
       {
-        indexed: true,
-        internalType: "contract IIdentity",
-        name: "oldIdentity",
-        type: "address",
+        "indexed": false,
+        "internalType": "address",
+        "name": "caller",
+        "type": "address"
       },
       {
-        indexed: true,
-        internalType: "contract IIdentity",
-        name: "newIdentity",
-        type: "address",
-      },
+        "indexed": false,
+        "internalType": "address",
+        "name": "diamond",
+        "type": "address"
+      }
     ],
-    name: "IdentityUpdated",
-    type: "event",
+    "name": "SetDiamond",
+    "type": "event"
   },
   {
-    anonymous: false,
-    inputs: [
+    "inputs": [],
+    "name": "IR_VERSION",
+    "outputs": [
       {
-        indexed: false,
-        internalType: "uint8",
-        name: "version",
-        type: "uint8",
-      },
+        "internalType": "string",
+        "name": "",
+        "type": "string"
+      }
     ],
-    name: "Initialized",
-    type: "event",
+    "stateMutability": "view",
+    "type": "function"
   },
   {
-    anonymous: false,
-    inputs: [
+    "inputs": [
       {
-        indexed: true,
-        internalType: "address",
-        name: "previousOwner",
-        type: "address",
+        "internalType": "address[]",
+        "name": "_userAddresses",
+        "type": "address[]"
       },
       {
-        indexed: true,
-        internalType: "address",
-        name: "newOwner",
-        type: "address",
+        "internalType": "contract IIdentity[]",
+        "name": "_identities",
+        "type": "address[]"
       },
+      {
+        "internalType": "uint16[]",
+        "name": "_countries",
+        "type": "uint16[]"
+      }
     ],
-    name: "OwnershipTransferred",
-    type: "event",
+    "name": "batchRegisterIdentity",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
   },
   {
-    anonymous: false,
-    inputs: [
+    "inputs": [
       {
-        indexed: true,
-        internalType: "address",
-        name: "trustedIssuersRegistry",
-        type: "address",
-      },
+        "internalType": "address",
+        "name": "_userAddress",
+        "type": "address"
+      }
     ],
-    name: "TrustedIssuersRegistrySet",
-    type: "event",
+    "name": "contains",
+    "outputs": [
+      {
+        "internalType": "bool",
+        "name": "",
+        "type": "bool"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
   },
   {
-    inputs: [],
-    name: "IR_VERSION",
-    outputs: [
+    "inputs": [
       {
-        internalType: "string",
-        name: "",
-        type: "string",
-      },
+        "internalType": "address",
+        "name": "_userAddress",
+        "type": "address"
+      }
     ],
-    stateMutability: "view",
-    type: "function",
+    "name": "deleteIdentity",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
   },
   {
-    inputs: [
+    "inputs": [
       {
-        internalType: "address[]",
-        name: "_userAddresses",
-        type: "address[]",
-      },
-      {
-        internalType: "contract IIdentity[]",
-        name: "_identities",
-        type: "address[]",
-      },
-      {
-        internalType: "uint16[]",
-        name: "_countries",
-        type: "uint16[]",
-      },
+        "internalType": "address",
+        "name": "_userAddress",
+        "type": "address"
+      }
     ],
-    name: "batchRegisterIdentity",
-    outputs: [],
-    stateMutability: "nonpayable",
-    type: "function",
+    "name": "identity",
+    "outputs": [
+      {
+        "internalType": "contract IIdentity",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
   },
   {
-    inputs: [
+    "inputs": [],
+    "name": "identityStorage",
+    "outputs": [
       {
-        internalType: "address",
-        name: "_userAddress",
-        type: "address",
-      },
+        "internalType": "contract IIRSFacet",
+        "name": "",
+        "type": "address"
+      }
     ],
-    name: "contains",
-    outputs: [
-      {
-        internalType: "bool",
-        name: "",
-        type: "bool",
-      },
-    ],
-    stateMutability: "view",
-    type: "function",
+    "stateMutability": "view",
+    "type": "function"
   },
   {
-    inputs: [
+    "inputs": [
       {
-        internalType: "address",
-        name: "_userAddress",
-        type: "address",
-      },
+        "internalType": "address",
+        "name": "_userAddress",
+        "type": "address"
+      }
     ],
-    name: "deleteIdentity",
-    outputs: [],
-    stateMutability: "nonpayable",
-    type: "function",
+    "name": "investorCountry",
+    "outputs": [
+      {
+        "internalType": "uint16",
+        "name": "",
+        "type": "uint16"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
   },
   {
-    inputs: [
+    "inputs": [],
+    "name": "irDiamond",
+    "outputs": [
       {
-        internalType: "address",
-        name: "_userAddress",
-        type: "address",
-      },
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
     ],
-    name: "identity",
-    outputs: [
-      {
-        internalType: "contract IIdentity",
-        name: "",
-        type: "address",
-      },
-    ],
-    stateMutability: "view",
-    type: "function",
+    "stateMutability": "view",
+    "type": "function"
   },
   {
-    inputs: [],
-    name: "identityStorage",
-    outputs: [
+    "inputs": [
       {
-        internalType: "contract IIdentityRegistryStorage",
-        name: "",
-        type: "address",
-      },
+        "internalType": "address",
+        "name": "diamond",
+        "type": "address"
+      }
     ],
-    stateMutability: "view",
-    type: "function",
+    "name": "irInitialize",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
   },
   {
-    inputs: [
+    "inputs": [
       {
-        internalType: "address",
-        name: "_trustedIssuersRegistry",
-        type: "address",
-      },
-      {
-        internalType: "address",
-        name: "_claimTopicsRegistry",
-        type: "address",
-      },
-      {
-        internalType: "address",
-        name: "_identityStorage",
-        type: "address",
-      },
-      {
-        internalType: "contract IAdminContractUpgradeable",
-        name: "admin",
-        type: "address",
-      },
+        "internalType": "address",
+        "name": "_address",
+        "type": "address"
+      }
     ],
-    name: "initialize",
-    outputs: [],
-    stateMutability: "nonpayable",
-    type: "function",
+    "name": "irSetDiamond",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
   },
   {
-    inputs: [
+    "inputs": [
       {
-        internalType: "address",
-        name: "_userAddress",
-        type: "address",
+        "internalType": "address",
+        "name": "_userAddress",
+        "type": "address"
       },
-    ],
-    name: "investorCountry",
-    outputs: [
       {
-        internalType: "uint16",
-        name: "",
-        type: "uint16",
-      },
+        "internalType": "bool",
+        "name": "isToken",
+        "type": "bool"
+      }
     ],
-    stateMutability: "view",
-    type: "function",
+    "name": "isVerified",
+    "outputs": [
+      {
+        "internalType": "bool",
+        "name": "",
+        "type": "bool"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
   },
   {
-    inputs: [
+    "inputs": [],
+    "name": "issuersRegistry",
+    "outputs": [
       {
-        internalType: "address",
-        name: "_userAddress",
-        type: "address",
-      },
-      {
-        internalType: "bool",
-        name: "isToken",
-        type: "bool",
-      },
+        "internalType": "contract ITIRFacet",
+        "name": "",
+        "type": "address"
+      }
     ],
-    name: "isVerified",
-    outputs: [
-      {
-        internalType: "bool",
-        name: "",
-        type: "bool",
-      },
-    ],
-    stateMutability: "view",
-    type: "function",
+    "stateMutability": "view",
+    "type": "function"
   },
   {
-    inputs: [],
-    name: "issuersRegistry",
-    outputs: [
+    "inputs": [
       {
-        internalType: "contract ITrustedIssuersRegistry",
-        name: "",
-        type: "address",
+        "internalType": "address",
+        "name": "_userAddress",
+        "type": "address"
       },
+      {
+        "internalType": "contract IIdentity",
+        "name": "_identity",
+        "type": "address"
+      },
+      {
+        "internalType": "uint16",
+        "name": "_country",
+        "type": "uint16"
+      }
     ],
-    stateMutability: "view",
-    type: "function",
+    "name": "registerIdentity",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
   },
   {
-    inputs: [],
-    name: "owner",
-    outputs: [
+    "inputs": [
       {
-        internalType: "address",
-        name: "",
-        type: "address",
-      },
+        "internalType": "bytes4",
+        "name": "interfaceId",
+        "type": "bytes4"
+      }
     ],
-    stateMutability: "view",
-    type: "function",
+    "name": "supportsInterface",
+    "outputs": [
+      {
+        "internalType": "bool",
+        "name": "",
+        "type": "bool"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
   },
   {
-    inputs: [
+    "inputs": [],
+    "name": "topicsRegistry",
+    "outputs": [
       {
-        internalType: "address",
-        name: "_userAddress",
-        type: "address",
-      },
-      {
-        internalType: "contract IIdentity",
-        name: "_identity",
-        type: "address",
-      },
-      {
-        internalType: "uint16",
-        name: "_country",
-        type: "uint16",
-      },
+        "internalType": "contract ICTRFacet",
+        "name": "",
+        "type": "address"
+      }
     ],
-    name: "registerIdentity",
-    outputs: [],
-    stateMutability: "nonpayable",
-    type: "function",
+    "stateMutability": "view",
+    "type": "function"
   },
   {
-    inputs: [],
-    name: "renounceOwnership",
-    outputs: [],
-    stateMutability: "nonpayable",
-    type: "function",
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "_userAddress",
+        "type": "address"
+      },
+      {
+        "internalType": "uint16",
+        "name": "_country",
+        "type": "uint16"
+      }
+    ],
+    "name": "updateCountry",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
   },
   {
-    inputs: [
+    "inputs": [
       {
-        internalType: "address",
-        name: "_claimTopicsRegistry",
-        type: "address",
+        "internalType": "address",
+        "name": "_userAddress",
+        "type": "address"
       },
+      {
+        "internalType": "contract IIdentity",
+        "name": "_identity",
+        "type": "address"
+      }
     ],
-    name: "setClaimTopicsRegistry",
-    outputs: [],
-    stateMutability: "nonpayable",
-    type: "function",
-  },
-  {
-    inputs: [
-      {
-        internalType: "address",
-        name: "_identityRegistryStorage",
-        type: "address",
-      },
-    ],
-    name: "setIdentityRegistryStorage",
-    outputs: [],
-    stateMutability: "nonpayable",
-    type: "function",
-  },
-  {
-    inputs: [
-      {
-        internalType: "address",
-        name: "_trustedIssuersRegistry",
-        type: "address",
-      },
-    ],
-    name: "setTrustedIssuersRegistry",
-    outputs: [],
-    stateMutability: "nonpayable",
-    type: "function",
-  },
-  {
-    inputs: [],
-    name: "topicsRegistry",
-    outputs: [
-      {
-        internalType: "contract IClaimTopicsRegistry",
-        name: "",
-        type: "address",
-      },
-    ],
-    stateMutability: "view",
-    type: "function",
-  },
-  {
-    inputs: [
-      {
-        internalType: "address",
-        name: "newOwner",
-        type: "address",
-      },
-    ],
-    name: "transferOwnership",
-    outputs: [],
-    stateMutability: "nonpayable",
-    type: "function",
-  },
-  {
-    inputs: [
-      {
-        internalType: "address",
-        name: "_userAddress",
-        type: "address",
-      },
-      {
-        internalType: "uint16",
-        name: "_country",
-        type: "uint16",
-      },
-    ],
-    name: "updateCountry",
-    outputs: [],
-    stateMutability: "nonpayable",
-    type: "function",
-  },
-  {
-    inputs: [
-      {
-        internalType: "address",
-        name: "_userAddress",
-        type: "address",
-      },
-      {
-        internalType: "contract IIdentity",
-        name: "_identity",
-        type: "address",
-      },
-    ],
-    name: "updateIdentity",
-    outputs: [],
-    stateMutability: "nonpayable",
-    type: "function",
-  },
+    "name": "updateIdentity",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  }
 ] as const;

@@ -1,734 +1,814 @@
 export const IDENTITY_ABI = [
   {
-    inputs: [
+    "inputs": [
       {
-        internalType: "address",
-        name: "initialManagementKey",
-        type: "address",
+        "internalType": "address",
+        "name": "initialManagementKey",
+        "type": "address"
       },
       {
-        internalType: "bool",
-        name: "_isLibrary",
-        type: "bool",
-      },
+        "internalType": "bool",
+        "name": "_isLibrary",
+        "type": "bool"
+      }
     ],
-    stateMutability: "nonpayable",
-    type: "constructor",
+    "stateMutability": "nonpayable",
+    "type": "constructor"
   },
   {
-    anonymous: false,
-    inputs: [
+    "anonymous": false,
+    "inputs": [
       {
-        indexed: true,
-        internalType: "uint256",
-        name: "executionId",
-        type: "uint256",
+        "indexed": true,
+        "internalType": "uint256",
+        "name": "executionId",
+        "type": "uint256"
       },
       {
-        indexed: false,
-        internalType: "bool",
-        name: "approved",
-        type: "bool",
-      },
+        "indexed": false,
+        "internalType": "bool",
+        "name": "approved",
+        "type": "bool"
+      }
     ],
-    name: "Approved",
-    type: "event",
+    "name": "Approved",
+    "type": "event"
   },
   {
-    anonymous: false,
-    inputs: [
+    "anonymous": false,
+    "inputs": [
       {
-        indexed: true,
-        internalType: "bytes32",
-        name: "claimId",
-        type: "bytes32",
+        "indexed": true,
+        "internalType": "bytes32",
+        "name": "claimId",
+        "type": "bytes32"
       },
       {
-        indexed: true,
-        internalType: "uint256",
-        name: "topic",
-        type: "uint256",
+        "indexed": true,
+        "internalType": "uint256",
+        "name": "topic",
+        "type": "uint256"
       },
       {
-        indexed: false,
-        internalType: "uint256",
-        name: "scheme",
-        type: "uint256",
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "scheme",
+        "type": "uint256"
       },
       {
-        indexed: true,
-        internalType: "address",
-        name: "issuer",
-        type: "address",
+        "indexed": true,
+        "internalType": "address",
+        "name": "issuer",
+        "type": "address"
       },
       {
-        indexed: false,
-        internalType: "bytes",
-        name: "signature",
-        type: "bytes",
+        "indexed": false,
+        "internalType": "bytes",
+        "name": "signature",
+        "type": "bytes"
       },
       {
-        indexed: false,
-        internalType: "bytes",
-        name: "data",
-        type: "bytes",
+        "indexed": false,
+        "internalType": "bytes",
+        "name": "data",
+        "type": "bytes"
       },
       {
-        indexed: false,
-        internalType: "string",
-        name: "uri",
-        type: "string",
-      },
+        "indexed": false,
+        "internalType": "string",
+        "name": "uri",
+        "type": "string"
+      }
     ],
-    name: "ClaimAdded",
-    type: "event",
+    "name": "ClaimAdded",
+    "type": "event"
   },
   {
-    anonymous: false,
-    inputs: [
+    "anonymous": false,
+    "inputs": [
       {
-        indexed: true,
-        internalType: "bytes32",
-        name: "claimId",
-        type: "bytes32",
+        "indexed": true,
+        "internalType": "bytes32",
+        "name": "claimId",
+        "type": "bytes32"
       },
       {
-        indexed: true,
-        internalType: "uint256",
-        name: "topic",
-        type: "uint256",
+        "indexed": true,
+        "internalType": "uint256",
+        "name": "topic",
+        "type": "uint256"
       },
       {
-        indexed: false,
-        internalType: "uint256",
-        name: "scheme",
-        type: "uint256",
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "scheme",
+        "type": "uint256"
       },
       {
-        indexed: true,
-        internalType: "address",
-        name: "issuer",
-        type: "address",
+        "indexed": true,
+        "internalType": "address",
+        "name": "issuer",
+        "type": "address"
       },
       {
-        indexed: false,
-        internalType: "bytes",
-        name: "signature",
-        type: "bytes",
+        "indexed": false,
+        "internalType": "bytes",
+        "name": "signature",
+        "type": "bytes"
       },
       {
-        indexed: false,
-        internalType: "bytes",
-        name: "data",
-        type: "bytes",
+        "indexed": false,
+        "internalType": "bytes",
+        "name": "data",
+        "type": "bytes"
       },
       {
-        indexed: false,
-        internalType: "string",
-        name: "uri",
-        type: "string",
-      },
+        "indexed": false,
+        "internalType": "string",
+        "name": "uri",
+        "type": "string"
+      }
     ],
-    name: "ClaimChanged",
-    type: "event",
+    "name": "ClaimChanged",
+    "type": "event"
   },
   {
-    anonymous: false,
-    inputs: [
+    "anonymous": false,
+    "inputs": [
       {
-        indexed: true,
-        internalType: "bytes32",
-        name: "claimId",
-        type: "bytes32",
+        "indexed": true,
+        "internalType": "bytes32",
+        "name": "claimId",
+        "type": "bytes32"
       },
       {
-        indexed: true,
-        internalType: "uint256",
-        name: "topic",
-        type: "uint256",
+        "indexed": true,
+        "internalType": "uint256",
+        "name": "topic",
+        "type": "uint256"
       },
       {
-        indexed: false,
-        internalType: "uint256",
-        name: "scheme",
-        type: "uint256",
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "scheme",
+        "type": "uint256"
       },
       {
-        indexed: true,
-        internalType: "address",
-        name: "issuer",
-        type: "address",
+        "indexed": true,
+        "internalType": "address",
+        "name": "issuer",
+        "type": "address"
       },
       {
-        indexed: false,
-        internalType: "bytes",
-        name: "signature",
-        type: "bytes",
+        "indexed": false,
+        "internalType": "bytes",
+        "name": "signature",
+        "type": "bytes"
       },
       {
-        indexed: false,
-        internalType: "bytes",
-        name: "data",
-        type: "bytes",
+        "indexed": false,
+        "internalType": "bytes",
+        "name": "data",
+        "type": "bytes"
       },
       {
-        indexed: false,
-        internalType: "string",
-        name: "uri",
-        type: "string",
-      },
+        "indexed": false,
+        "internalType": "string",
+        "name": "uri",
+        "type": "string"
+      }
     ],
-    name: "ClaimRemoved",
-    type: "event",
+    "name": "ClaimRemoved",
+    "type": "event"
   },
   {
-    anonymous: false,
-    inputs: [
+    "anonymous": false,
+    "inputs": [
       {
-        indexed: true,
-        internalType: "uint256",
-        name: "executionId",
-        type: "uint256",
+        "indexed": true,
+        "internalType": "uint256",
+        "name": "executionId",
+        "type": "uint256"
       },
       {
-        indexed: true,
-        internalType: "address",
-        name: "to",
-        type: "address",
+        "indexed": true,
+        "internalType": "address",
+        "name": "to",
+        "type": "address"
       },
       {
-        indexed: true,
-        internalType: "uint256",
-        name: "value",
-        type: "uint256",
+        "indexed": true,
+        "internalType": "uint256",
+        "name": "value",
+        "type": "uint256"
       },
       {
-        indexed: false,
-        internalType: "bytes",
-        name: "data",
-        type: "bytes",
-      },
+        "indexed": false,
+        "internalType": "bytes",
+        "name": "data",
+        "type": "bytes"
+      }
     ],
-    name: "Executed",
-    type: "event",
+    "name": "Executed",
+    "type": "event"
   },
   {
-    anonymous: false,
-    inputs: [
+    "anonymous": false,
+    "inputs": [
       {
-        indexed: true,
-        internalType: "uint256",
-        name: "executionId",
-        type: "uint256",
+        "indexed": true,
+        "internalType": "uint256",
+        "name": "executionId",
+        "type": "uint256"
       },
       {
-        indexed: true,
-        internalType: "address",
-        name: "to",
-        type: "address",
+        "indexed": true,
+        "internalType": "address",
+        "name": "to",
+        "type": "address"
       },
       {
-        indexed: true,
-        internalType: "uint256",
-        name: "value",
-        type: "uint256",
+        "indexed": true,
+        "internalType": "uint256",
+        "name": "value",
+        "type": "uint256"
       },
       {
-        indexed: false,
-        internalType: "bytes",
-        name: "data",
-        type: "bytes",
-      },
+        "indexed": false,
+        "internalType": "bytes",
+        "name": "data",
+        "type": "bytes"
+      }
     ],
-    name: "ExecutionFailed",
-    type: "event",
+    "name": "ExecutionFailed",
+    "type": "event"
   },
   {
-    anonymous: false,
-    inputs: [
+    "anonymous": false,
+    "inputs": [
       {
-        indexed: true,
-        internalType: "uint256",
-        name: "executionId",
-        type: "uint256",
+        "indexed": true,
+        "internalType": "uint256",
+        "name": "executionId",
+        "type": "uint256"
       },
       {
-        indexed: true,
-        internalType: "address",
-        name: "to",
-        type: "address",
+        "indexed": true,
+        "internalType": "address",
+        "name": "to",
+        "type": "address"
       },
       {
-        indexed: true,
-        internalType: "uint256",
-        name: "value",
-        type: "uint256",
+        "indexed": true,
+        "internalType": "uint256",
+        "name": "value",
+        "type": "uint256"
       },
       {
-        indexed: false,
-        internalType: "bytes",
-        name: "data",
-        type: "bytes",
-      },
+        "indexed": false,
+        "internalType": "bytes",
+        "name": "data",
+        "type": "bytes"
+      }
     ],
-    name: "ExecutionRequested",
-    type: "event",
+    "name": "ExecutionRequested",
+    "type": "event"
   },
   {
-    anonymous: false,
-    inputs: [
+    "anonymous": false,
+    "inputs": [
       {
-        indexed: true,
-        internalType: "bytes32",
-        name: "key",
-        type: "bytes32",
+        "indexed": true,
+        "internalType": "bytes32",
+        "name": "key",
+        "type": "bytes32"
       },
       {
-        indexed: true,
-        internalType: "uint256",
-        name: "purpose",
-        type: "uint256",
+        "indexed": true,
+        "internalType": "uint256",
+        "name": "purpose",
+        "type": "uint256"
       },
       {
-        indexed: true,
-        internalType: "uint256",
-        name: "keyType",
-        type: "uint256",
-      },
+        "indexed": true,
+        "internalType": "uint256",
+        "name": "keyType",
+        "type": "uint256"
+      }
     ],
-    name: "KeyAdded",
-    type: "event",
+    "name": "KeyAdded",
+    "type": "event"
   },
   {
-    anonymous: false,
-    inputs: [
+    "anonymous": false,
+    "inputs": [
       {
-        indexed: true,
-        internalType: "bytes32",
-        name: "key",
-        type: "bytes32",
+        "indexed": true,
+        "internalType": "bytes32",
+        "name": "key",
+        "type": "bytes32"
       },
       {
-        indexed: true,
-        internalType: "uint256",
-        name: "purpose",
-        type: "uint256",
+        "indexed": true,
+        "internalType": "uint256",
+        "name": "purpose",
+        "type": "uint256"
       },
       {
-        indexed: true,
-        internalType: "uint256",
-        name: "keyType",
-        type: "uint256",
-      },
+        "indexed": true,
+        "internalType": "uint256",
+        "name": "keyType",
+        "type": "uint256"
+      }
     ],
-    name: "KeyRemoved",
-    type: "event",
+    "name": "KeyRemoved",
+    "type": "event"
   },
   {
-    inputs: [
+    "inputs": [
       {
-        internalType: "uint256",
-        name: "_topic",
-        type: "uint256",
+        "internalType": "uint256",
+        "name": "_topic",
+        "type": "uint256"
       },
       {
-        internalType: "uint256",
-        name: "_scheme",
-        type: "uint256",
+        "internalType": "uint256",
+        "name": "_scheme",
+        "type": "uint256"
       },
       {
-        internalType: "address",
-        name: "_issuer",
-        type: "address",
+        "internalType": "address",
+        "name": "_issuer",
+        "type": "address"
       },
       {
-        internalType: "bytes",
-        name: "_signature",
-        type: "bytes",
+        "internalType": "bytes",
+        "name": "_signature",
+        "type": "bytes"
       },
       {
-        internalType: "bytes",
-        name: "_data",
-        type: "bytes",
+        "internalType": "bytes",
+        "name": "_data",
+        "type": "bytes"
       },
       {
-        internalType: "string",
-        name: "_uri",
-        type: "string",
-      },
+        "internalType": "string",
+        "name": "_uri",
+        "type": "string"
+      }
     ],
-    name: "addClaim",
-    outputs: [
+    "name": "addClaim",
+    "outputs": [
       {
-        internalType: "bytes32",
-        name: "claimRequestId",
-        type: "bytes32",
-      },
+        "internalType": "bytes32",
+        "name": "claimRequestId",
+        "type": "bytes32"
+      }
     ],
-    stateMutability: "nonpayable",
-    type: "function",
+    "stateMutability": "nonpayable",
+    "type": "function"
   },
   {
-    inputs: [
+    "inputs": [
       {
-        internalType: "bytes32",
-        name: "_key",
-        type: "bytes32",
+        "internalType": "bytes32",
+        "name": "_key",
+        "type": "bytes32"
       },
       {
-        internalType: "uint256",
-        name: "_purpose",
-        type: "uint256",
+        "internalType": "uint256",
+        "name": "_purpose",
+        "type": "uint256"
       },
       {
-        internalType: "uint256",
-        name: "_type",
-        type: "uint256",
-      },
+        "internalType": "uint256",
+        "name": "_type",
+        "type": "uint256"
+      }
     ],
-    name: "addKey",
-    outputs: [
+    "name": "addKey",
+    "outputs": [
       {
-        internalType: "bool",
-        name: "success",
-        type: "bool",
-      },
+        "internalType": "bool",
+        "name": "success",
+        "type": "bool"
+      }
     ],
-    stateMutability: "nonpayable",
-    type: "function",
+    "stateMutability": "nonpayable",
+    "type": "function"
   },
   {
-    inputs: [
+    "inputs": [
       {
-        internalType: "uint256",
-        name: "_id",
-        type: "uint256",
+        "internalType": "uint256",
+        "name": "_id",
+        "type": "uint256"
       },
       {
-        internalType: "bool",
-        name: "_approve",
-        type: "bool",
-      },
+        "internalType": "bool",
+        "name": "_approve",
+        "type": "bool"
+      }
     ],
-    name: "approve",
-    outputs: [
+    "name": "approve",
+    "outputs": [
       {
-        internalType: "bool",
-        name: "success",
-        type: "bool",
-      },
+        "internalType": "bool",
+        "name": "success",
+        "type": "bool"
+      }
     ],
-    stateMutability: "nonpayable",
-    type: "function",
+    "stateMutability": "nonpayable",
+    "type": "function"
   },
   {
-    inputs: [
+    "inputs": [
       {
-        internalType: "address",
-        name: "_to",
-        type: "address",
+        "internalType": "address",
+        "name": "_to",
+        "type": "address"
       },
       {
-        internalType: "uint256",
-        name: "_value",
-        type: "uint256",
+        "internalType": "uint256",
+        "name": "_value",
+        "type": "uint256"
       },
       {
-        internalType: "bytes",
-        name: "_data",
-        type: "bytes",
-      },
+        "internalType": "bytes",
+        "name": "_data",
+        "type": "bytes"
+      }
     ],
-    name: "execute",
-    outputs: [
+    "name": "execute",
+    "outputs": [
       {
-        internalType: "uint256",
-        name: "executionId",
-        type: "uint256",
-      },
+        "internalType": "uint256",
+        "name": "executionId",
+        "type": "uint256"
+      }
     ],
-    stateMutability: "payable",
-    type: "function",
+    "stateMutability": "payable",
+    "type": "function"
   },
   {
-    inputs: [
+    "inputs": [
       {
-        internalType: "bytes32",
-        name: "_claimId",
-        type: "bytes32",
-      },
+        "internalType": "bytes32",
+        "name": "_claimId",
+        "type": "bytes32"
+      }
     ],
-    name: "getClaim",
-    outputs: [
+    "name": "getClaim",
+    "outputs": [
       {
-        internalType: "uint256",
-        name: "topic",
-        type: "uint256",
+        "internalType": "uint256",
+        "name": "topic",
+        "type": "uint256"
       },
       {
-        internalType: "uint256",
-        name: "scheme",
-        type: "uint256",
+        "internalType": "uint256",
+        "name": "scheme",
+        "type": "uint256"
       },
       {
-        internalType: "address",
-        name: "issuer",
-        type: "address",
+        "internalType": "address",
+        "name": "issuer",
+        "type": "address"
       },
       {
-        internalType: "bytes",
-        name: "signature",
-        type: "bytes",
+        "internalType": "bytes",
+        "name": "signature",
+        "type": "bytes"
       },
       {
-        internalType: "bytes",
-        name: "data",
-        type: "bytes",
+        "internalType": "bytes",
+        "name": "data",
+        "type": "bytes"
       },
       {
-        internalType: "string",
-        name: "uri",
-        type: "string",
-      },
+        "internalType": "string",
+        "name": "uri",
+        "type": "string"
+      }
     ],
-    stateMutability: "view",
-    type: "function",
+    "stateMutability": "view",
+    "type": "function"
   },
   {
-    inputs: [
+    "inputs": [
       {
-        internalType: "uint256",
-        name: "_topic",
-        type: "uint256",
-      },
+        "internalType": "uint256",
+        "name": "_topic",
+        "type": "uint256"
+      }
     ],
-    name: "getClaimIdsByTopic",
-    outputs: [
+    "name": "getClaimIdsByTopic",
+    "outputs": [
       {
-        internalType: "bytes32[]",
-        name: "claimIds",
-        type: "bytes32[]",
-      },
+        "internalType": "bytes32[]",
+        "name": "claimIds",
+        "type": "bytes32[]"
+      }
     ],
-    stateMutability: "view",
-    type: "function",
+    "stateMutability": "view",
+    "type": "function"
   },
   {
-    inputs: [
+    "inputs": [],
+    "name": "getClaimTopics",
+    "outputs": [
       {
-        internalType: "bytes32",
-        name: "_key",
-        type: "bytes32",
-      },
+        "internalType": "uint256[]",
+        "name": "",
+        "type": "uint256[]"
+      }
     ],
-    name: "getKey",
-    outputs: [
-      {
-        internalType: "uint256[]",
-        name: "purposes",
-        type: "uint256[]",
-      },
-      {
-        internalType: "uint256",
-        name: "keyType",
-        type: "uint256",
-      },
-      {
-        internalType: "bytes32",
-        name: "key",
-        type: "bytes32",
-      },
-    ],
-    stateMutability: "view",
-    type: "function",
+    "stateMutability": "view",
+    "type": "function"
   },
   {
-    inputs: [
+    "inputs": [
       {
-        internalType: "bytes32",
-        name: "_key",
-        type: "bytes32",
+        "internalType": "address",
+        "name": "_identity",
+        "type": "address"
       },
-    ],
-    name: "getKeyPurposes",
-    outputs: [
       {
-        internalType: "uint256[]",
-        name: "_purposes",
-        type: "uint256[]",
+        "internalType": "uint256",
+        "name": "claimTopic",
+        "type": "uint256"
       },
+      {
+        "internalType": "bytes",
+        "name": "data",
+        "type": "bytes"
+      }
     ],
-    stateMutability: "view",
-    type: "function",
+    "name": "getDataHash",
+    "outputs": [
+      {
+        "internalType": "bytes32",
+        "name": "dataHash",
+        "type": "bytes32"
+      }
+    ],
+    "stateMutability": "pure",
+    "type": "function"
   },
   {
-    inputs: [
+    "inputs": [
       {
-        internalType: "uint256",
-        name: "_purpose",
-        type: "uint256",
-      },
+        "internalType": "bytes32",
+        "name": "_key",
+        "type": "bytes32"
+      }
     ],
-    name: "getKeysByPurpose",
-    outputs: [
+    "name": "getKey",
+    "outputs": [
       {
-        internalType: "bytes32[]",
-        name: "keys",
-        type: "bytes32[]",
+        "internalType": "uint256[]",
+        "name": "purposes",
+        "type": "uint256[]"
       },
+      {
+        "internalType": "uint256",
+        "name": "keyType",
+        "type": "uint256"
+      },
+      {
+        "internalType": "bytes32",
+        "name": "key",
+        "type": "bytes32"
+      }
     ],
-    stateMutability: "view",
-    type: "function",
+    "stateMutability": "view",
+    "type": "function"
   },
   {
-    inputs: [
+    "inputs": [
       {
-        internalType: "bytes",
-        name: "sig",
-        type: "bytes",
-      },
-      {
-        internalType: "bytes32",
-        name: "dataHash",
-        type: "bytes32",
-      },
+        "internalType": "bytes32",
+        "name": "_key",
+        "type": "bytes32"
+      }
     ],
-    name: "getRecoveredAddress",
-    outputs: [
+    "name": "getKeyPurposes",
+    "outputs": [
       {
-        internalType: "address",
-        name: "addr",
-        type: "address",
-      },
+        "internalType": "uint256[]",
+        "name": "_purposes",
+        "type": "uint256[]"
+      }
     ],
-    stateMutability: "pure",
-    type: "function",
+    "stateMutability": "view",
+    "type": "function"
   },
   {
-    inputs: [
+    "inputs": [
       {
-        internalType: "address",
-        name: "initialManagementKey",
-        type: "address",
-      },
+        "internalType": "uint256",
+        "name": "_purpose",
+        "type": "uint256"
+      }
     ],
-    name: "initialize",
-    outputs: [],
-    stateMutability: "nonpayable",
-    type: "function",
+    "name": "getKeysByPurpose",
+    "outputs": [
+      {
+        "internalType": "bytes32[]",
+        "name": "keys",
+        "type": "bytes32[]"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
   },
   {
-    inputs: [
+    "inputs": [
       {
-        internalType: "contract IIdentity",
-        name: "_identity",
-        type: "address",
-      },
-      {
-        internalType: "uint256",
-        name: "claimTopic",
-        type: "uint256",
-      },
-      {
-        internalType: "bytes",
-        name: "sig",
-        type: "bytes",
-      },
-      {
-        internalType: "bytes",
-        name: "data",
-        type: "bytes",
-      },
+        "internalType": "bytes",
+        "name": "dataHash",
+        "type": "bytes"
+      }
     ],
-    name: "isClaimValid",
-    outputs: [
+    "name": "getPrefixData",
+    "outputs": [
       {
-        internalType: "bool",
-        name: "claimValid",
-        type: "bool",
-      },
+        "internalType": "bytes",
+        "name": "",
+        "type": "bytes"
+      }
     ],
-    stateMutability: "view",
-    type: "function",
+    "stateMutability": "pure",
+    "type": "function"
   },
   {
-    inputs: [
+    "inputs": [
       {
-        internalType: "bytes32",
-        name: "_key",
-        type: "bytes32",
-      },
-      {
-        internalType: "uint256",
-        name: "_purpose",
-        type: "uint256",
-      },
+        "internalType": "bytes",
+        "name": "data",
+        "type": "bytes"
+      }
     ],
-    name: "keyHasPurpose",
-    outputs: [
+    "name": "getPrefixedHash",
+    "outputs": [
       {
-        internalType: "bool",
-        name: "result",
-        type: "bool",
-      },
+        "internalType": "bytes32",
+        "name": "",
+        "type": "bytes32"
+      }
     ],
-    stateMutability: "view",
-    type: "function",
+    "stateMutability": "pure",
+    "type": "function"
   },
   {
-    inputs: [
+    "inputs": [
       {
-        internalType: "bytes32",
-        name: "_claimId",
-        type: "bytes32",
+        "internalType": "bytes",
+        "name": "sig",
+        "type": "bytes"
       },
-    ],
-    name: "removeClaim",
-    outputs: [
       {
-        internalType: "bool",
-        name: "success",
-        type: "bool",
-      },
+        "internalType": "bytes32",
+        "name": "dataHash",
+        "type": "bytes32"
+      }
     ],
-    stateMutability: "nonpayable",
-    type: "function",
+    "name": "getRecoveredAddress",
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "addr",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "pure",
+    "type": "function"
   },
   {
-    inputs: [
+    "inputs": [
       {
-        internalType: "bytes32",
-        name: "_key",
-        type: "bytes32",
-      },
-      {
-        internalType: "uint256",
-        name: "_purpose",
-        type: "uint256",
-      },
+        "internalType": "address",
+        "name": "initialManagementKey",
+        "type": "address"
+      }
     ],
-    name: "removeKey",
-    outputs: [
-      {
-        internalType: "bool",
-        name: "success",
-        type: "bool",
-      },
-    ],
-    stateMutability: "nonpayable",
-    type: "function",
+    "name": "initialize",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
   },
   {
-    inputs: [],
-    name: "version",
-    outputs: [
+    "inputs": [
       {
-        internalType: "string",
-        name: "",
-        type: "string",
+        "internalType": "contract IIdentity",
+        "name": "_identity",
+        "type": "address"
       },
+      {
+        "internalType": "uint256",
+        "name": "claimTopic",
+        "type": "uint256"
+      },
+      {
+        "internalType": "bytes",
+        "name": "sig",
+        "type": "bytes"
+      },
+      {
+        "internalType": "bytes",
+        "name": "data",
+        "type": "bytes"
+      }
     ],
-    stateMutability: "pure",
-    type: "function",
+    "name": "isClaimValid",
+    "outputs": [
+      {
+        "internalType": "bool",
+        "name": "claimValid",
+        "type": "bool"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
   },
+  {
+    "inputs": [
+      {
+        "internalType": "bytes32",
+        "name": "_key",
+        "type": "bytes32"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_purpose",
+        "type": "uint256"
+      }
+    ],
+    "name": "keyHasPurpose",
+    "outputs": [
+      {
+        "internalType": "bool",
+        "name": "result",
+        "type": "bool"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "bytes32",
+        "name": "_claimId",
+        "type": "bytes32"
+      }
+    ],
+    "name": "removeClaim",
+    "outputs": [
+      {
+        "internalType": "bool",
+        "name": "success",
+        "type": "bool"
+      }
+    ],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "bytes32",
+        "name": "_key",
+        "type": "bytes32"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_purpose",
+        "type": "uint256"
+      }
+    ],
+    "name": "removeKey",
+    "outputs": [
+      {
+        "internalType": "bool",
+        "name": "success",
+        "type": "bool"
+      }
+    ],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "version",
+    "outputs": [
+      {
+        "internalType": "string",
+        "name": "",
+        "type": "string"
+      }
+    ],
+    "stateMutability": "pure",
+    "type": "function"
+  }
 ] as const;

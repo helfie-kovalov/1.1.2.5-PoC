@@ -1,375 +1,275 @@
 export const ADMIN_ABI = [
   {
-    inputs: [],
-    stateMutability: "nonpayable",
-    type: "constructor",
+    "inputs": [],
+    "name": "IsNotFalse",
+    "type": "error"
   },
   {
-    inputs: [
+    "inputs": [
       {
-        internalType: "address",
-        name: "_address",
-        type: "address",
-      },
+        "internalType": "address",
+        "name": "sender",
+        "type": "address"
+      }
     ],
-    name: "ZeroAddress",
-    type: "error",
+    "name": "NotOwner",
+    "type": "error"
   },
   {
-    anonymous: false,
-    inputs: [
+    "inputs": [
       {
-        indexed: false,
-        internalType: "uint8",
-        name: "version",
-        type: "uint8",
-      },
+        "internalType": "address",
+        "name": "_address",
+        "type": "address"
+      }
     ],
-    name: "Initialized",
-    type: "event",
+    "name": "ZeroAddress",
+    "type": "error"
   },
   {
-    anonymous: false,
-    inputs: [
+    "anonymous": false,
+    "inputs": [
       {
-        indexed: true,
-        internalType: "address",
-        name: "previousOwner",
-        type: "address",
+        "indexed": true,
+        "internalType": "address",
+        "name": "previousOwner",
+        "type": "address"
       },
       {
-        indexed: true,
-        internalType: "address",
-        name: "newOwner",
-        type: "address",
-      },
+        "indexed": true,
+        "internalType": "address",
+        "name": "newOwner",
+        "type": "address"
+      }
     ],
-    name: "OwnershipTransferred",
-    type: "event",
+    "name": "OwnershipTransferred",
+    "type": "event"
   },
   {
-    anonymous: false,
-    inputs: [
+    "anonymous": false,
+    "inputs": [
       {
-        indexed: false,
-        internalType: "address",
-        name: "caller",
-        type: "address",
+        "indexed": false,
+        "internalType": "address",
+        "name": "caller",
+        "type": "address"
       },
       {
-        indexed: false,
-        internalType: "address",
-        name: "management",
-        type: "address",
-      },
+        "indexed": false,
+        "internalType": "address",
+        "name": "diamond",
+        "type": "address"
+      }
     ],
-    name: "SetBalanceManagement",
-    type: "event",
+    "name": "SetDiamond",
+    "type": "event"
   },
   {
-    anonymous: false,
-    inputs: [
+    "anonymous": false,
+    "inputs": [
       {
-        indexed: false,
-        internalType: "address",
-        name: "caller",
-        type: "address",
+        "indexed": false,
+        "internalType": "address",
+        "name": "caller",
+        "type": "address"
       },
       {
-        indexed: false,
-        internalType: "address",
-        name: "feeReceiver",
-        type: "address",
-      },
+        "indexed": false,
+        "internalType": "address",
+        "name": "feeReceiver",
+        "type": "address"
+      }
     ],
-    name: "SetFeeReceiver",
-    type: "event",
+    "name": "SetFeeReceiver",
+    "type": "event"
   },
   {
-    anonymous: false,
-    inputs: [
+    "inputs": [],
+    "name": "ADMIN_VERSION",
+    "outputs": [
       {
-        indexed: false,
-        internalType: "address",
-        name: "caller",
-        type: "address",
-      },
-      {
-        indexed: false,
-        internalType: "address",
-        name: "registry",
-        type: "address",
-      },
+        "internalType": "string",
+        "name": "",
+        "type": "string"
+      }
     ],
-    name: "SetIdentityRegistry",
-    type: "event",
+    "stateMutability": "view",
+    "type": "function"
   },
   {
-    anonymous: false,
-    inputs: [
+    "inputs": [
       {
-        indexed: false,
-        internalType: "address",
-        name: "caller",
-        type: "address",
+        "internalType": "contract IClaimIssuer",
+        "name": "_trustedIssuer",
+        "type": "address"
       },
       {
-        indexed: false,
-        internalType: "address",
-        name: "management",
-        type: "address",
-      },
+        "internalType": "uint256[]",
+        "name": "_claimTopics",
+        "type": "uint256[]"
+      }
     ],
-    name: "SetOperatorManagement",
-    type: "event",
+    "name": "adminAddTrustedIssuer",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
   },
   {
-    anonymous: false,
-    inputs: [
+    "inputs": [],
+    "name": "adminGetDiamond",
+    "outputs": [
       {
-        indexed: false,
-        internalType: "address",
-        name: "caller",
-        type: "address",
-      },
-      {
-        indexed: false,
-        internalType: "address",
-        name: "registry",
-        type: "address",
-      },
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
     ],
-    name: "SetTrustedIssuerRegistry",
-    type: "event",
+    "stateMutability": "view",
+    "type": "function"
   },
   {
-    inputs: [],
-    name: "ADMIN_VERSION",
-    outputs: [
+    "inputs": [
       {
-        internalType: "string",
-        name: "",
-        type: "string",
+        "internalType": "address",
+        "name": "_owner",
+        "type": "address"
       },
+      {
+        "internalType": "address",
+        "name": "diamond",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "feeReceiver",
+        "type": "address"
+      }
     ],
-    stateMutability: "view",
-    type: "function",
+    "name": "adminInitialize",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
   },
   {
-    inputs: [
+    "inputs": [],
+    "name": "adminOwner",
+    "outputs": [
       {
-        internalType: "contract IClaimIssuer",
-        name: "_trustedIssuer",
-        type: "address",
-      },
-      {
-        internalType: "uint256[]",
-        name: "_claimTopics",
-        type: "uint256[]",
-      },
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
     ],
-    name: "addTrustedIssuer",
-    outputs: [],
-    stateMutability: "nonpayable",
-    type: "function",
+    "stateMutability": "view",
+    "type": "function"
   },
   {
-    inputs: [],
-    name: "getBalanceManagement",
-    outputs: [
+    "inputs": [
       {
-        internalType: "contract IBalanceManagement",
-        name: "",
-        type: "address",
-      },
+        "internalType": "contract IClaimIssuer",
+        "name": "_trustedIssuer",
+        "type": "address"
+      }
     ],
-    stateMutability: "view",
-    type: "function",
+    "name": "adminRemoveTrustedIssuer",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
   },
   {
-    inputs: [],
-    name: "getFeeReceiver",
-    outputs: [
+    "inputs": [],
+    "name": "adminRenounceOwnership",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
       {
-        internalType: "address",
-        name: "",
-        type: "address",
-      },
+        "internalType": "address",
+        "name": "_address",
+        "type": "address"
+      }
     ],
-    stateMutability: "view",
-    type: "function",
+    "name": "adminSetDiamond",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
   },
   {
-    inputs: [],
-    name: "getIdentityRegistry",
-    outputs: [
+    "inputs": [
       {
-        internalType: "contract IIdentityRegistry",
-        name: "",
-        type: "address",
-      },
+        "internalType": "address",
+        "name": "newOwner",
+        "type": "address"
+      }
     ],
-    stateMutability: "view",
-    type: "function",
+    "name": "adminTransferOwnership",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
   },
   {
-    inputs: [],
-    name: "getOperatorManagement",
-    outputs: [
+    "inputs": [
       {
-        internalType: "contract IOperatorManagement",
-        name: "",
-        type: "address",
+        "internalType": "contract IClaimIssuer",
+        "name": "_trustedIssuer",
+        "type": "address"
       },
+      {
+        "internalType": "uint256[]",
+        "name": "_claimTopics",
+        "type": "uint256[]"
+      }
     ],
-    stateMutability: "view",
-    type: "function",
+    "name": "adminUpdateIssuerClaimTopics",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
   },
   {
-    inputs: [
+    "inputs": [],
+    "name": "getFeeReceiver",
+    "outputs": [
       {
-        internalType: "address",
-        name: "owner",
-        type: "address",
-      },
-      {
-        internalType: "address",
-        name: "feeReceiver",
-        type: "address",
-      },
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
     ],
-    name: "initialize",
-    outputs: [],
-    stateMutability: "nonpayable",
-    type: "function",
+    "stateMutability": "view",
+    "type": "function"
   },
   {
-    inputs: [],
-    name: "owner",
-    outputs: [
+    "inputs": [
       {
-        internalType: "address",
-        name: "",
-        type: "address",
-      },
+        "internalType": "address",
+        "name": "_address",
+        "type": "address"
+      }
     ],
-    stateMutability: "view",
-    type: "function",
+    "name": "setFeeReceiver",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
   },
   {
-    inputs: [
+    "inputs": [
       {
-        internalType: "contract IClaimIssuer",
-        name: "_trustedIssuer",
-        type: "address",
-      },
+        "internalType": "bytes4",
+        "name": "interfaceId",
+        "type": "bytes4"
+      }
     ],
-    name: "removeTrustedIssuer",
-    outputs: [],
-    stateMutability: "nonpayable",
-    type: "function",
-  },
-  {
-    inputs: [],
-    name: "renounceOwnership",
-    outputs: [],
-    stateMutability: "nonpayable",
-    type: "function",
-  },
-  {
-    inputs: [
+    "name": "supportsInterface",
+    "outputs": [
       {
-        internalType: "address",
-        name: "_address",
-        type: "address",
-      },
+        "internalType": "bool",
+        "name": "",
+        "type": "bool"
+      }
     ],
-    name: "setBalanceManagement",
-    outputs: [],
-    stateMutability: "nonpayable",
-    type: "function",
-  },
-  {
-    inputs: [
-      {
-        internalType: "address",
-        name: "_address",
-        type: "address",
-      },
-    ],
-    name: "setFeeReceiver",
-    outputs: [],
-    stateMutability: "nonpayable",
-    type: "function",
-  },
-  {
-    inputs: [
-      {
-        internalType: "address",
-        name: "_address",
-        type: "address",
-      },
-    ],
-    name: "setIdentityRegistry",
-    outputs: [],
-    stateMutability: "nonpayable",
-    type: "function",
-  },
-  {
-    inputs: [
-      {
-        internalType: "address",
-        name: "_address",
-        type: "address",
-      },
-    ],
-    name: "setOperatorManagement",
-    outputs: [],
-    stateMutability: "nonpayable",
-    type: "function",
-  },
-  {
-    inputs: [
-      {
-        internalType: "address",
-        name: "_address",
-        type: "address",
-      },
-    ],
-    name: "setTrustedIssuersRegistry",
-    outputs: [],
-    stateMutability: "nonpayable",
-    type: "function",
-  },
-  {
-    inputs: [
-      {
-        internalType: "address",
-        name: "newOwner",
-        type: "address",
-      },
-    ],
-    name: "transferOwnership",
-    outputs: [],
-    stateMutability: "nonpayable",
-    type: "function",
-  },
-  {
-    inputs: [
-      {
-        internalType: "contract IClaimIssuer",
-        name: "_trustedIssuer",
-        type: "address",
-      },
-      {
-        internalType: "uint256[]",
-        name: "_claimTopics",
-        type: "uint256[]",
-      },
-    ],
-    name: "updateIssuerClaimTopics",
-    outputs: [],
-    stateMutability: "nonpayable",
-    type: "function",
-  },
+    "stateMutability": "view",
+    "type": "function"
+  }
 ] as const;

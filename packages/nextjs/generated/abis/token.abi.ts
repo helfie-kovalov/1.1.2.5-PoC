@@ -1,1161 +1,1161 @@
 export const TOKEN_ABI = [
   {
-    inputs: [],
-    stateMutability: "nonpayable",
-    type: "constructor",
-  },
-  {
-    inputs: [
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "diamond",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "_compliance",
+        "type": "address"
+      },
       {
-        internalType: "address",
-        name: "from",
-        type: "address",
+        "internalType": "string",
+        "name": "_name",
+        "type": "string"
       },
       {
-        internalType: "address",
-        name: "to",
-        type: "address",
+        "internalType": "string",
+        "name": "_symbol",
+        "type": "string"
       },
       {
-        internalType: "uint256",
-        name: "amount",
-        type: "uint256",
+        "internalType": "uint8",
+        "name": "_decimals",
+        "type": "uint8"
       },
+      {
+        "internalType": "address",
+        "name": "_onchainID",
+        "type": "address"
+      }
     ],
-    name: "ComplianceNotFollowed",
-    type: "error",
+    "stateMutability": "nonpayable",
+    "type": "constructor"
   },
   {
-    inputs: [
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "from",
+        "type": "address"
+      },
       {
-        internalType: "string",
-        name: "str",
-        type: "string",
+        "internalType": "address",
+        "name": "to",
+        "type": "address"
       },
+      {
+        "internalType": "uint256",
+        "name": "amount",
+        "type": "uint256"
+      }
     ],
-    name: "EmptyString",
-    type: "error",
+    "name": "ComplianceNotFollowed",
+    "type": "error"
   },
   {
-    inputs: [
+    "inputs": [
       {
-        internalType: "address",
-        name: "identity",
-        type: "address",
-      },
+        "internalType": "string",
+        "name": "str",
+        "type": "string"
+      }
     ],
-    name: "IdentityNotVerified",
-    type: "error",
+    "name": "EmptyString",
+    "type": "error"
   },
   {
-    inputs: [
+    "inputs": [
       {
-        internalType: "uint256",
-        name: "amount",
-        type: "uint256",
-      },
+        "internalType": "address",
+        "name": "identity",
+        "type": "address"
+      }
+    ],
+    "name": "IdentityNotVerified",
+    "type": "error"
+  },
+  {
+    "inputs": [
       {
-        internalType: "uint256",
-        name: "balance",
-        type: "uint256",
+        "internalType": "uint256",
+        "name": "amount",
+        "type": "uint256"
       },
+      {
+        "internalType": "uint256",
+        "name": "balance",
+        "type": "uint256"
+      }
     ],
-    name: "InsufficientBalance",
-    type: "error",
+    "name": "InsufficientBalance",
+    "type": "error"
   },
   {
-    inputs: [
+    "inputs": [
       {
-        internalType: "address",
-        name: "caller",
-        type: "address",
-      },
+        "internalType": "address",
+        "name": "caller",
+        "type": "address"
+      }
     ],
-    name: "NotOperator",
-    type: "error",
+    "name": "NotOperator",
+    "type": "error"
   },
   {
-    inputs: [],
-    name: "NotVerifiedToken",
-    type: "error",
+    "inputs": [],
+    "name": "NotVerifiedToken",
+    "type": "error"
   },
   {
-    inputs: [],
-    name: "RecoveryNotPossible",
-    type: "error",
+    "inputs": [],
+    "name": "RecoveryNotPossible",
+    "type": "error"
   },
   {
-    inputs: [],
-    name: "TransferNotPossible",
-    type: "error",
+    "inputs": [],
+    "name": "TransferNotPossible",
+    "type": "error"
   },
   {
-    inputs: [
+    "inputs": [
       {
-        internalType: "address",
-        name: "wallet",
-        type: "address",
-      },
+        "internalType": "address",
+        "name": "wallet",
+        "type": "address"
+      }
     ],
-    name: "WalletIsFrozen",
-    type: "error",
+    "name": "WalletIsFrozen",
+    "type": "error"
   },
   {
-    inputs: [
+    "inputs": [
       {
-        internalType: "address",
-        name: "_address",
-        type: "address",
-      },
+        "internalType": "address",
+        "name": "_address",
+        "type": "address"
+      }
     ],
-    name: "ZeroAddress",
-    type: "error",
+    "name": "ZeroAddress",
+    "type": "error"
   },
   {
-    inputs: [
+    "inputs": [
       {
-        internalType: "uint256",
-        name: "_amount",
-        type: "uint256",
-      },
+        "internalType": "uint256",
+        "name": "_amount",
+        "type": "uint256"
+      }
     ],
-    name: "ZeroUint",
-    type: "error",
+    "name": "ZeroUint",
+    "type": "error"
   },
   {
-    anonymous: false,
-    inputs: [
+    "anonymous": false,
+    "inputs": [
       {
-        indexed: true,
-        internalType: "address",
-        name: "_userAddress",
-        type: "address",
+        "indexed": true,
+        "internalType": "address",
+        "name": "_userAddress",
+        "type": "address"
       },
       {
-        indexed: true,
-        internalType: "bool",
-        name: "_isFrozen",
-        type: "bool",
+        "indexed": true,
+        "internalType": "bool",
+        "name": "_isFrozen",
+        "type": "bool"
       },
       {
-        indexed: true,
-        internalType: "address",
-        name: "_owner",
-        type: "address",
-      },
+        "indexed": true,
+        "internalType": "address",
+        "name": "_owner",
+        "type": "address"
+      }
     ],
-    name: "AddressFrozen",
-    type: "event",
+    "name": "AddressFrozen",
+    "type": "event"
   },
   {
-    anonymous: false,
-    inputs: [
-      {
-        indexed: true,
-        internalType: "address",
-        name: "owner",
-        type: "address",
-      },
+    "anonymous": false,
+    "inputs": [
       {
-        indexed: true,
-        internalType: "address",
-        name: "spender",
-        type: "address",
+        "indexed": true,
+        "internalType": "address",
+        "name": "owner",
+        "type": "address"
       },
       {
-        indexed: false,
-        internalType: "uint256",
-        name: "value",
-        type: "uint256",
+        "indexed": true,
+        "internalType": "address",
+        "name": "spender",
+        "type": "address"
       },
-    ],
-    name: "Approval",
-    type: "event",
-  },
-  {
-    anonymous: false,
-    inputs: [
       {
-        indexed: true,
-        internalType: "address",
-        name: "_compliance",
-        type: "address",
-      },
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "value",
+        "type": "uint256"
+      }
     ],
-    name: "ComplianceAdded",
-    type: "event",
+    "name": "Approval",
+    "type": "event"
   },
   {
-    anonymous: false,
-    inputs: [
+    "anonymous": false,
+    "inputs": [
       {
-        indexed: true,
-        internalType: "address",
-        name: "_identityRegistry",
-        type: "address",
-      },
+        "indexed": true,
+        "internalType": "address",
+        "name": "_compliance",
+        "type": "address"
+      }
     ],
-    name: "IdentityRegistryAdded",
-    type: "event",
+    "name": "ComplianceAdded",
+    "type": "event"
   },
   {
-    anonymous: false,
-    inputs: [
+    "anonymous": false,
+    "inputs": [
       {
-        indexed: false,
-        internalType: "uint8",
-        name: "version",
-        type: "uint8",
-      },
+        "indexed": false,
+        "internalType": "uint8",
+        "name": "version",
+        "type": "uint8"
+      }
     ],
-    name: "Initialized",
-    type: "event",
+    "name": "Initialized",
+    "type": "event"
   },
   {
-    anonymous: false,
-    inputs: [
+    "anonymous": false,
+    "inputs": [
       {
-        indexed: true,
-        internalType: "address",
-        name: "previousOwner",
-        type: "address",
+        "indexed": true,
+        "internalType": "address",
+        "name": "previousOwner",
+        "type": "address"
       },
       {
-        indexed: true,
-        internalType: "address",
-        name: "newOwner",
-        type: "address",
-      },
+        "indexed": true,
+        "internalType": "address",
+        "name": "newOwner",
+        "type": "address"
+      }
     ],
-    name: "OwnershipTransferred",
-    type: "event",
+    "name": "OwnershipTransferred",
+    "type": "event"
   },
   {
-    anonymous: false,
-    inputs: [
+    "anonymous": false,
+    "inputs": [
       {
-        indexed: false,
-        internalType: "address",
-        name: "account",
-        type: "address",
-      },
+        "indexed": false,
+        "internalType": "address",
+        "name": "account",
+        "type": "address"
+      }
     ],
-    name: "Paused",
-    type: "event",
+    "name": "Paused",
+    "type": "event"
   },
   {
-    anonymous: false,
-    inputs: [
+    "anonymous": false,
+    "inputs": [
       {
-        indexed: true,
-        internalType: "address",
-        name: "_lostWallet",
-        type: "address",
+        "indexed": true,
+        "internalType": "address",
+        "name": "_lostWallet",
+        "type": "address"
       },
       {
-        indexed: true,
-        internalType: "address",
-        name: "_newWallet",
-        type: "address",
+        "indexed": true,
+        "internalType": "address",
+        "name": "_newWallet",
+        "type": "address"
       },
       {
-        indexed: true,
-        internalType: "address",
-        name: "_investorOnchainID",
-        type: "address",
-      },
+        "indexed": true,
+        "internalType": "address",
+        "name": "_investorOnchainID",
+        "type": "address"
+      }
     ],
-    name: "RecoverySuccess",
-    type: "event",
+    "name": "RecoverySuccess",
+    "type": "event"
   },
   {
-    anonymous: false,
-    inputs: [
+    "anonymous": false,
+    "inputs": [
       {
-        indexed: true,
-        internalType: "address",
-        name: "_userAddress",
-        type: "address",
+        "indexed": true,
+        "internalType": "address",
+        "name": "_userAddress",
+        "type": "address"
       },
       {
-        indexed: false,
-        internalType: "uint256",
-        name: "_amount",
-        type: "uint256",
-      },
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "_amount",
+        "type": "uint256"
+      }
     ],
-    name: "TokensFrozen",
-    type: "event",
+    "name": "TokensFrozen",
+    "type": "event"
   },
   {
-    anonymous: false,
-    inputs: [
+    "anonymous": false,
+    "inputs": [
       {
-        indexed: true,
-        internalType: "address",
-        name: "_userAddress",
-        type: "address",
+        "indexed": true,
+        "internalType": "address",
+        "name": "_userAddress",
+        "type": "address"
       },
       {
-        indexed: false,
-        internalType: "uint256",
-        name: "_amount",
-        type: "uint256",
-      },
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "_amount",
+        "type": "uint256"
+      }
     ],
-    name: "TokensUnfrozen",
-    type: "event",
+    "name": "TokensUnfrozen",
+    "type": "event"
   },
   {
-    anonymous: false,
-    inputs: [
+    "anonymous": false,
+    "inputs": [
       {
-        indexed: true,
-        internalType: "address",
-        name: "from",
-        type: "address",
+        "indexed": true,
+        "internalType": "address",
+        "name": "from",
+        "type": "address"
       },
       {
-        indexed: true,
-        internalType: "address",
-        name: "to",
-        type: "address",
+        "indexed": true,
+        "internalType": "address",
+        "name": "to",
+        "type": "address"
       },
       {
-        indexed: false,
-        internalType: "uint256",
-        name: "value",
-        type: "uint256",
-      },
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "value",
+        "type": "uint256"
+      }
     ],
-    name: "Transfer",
-    type: "event",
+    "name": "Transfer",
+    "type": "event"
   },
   {
-    anonymous: false,
-    inputs: [
+    "anonymous": false,
+    "inputs": [
       {
-        indexed: false,
-        internalType: "address",
-        name: "account",
-        type: "address",
-      },
+        "indexed": false,
+        "internalType": "address",
+        "name": "account",
+        "type": "address"
+      }
     ],
-    name: "Unpaused",
-    type: "event",
+    "name": "Unpaused",
+    "type": "event"
   },
   {
-    anonymous: false,
-    inputs: [
+    "anonymous": false,
+    "inputs": [
       {
-        indexed: true,
-        internalType: "string",
-        name: "_newName",
-        type: "string",
+        "indexed": true,
+        "internalType": "string",
+        "name": "_newName",
+        "type": "string"
       },
       {
-        indexed: true,
-        internalType: "string",
-        name: "_newSymbol",
-        type: "string",
+        "indexed": true,
+        "internalType": "string",
+        "name": "_newSymbol",
+        "type": "string"
       },
       {
-        indexed: false,
-        internalType: "uint8",
-        name: "_newDecimals",
-        type: "uint8",
+        "indexed": false,
+        "internalType": "uint8",
+        "name": "_newDecimals",
+        "type": "uint8"
       },
       {
-        indexed: false,
-        internalType: "string",
-        name: "_newVersion",
-        type: "string",
+        "indexed": false,
+        "internalType": "string",
+        "name": "_newVersion",
+        "type": "string"
       },
       {
-        indexed: true,
-        internalType: "address",
-        name: "_newOnchainID",
-        type: "address",
-      },
+        "indexed": true,
+        "internalType": "address",
+        "name": "_newOnchainID",
+        "type": "address"
+      }
     ],
-    name: "UpdatedTokenInformation",
-    type: "event",
+    "name": "UpdatedTokenInformation",
+    "type": "event"
   },
   {
-    inputs: [],
-    name: "TOKEN_VERSION",
-    outputs: [
+    "inputs": [],
+    "name": "TOKEN_VERSION",
+    "outputs": [
       {
-        internalType: "string",
-        name: "",
-        type: "string",
-      },
+        "internalType": "string",
+        "name": "",
+        "type": "string"
+      }
     ],
-    stateMutability: "view",
-    type: "function",
+    "stateMutability": "view",
+    "type": "function"
   },
   {
-    inputs: [
+    "inputs": [
       {
-        internalType: "address",
-        name: "_owner",
-        type: "address",
+        "internalType": "address",
+        "name": "_owner",
+        "type": "address"
       },
       {
-        internalType: "address",
-        name: "_spender",
-        type: "address",
-      },
+        "internalType": "address",
+        "name": "_spender",
+        "type": "address"
+      }
     ],
-    name: "allowance",
-    outputs: [
+    "name": "allowance",
+    "outputs": [
       {
-        internalType: "uint256",
-        name: "",
-        type: "uint256",
-      },
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
     ],
-    stateMutability: "view",
-    type: "function",
+    "stateMutability": "view",
+    "type": "function"
   },
   {
-    inputs: [
+    "inputs": [
       {
-        internalType: "address",
-        name: "_spender",
-        type: "address",
+        "internalType": "address",
+        "name": "_spender",
+        "type": "address"
       },
       {
-        internalType: "uint256",
-        name: "_amount",
-        type: "uint256",
-      },
+        "internalType": "uint256",
+        "name": "_amount",
+        "type": "uint256"
+      }
     ],
-    name: "approve",
-    outputs: [
+    "name": "approve",
+    "outputs": [
       {
-        internalType: "bool",
-        name: "",
-        type: "bool",
-      },
+        "internalType": "bool",
+        "name": "",
+        "type": "bool"
+      }
     ],
-    stateMutability: "nonpayable",
-    type: "function",
+    "stateMutability": "nonpayable",
+    "type": "function"
   },
   {
-    inputs: [
+    "inputs": [
       {
-        internalType: "address",
-        name: "_userAddress",
-        type: "address",
-      },
+        "internalType": "address",
+        "name": "_userAddress",
+        "type": "address"
+      }
     ],
-    name: "balanceOf",
-    outputs: [
+    "name": "balanceOf",
+    "outputs": [
       {
-        internalType: "uint256",
-        name: "",
-        type: "uint256",
-      },
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
     ],
-    stateMutability: "view",
-    type: "function",
+    "stateMutability": "view",
+    "type": "function"
   },
   {
-    inputs: [
+    "inputs": [
       {
-        internalType: "address[]",
-        name: "_userAddresses",
-        type: "address[]",
+        "internalType": "address[]",
+        "name": "_userAddresses",
+        "type": "address[]"
       },
       {
-        internalType: "uint256[]",
-        name: "_amounts",
-        type: "uint256[]",
-      },
+        "internalType": "uint256[]",
+        "name": "_amounts",
+        "type": "uint256[]"
+      }
     ],
-    name: "batchBurn",
-    outputs: [],
-    stateMutability: "nonpayable",
-    type: "function",
+    "name": "batchBurn",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
   },
   {
-    inputs: [
+    "inputs": [
       {
-        internalType: "address[]",
-        name: "_fromList",
-        type: "address[]",
+        "internalType": "address[]",
+        "name": "_fromList",
+        "type": "address[]"
       },
       {
-        internalType: "address[]",
-        name: "_toList",
-        type: "address[]",
+        "internalType": "address[]",
+        "name": "_toList",
+        "type": "address[]"
       },
       {
-        internalType: "uint256[]",
-        name: "_amounts",
-        type: "uint256[]",
+        "internalType": "uint256[]",
+        "name": "_amounts",
+        "type": "uint256[]"
       },
       {
-        internalType: "bool",
-        name: "isManual",
-        type: "bool",
-      },
+        "internalType": "bool",
+        "name": "isManual",
+        "type": "bool"
+      }
     ],
-    name: "batchForcedTransfer",
-    outputs: [],
-    stateMutability: "nonpayable",
-    type: "function",
+    "name": "batchForcedTransfer",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
   },
   {
-    inputs: [
+    "inputs": [
       {
-        internalType: "address[]",
-        name: "_userAddresses",
-        type: "address[]",
+        "internalType": "address[]",
+        "name": "_userAddresses",
+        "type": "address[]"
       },
       {
-        internalType: "uint256[]",
-        name: "_amounts",
-        type: "uint256[]",
-      },
+        "internalType": "uint256[]",
+        "name": "_amounts",
+        "type": "uint256[]"
+      }
     ],
-    name: "batchFreezePartialTokens",
-    outputs: [],
-    stateMutability: "nonpayable",
-    type: "function",
+    "name": "batchFreezePartialTokens",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
   },
   {
-    inputs: [
+    "inputs": [
       {
-        internalType: "address[]",
-        name: "_toList",
-        type: "address[]",
+        "internalType": "address[]",
+        "name": "_toList",
+        "type": "address[]"
       },
       {
-        internalType: "uint256[]",
-        name: "_amounts",
-        type: "uint256[]",
+        "internalType": "uint256[]",
+        "name": "_amounts",
+        "type": "uint256[]"
       },
       {
-        internalType: "bool",
-        name: "isManual",
-        type: "bool",
-      },
+        "internalType": "bool",
+        "name": "isManual",
+        "type": "bool"
+      }
     ],
-    name: "batchMint",
-    outputs: [],
-    stateMutability: "nonpayable",
-    type: "function",
+    "name": "batchMint",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
   },
   {
-    inputs: [
+    "inputs": [
       {
-        internalType: "address[]",
-        name: "_userAddresses",
-        type: "address[]",
+        "internalType": "address[]",
+        "name": "_userAddresses",
+        "type": "address[]"
       },
       {
-        internalType: "bool[]",
-        name: "_freeze",
-        type: "bool[]",
-      },
+        "internalType": "bool[]",
+        "name": "_freeze",
+        "type": "bool[]"
+      }
     ],
-    name: "batchSetAddressFrozen",
-    outputs: [],
-    stateMutability: "nonpayable",
-    type: "function",
+    "name": "batchSetAddressFrozen",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
   },
   {
-    inputs: [
+    "inputs": [
       {
-        internalType: "address[]",
-        name: "_toList",
-        type: "address[]",
+        "internalType": "address[]",
+        "name": "_toList",
+        "type": "address[]"
       },
       {
-        internalType: "uint256[]",
-        name: "_amounts",
-        type: "uint256[]",
-      },
+        "internalType": "uint256[]",
+        "name": "_amounts",
+        "type": "uint256[]"
+      }
     ],
-    name: "batchTransfer",
-    outputs: [],
-    stateMutability: "nonpayable",
-    type: "function",
+    "name": "batchTransfer",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
   },
   {
-    inputs: [
+    "inputs": [
       {
-        internalType: "address[]",
-        name: "_userAddresses",
-        type: "address[]",
+        "internalType": "address[]",
+        "name": "_userAddresses",
+        "type": "address[]"
       },
       {
-        internalType: "uint256[]",
-        name: "_amounts",
-        type: "uint256[]",
-      },
+        "internalType": "uint256[]",
+        "name": "_amounts",
+        "type": "uint256[]"
+      }
     ],
-    name: "batchUnfreezePartialTokens",
-    outputs: [],
-    stateMutability: "nonpayable",
-    type: "function",
+    "name": "batchUnfreezePartialTokens",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
   },
   {
-    inputs: [
+    "inputs": [
       {
-        internalType: "address",
-        name: "_userAddress",
-        type: "address",
+        "internalType": "address",
+        "name": "_userAddress",
+        "type": "address"
       },
       {
-        internalType: "uint256",
-        name: "_amount",
-        type: "uint256",
-      },
+        "internalType": "uint256",
+        "name": "_amount",
+        "type": "uint256"
+      }
     ],
-    name: "burn",
-    outputs: [],
-    stateMutability: "nonpayable",
-    type: "function",
+    "name": "burn",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
   },
   {
-    inputs: [],
-    name: "compliance",
-    outputs: [
+    "inputs": [],
+    "name": "compliance",
+    "outputs": [
       {
-        internalType: "contract IModularCompliance",
-        name: "",
-        type: "address",
-      },
+        "internalType": "contract IModularCompliance",
+        "name": "",
+        "type": "address"
+      }
     ],
-    stateMutability: "view",
-    type: "function",
+    "stateMutability": "view",
+    "type": "function"
   },
   {
-    inputs: [],
-    name: "decimals",
-    outputs: [
+    "inputs": [],
+    "name": "decimals",
+    "outputs": [
       {
-        internalType: "uint8",
-        name: "",
-        type: "uint8",
-      },
+        "internalType": "uint8",
+        "name": "",
+        "type": "uint8"
+      }
     ],
-    stateMutability: "view",
-    type: "function",
+    "stateMutability": "view",
+    "type": "function"
   },
   {
-    inputs: [
+    "inputs": [
       {
-        internalType: "address",
-        name: "_spender",
-        type: "address",
+        "internalType": "address",
+        "name": "_spender",
+        "type": "address"
       },
       {
-        internalType: "uint256",
-        name: "_subtractedValue",
-        type: "uint256",
-      },
+        "internalType": "uint256",
+        "name": "_subtractedValue",
+        "type": "uint256"
+      }
     ],
-    name: "decreaseAllowance",
-    outputs: [
+    "name": "decreaseAllowance",
+    "outputs": [
       {
-        internalType: "bool",
-        name: "",
-        type: "bool",
-      },
+        "internalType": "bool",
+        "name": "",
+        "type": "bool"
+      }
     ],
-    stateMutability: "nonpayable",
-    type: "function",
+    "stateMutability": "nonpayable",
+    "type": "function"
   },
   {
-    inputs: [
+    "inputs": [
       {
-        internalType: "address",
-        name: "_from",
-        type: "address",
+        "internalType": "address",
+        "name": "_from",
+        "type": "address"
       },
       {
-        internalType: "address",
-        name: "_to",
-        type: "address",
+        "internalType": "address",
+        "name": "_to",
+        "type": "address"
       },
       {
-        internalType: "uint256",
-        name: "_amount",
-        type: "uint256",
+        "internalType": "uint256",
+        "name": "_amount",
+        "type": "uint256"
       },
       {
-        internalType: "bool",
-        name: "isManual",
-        type: "bool",
-      },
+        "internalType": "bool",
+        "name": "isManual",
+        "type": "bool"
+      }
     ],
-    name: "forcedTransfer",
-    outputs: [
+    "name": "forcedTransfer",
+    "outputs": [
       {
-        internalType: "bool",
-        name: "",
-        type: "bool",
-      },
+        "internalType": "bool",
+        "name": "",
+        "type": "bool"
+      }
     ],
-    stateMutability: "nonpayable",
-    type: "function",
+    "stateMutability": "nonpayable",
+    "type": "function"
   },
   {
-    inputs: [
+    "inputs": [
       {
-        internalType: "address",
-        name: "_userAddress",
-        type: "address",
+        "internalType": "address",
+        "name": "_userAddress",
+        "type": "address"
       },
       {
-        internalType: "uint256",
-        name: "_amount",
-        type: "uint256",
-      },
+        "internalType": "uint256",
+        "name": "_amount",
+        "type": "uint256"
+      }
     ],
-    name: "freezePartialTokens",
-    outputs: [],
-    stateMutability: "nonpayable",
-    type: "function",
+    "name": "freezePartialTokens",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
   },
   {
-    inputs: [
+    "inputs": [
       {
-        internalType: "address",
-        name: "_userAddress",
-        type: "address",
-      },
+        "internalType": "address",
+        "name": "_userAddress",
+        "type": "address"
+      }
     ],
-    name: "getFrozenTokens",
-    outputs: [
+    "name": "getFrozenTokens",
+    "outputs": [
       {
-        internalType: "uint256",
-        name: "",
-        type: "uint256",
-      },
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
     ],
-    stateMutability: "view",
-    type: "function",
+    "stateMutability": "view",
+    "type": "function"
   },
   {
-    inputs: [],
-    name: "identityRegistry",
-    outputs: [
+    "inputs": [],
+    "name": "identityRegistry",
+    "outputs": [
       {
-        internalType: "contract IIdentityRegistry",
-        name: "",
-        type: "address",
-      },
+        "internalType": "contract IIRFacet",
+        "name": "",
+        "type": "address"
+      }
     ],
-    stateMutability: "view",
-    type: "function",
+    "stateMutability": "view",
+    "type": "function"
   },
   {
-    inputs: [
+    "inputs": [
       {
-        internalType: "address",
-        name: "_spender",
-        type: "address",
+        "internalType": "address",
+        "name": "_spender",
+        "type": "address"
       },
       {
-        internalType: "uint256",
-        name: "_addedValue",
-        type: "uint256",
-      },
+        "internalType": "uint256",
+        "name": "_addedValue",
+        "type": "uint256"
+      }
     ],
-    name: "increaseAllowance",
-    outputs: [
+    "name": "increaseAllowance",
+    "outputs": [
       {
-        internalType: "bool",
-        name: "",
-        type: "bool",
-      },
+        "internalType": "bool",
+        "name": "",
+        "type": "bool"
+      }
     ],
-    stateMutability: "nonpayable",
-    type: "function",
+    "stateMutability": "nonpayable",
+    "type": "function"
   },
   {
-    inputs: [
-      {
-        internalType: "address",
-        name: "admin",
-        type: "address",
-      },
+    "inputs": [
       {
-        internalType: "address",
-        name: "_identityRegistry",
-        type: "address",
+        "internalType": "address",
+        "name": "diamond",
+        "type": "address"
       },
       {
-        internalType: "address",
-        name: "_compliance",
-        type: "address",
+        "internalType": "address",
+        "name": "_compliance",
+        "type": "address"
       },
       {
-        internalType: "string",
-        name: "_name",
-        type: "string",
+        "internalType": "string",
+        "name": "_name",
+        "type": "string"
       },
       {
-        internalType: "string",
-        name: "_symbol",
-        type: "string",
+        "internalType": "string",
+        "name": "_symbol",
+        "type": "string"
       },
       {
-        internalType: "uint8",
-        name: "_decimals",
-        type: "uint8",
+        "internalType": "uint8",
+        "name": "_decimals",
+        "type": "uint8"
       },
       {
-        internalType: "address",
-        name: "_onchainID",
-        type: "address",
-      },
+        "internalType": "address",
+        "name": "_onchainID",
+        "type": "address"
+      }
     ],
-    name: "initialize",
-    outputs: [],
-    stateMutability: "nonpayable",
-    type: "function",
+    "name": "initialize",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
   },
   {
-    inputs: [
+    "inputs": [
       {
-        internalType: "address",
-        name: "_userAddress",
-        type: "address",
-      },
+        "internalType": "address",
+        "name": "_userAddress",
+        "type": "address"
+      }
     ],
-    name: "isFrozen",
-    outputs: [
+    "name": "isFrozen",
+    "outputs": [
       {
-        internalType: "bool",
-        name: "",
-        type: "bool",
-      },
+        "internalType": "bool",
+        "name": "",
+        "type": "bool"
+      }
     ],
-    stateMutability: "view",
-    type: "function",
+    "stateMutability": "view",
+    "type": "function"
   },
   {
-    inputs: [
+    "inputs": [
       {
-        internalType: "address",
-        name: "_to",
-        type: "address",
+        "internalType": "address",
+        "name": "_to",
+        "type": "address"
       },
       {
-        internalType: "uint256",
-        name: "_amount",
-        type: "uint256",
+        "internalType": "uint256",
+        "name": "_amount",
+        "type": "uint256"
       },
       {
-        internalType: "bool",
-        name: "isManual",
-        type: "bool",
-      },
+        "internalType": "bool",
+        "name": "isManual",
+        "type": "bool"
+      }
     ],
-    name: "mint",
-    outputs: [],
-    stateMutability: "nonpayable",
-    type: "function",
+    "name": "mint",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
   },
   {
-    inputs: [],
-    name: "name",
-    outputs: [
+    "inputs": [],
+    "name": "name",
+    "outputs": [
       {
-        internalType: "string",
-        name: "",
-        type: "string",
-      },
+        "internalType": "string",
+        "name": "",
+        "type": "string"
+      }
     ],
-    stateMutability: "view",
-    type: "function",
+    "stateMutability": "view",
+    "type": "function"
   },
   {
-    inputs: [],
-    name: "onchainID",
-    outputs: [
+    "inputs": [],
+    "name": "onchainID",
+    "outputs": [
       {
-        internalType: "address",
-        name: "",
-        type: "address",
-      },
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
     ],
-    stateMutability: "view",
-    type: "function",
+    "stateMutability": "view",
+    "type": "function"
   },
   {
-    inputs: [],
-    name: "owner",
-    outputs: [
+    "inputs": [],
+    "name": "owner",
+    "outputs": [
       {
-        internalType: "address",
-        name: "",
-        type: "address",
-      },
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
     ],
-    stateMutability: "view",
-    type: "function",
+    "stateMutability": "view",
+    "type": "function"
   },
   {
-    inputs: [],
-    name: "pause",
-    outputs: [],
-    stateMutability: "nonpayable",
-    type: "function",
+    "inputs": [],
+    "name": "pause",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
   },
   {
-    inputs: [],
-    name: "paused",
-    outputs: [
+    "inputs": [],
+    "name": "paused",
+    "outputs": [
       {
-        internalType: "bool",
-        name: "",
-        type: "bool",
-      },
+        "internalType": "bool",
+        "name": "",
+        "type": "bool"
+      }
     ],
-    stateMutability: "view",
-    type: "function",
+    "stateMutability": "view",
+    "type": "function"
   },
   {
-    inputs: [
+    "inputs": [
       {
-        internalType: "address",
-        name: "_lostWallet",
-        type: "address",
+        "internalType": "address",
+        "name": "_lostWallet",
+        "type": "address"
       },
       {
-        internalType: "address",
-        name: "_newWallet",
-        type: "address",
+        "internalType": "address",
+        "name": "_newWallet",
+        "type": "address"
       },
       {
-        internalType: "address",
-        name: "_investorOnchainID",
-        type: "address",
-      },
+        "internalType": "address",
+        "name": "_investorOnchainID",
+        "type": "address"
+      }
     ],
-    name: "recoveryAddress",
-    outputs: [
+    "name": "recoveryAddress",
+    "outputs": [
       {
-        internalType: "bool",
-        name: "",
-        type: "bool",
-      },
+        "internalType": "bool",
+        "name": "",
+        "type": "bool"
+      }
     ],
-    stateMutability: "nonpayable",
-    type: "function",
+    "stateMutability": "nonpayable",
+    "type": "function"
   },
   {
-    inputs: [],
-    name: "renounceOwnership",
-    outputs: [],
-    stateMutability: "nonpayable",
-    type: "function",
+    "inputs": [],
+    "name": "renounceOwnership",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
   },
   {
-    inputs: [
-      {
-        internalType: "address",
-        name: "_userAddress",
-        type: "address",
-      },
+    "inputs": [
       {
-        internalType: "bool",
-        name: "_freeze",
-        type: "bool",
+        "internalType": "address",
+        "name": "_userAddress",
+        "type": "address"
       },
-    ],
-    name: "setAddressFrozen",
-    outputs: [],
-    stateMutability: "nonpayable",
-    type: "function",
-  },
-  {
-    inputs: [
       {
-        internalType: "address",
-        name: "_compliance",
-        type: "address",
-      },
+        "internalType": "bool",
+        "name": "_freeze",
+        "type": "bool"
+      }
     ],
-    name: "setCompliance",
-    outputs: [],
-    stateMutability: "nonpayable",
-    type: "function",
+    "name": "setAddressFrozen",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
   },
   {
-    inputs: [
+    "inputs": [
       {
-        internalType: "address",
-        name: "_identityRegistry",
-        type: "address",
-      },
+        "internalType": "address",
+        "name": "_compliance",
+        "type": "address"
+      }
     ],
-    name: "setIdentityRegistry",
-    outputs: [],
-    stateMutability: "nonpayable",
-    type: "function",
+    "name": "setCompliance",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
   },
   {
-    inputs: [
+    "inputs": [
       {
-        internalType: "string",
-        name: "_name",
-        type: "string",
-      },
+        "internalType": "string",
+        "name": "_name",
+        "type": "string"
+      }
     ],
-    name: "setName",
-    outputs: [],
-    stateMutability: "nonpayable",
-    type: "function",
+    "name": "setName",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
   },
   {
-    inputs: [
+    "inputs": [
       {
-        internalType: "address",
-        name: "_onchainID",
-        type: "address",
-      },
+        "internalType": "address",
+        "name": "_onchainID",
+        "type": "address"
+      }
     ],
-    name: "setOnchainID",
-    outputs: [],
-    stateMutability: "nonpayable",
-    type: "function",
+    "name": "setOnchainID",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
   },
   {
-    inputs: [
+    "inputs": [
       {
-        internalType: "string",
-        name: "_symbol",
-        type: "string",
-      },
+        "internalType": "string",
+        "name": "_symbol",
+        "type": "string"
+      }
     ],
-    name: "setSymbol",
-    outputs: [],
-    stateMutability: "nonpayable",
-    type: "function",
+    "name": "setSymbol",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
   },
   {
-    inputs: [],
-    name: "symbol",
-    outputs: [
+    "inputs": [],
+    "name": "symbol",
+    "outputs": [
       {
-        internalType: "string",
-        name: "",
-        type: "string",
-      },
+        "internalType": "string",
+        "name": "",
+        "type": "string"
+      }
     ],
-    stateMutability: "view",
-    type: "function",
+    "stateMutability": "view",
+    "type": "function"
   },
   {
-    inputs: [],
-    name: "totalSupply",
-    outputs: [
+    "inputs": [],
+    "name": "totalSupply",
+    "outputs": [
       {
-        internalType: "uint256",
-        name: "",
-        type: "uint256",
-      },
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
     ],
-    stateMutability: "view",
-    type: "function",
+    "stateMutability": "view",
+    "type": "function"
   },
   {
-    inputs: [
+    "inputs": [
       {
-        internalType: "address",
-        name: "_to",
-        type: "address",
+        "internalType": "address",
+        "name": "_to",
+        "type": "address"
       },
       {
-        internalType: "uint256",
-        name: "_amount",
-        type: "uint256",
-      },
+        "internalType": "uint256",
+        "name": "_amount",
+        "type": "uint256"
+      }
     ],
-    name: "transfer",
-    outputs: [
+    "name": "transfer",
+    "outputs": [
       {
-        internalType: "bool",
-        name: "",
-        type: "bool",
-      },
+        "internalType": "bool",
+        "name": "",
+        "type": "bool"
+      }
     ],
-    stateMutability: "nonpayable",
-    type: "function",
+    "stateMutability": "nonpayable",
+    "type": "function"
   },
   {
-    inputs: [
+    "inputs": [
       {
-        internalType: "address",
-        name: "_from",
-        type: "address",
+        "internalType": "address",
+        "name": "_from",
+        "type": "address"
       },
       {
-        internalType: "address",
-        name: "_to",
-        type: "address",
+        "internalType": "address",
+        "name": "_to",
+        "type": "address"
       },
       {
-        internalType: "uint256",
-        name: "_amount",
-        type: "uint256",
-      },
+        "internalType": "uint256",
+        "name": "_amount",
+        "type": "uint256"
+      }
     ],
-    name: "transferFrom",
-    outputs: [
+    "name": "transferFrom",
+    "outputs": [
       {
-        internalType: "bool",
-        name: "",
-        type: "bool",
-      },
+        "internalType": "bool",
+        "name": "",
+        "type": "bool"
+      }
     ],
-    stateMutability: "nonpayable",
-    type: "function",
+    "stateMutability": "nonpayable",
+    "type": "function"
   },
   {
-    inputs: [
+    "inputs": [
       {
-        internalType: "address",
-        name: "newOwner",
-        type: "address",
-      },
+        "internalType": "address",
+        "name": "newOwner",
+        "type": "address"
+      }
     ],
-    name: "transferOwnership",
-    outputs: [],
-    stateMutability: "nonpayable",
-    type: "function",
+    "name": "transferOwnership",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
   },
   {
-    inputs: [
+    "inputs": [
       {
-        internalType: "address",
-        name: "_userAddress",
-        type: "address",
+        "internalType": "address",
+        "name": "_userAddress",
+        "type": "address"
       },
       {
-        internalType: "uint256",
-        name: "_amount",
-        type: "uint256",
-      },
+        "internalType": "uint256",
+        "name": "_amount",
+        "type": "uint256"
+      }
     ],
-    name: "unfreezePartialTokens",
-    outputs: [],
-    stateMutability: "nonpayable",
-    type: "function",
+    "name": "unfreezePartialTokens",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
   },
   {
-    inputs: [],
-    name: "unpause",
-    outputs: [],
-    stateMutability: "nonpayable",
-    type: "function",
-  },
+    "inputs": [],
+    "name": "unpause",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  }
 ] as const;

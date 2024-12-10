@@ -1,421 +1,359 @@
 export const BM_ABI = [
   {
-    inputs: [],
-    stateMutability: "nonpayable",
-    type: "constructor",
+    "inputs": [],
+    "name": "IsNotFalse",
+    "type": "error"
   },
   {
-    inputs: [
+    "inputs": [
       {
-        internalType: "address",
-        name: "caller",
-        type: "address",
+        "internalType": "address",
+        "name": "caller",
+        "type": "address"
       },
       {
-        internalType: "address",
-        name: "token",
-        type: "address",
-      },
+        "internalType": "address",
+        "name": "token",
+        "type": "address"
+      }
     ],
-    name: "NotToken",
-    type: "error",
+    "name": "NotToken",
+    "type": "error"
   },
   {
-    inputs: [
+    "inputs": [
       {
-        internalType: "address",
-        name: "_address",
-        type: "address",
-      },
+        "internalType": "address",
+        "name": "caller",
+        "type": "address"
+      }
     ],
-    name: "ZeroAddress",
-    type: "error",
+    "name": "NotTrustedIssuer",
+    "type": "error"
   },
   {
-    anonymous: false,
-    inputs: [
+    "inputs": [
       {
-        indexed: false,
-        internalType: "uint8",
-        name: "version",
-        type: "uint8",
-      },
+        "internalType": "address",
+        "name": "_address",
+        "type": "address"
+      }
     ],
-    name: "Initialized",
-    type: "event",
+    "name": "ZeroAddress",
+    "type": "error"
   },
   {
-    anonymous: false,
-    inputs: [
+    "anonymous": false,
+    "inputs": [
       {
-        indexed: true,
-        internalType: "address",
-        name: "previousOwner",
-        type: "address",
+        "indexed": true,
+        "internalType": "address",
+        "name": "previousOwner",
+        "type": "address"
       },
       {
-        indexed: true,
-        internalType: "address",
-        name: "newOwner",
-        type: "address",
-      },
+        "indexed": true,
+        "internalType": "address",
+        "name": "newOwner",
+        "type": "address"
+      }
     ],
-    name: "OwnershipTransferred",
-    type: "event",
+    "name": "OwnershipTransferred",
+    "type": "event"
   },
   {
-    anonymous: false,
-    inputs: [
+    "anonymous": false,
+    "inputs": [
       {
-        indexed: false,
-        internalType: "address",
-        name: "user",
-        type: "address",
+        "indexed": false,
+        "internalType": "address",
+        "name": "caller",
+        "type": "address"
       },
       {
-        indexed: false,
-        internalType: "address",
-        name: "token",
-        type: "address",
-      },
-      {
-        indexed: false,
-        internalType: "uint256",
-        name: "oldBalance",
-        type: "uint256",
-      },
-      {
-        indexed: false,
-        internalType: "uint256",
-        name: "balance",
-        type: "uint256",
-      },
+        "indexed": false,
+        "internalType": "address",
+        "name": "diamond",
+        "type": "address"
+      }
     ],
-    name: "UpdateUserHolding",
-    type: "event",
+    "name": "SetDiamond",
+    "type": "event"
   },
   {
-    inputs: [],
-    name: "BM_VERSION",
-    outputs: [
+    "anonymous": false,
+    "inputs": [
       {
-        internalType: "string",
-        name: "",
-        type: "string",
+        "indexed": false,
+        "internalType": "address",
+        "name": "user",
+        "type": "address"
       },
+      {
+        "indexed": false,
+        "internalType": "address",
+        "name": "token",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "oldBalance",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "balance",
+        "type": "uint256"
+      }
     ],
-    stateMutability: "view",
-    type: "function",
+    "name": "UpdateUserHolding",
+    "type": "event"
   },
   {
-    inputs: [],
-    name: "MAX_CLAIM_TOPICS",
-    outputs: [
+    "inputs": [],
+    "name": "BM_VERSION",
+    "outputs": [
       {
-        internalType: "uint8",
-        name: "",
-        type: "uint8",
-      },
+        "internalType": "string",
+        "name": "",
+        "type": "string"
+      }
     ],
-    stateMutability: "view",
-    type: "function",
+    "stateMutability": "view",
+    "type": "function"
   },
   {
-    inputs: [],
-    name: "MAX_COUNTRY_REGISTRIES",
-    outputs: [
+    "inputs": [],
+    "name": "bmDiamond",
+    "outputs": [
       {
-        internalType: "uint16",
-        name: "",
-        type: "uint16",
-      },
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
     ],
-    stateMutability: "view",
-    type: "function",
+    "stateMutability": "view",
+    "type": "function"
   },
   {
-    inputs: [],
-    name: "MAX_IDENTITY_REGISTRIES",
-    outputs: [
+    "inputs": [
       {
-        internalType: "uint16",
-        name: "",
-        type: "uint16",
-      },
+        "internalType": "address",
+        "name": "diamond",
+        "type": "address"
+      }
     ],
-    stateMutability: "view",
-    type: "function",
+    "name": "bmInitialize",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
   },
   {
-    inputs: [],
-    name: "MAX_LINKED_WALLETS",
-    outputs: [
+    "inputs": [
       {
-        internalType: "uint8",
-        name: "",
-        type: "uint8",
-      },
+        "internalType": "address",
+        "name": "_address",
+        "type": "address"
+      }
     ],
-    stateMutability: "view",
-    type: "function",
+    "name": "bmSetDiamond",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
   },
   {
-    inputs: [],
-    name: "MAX_MODULE_COMPLIANCE",
-    outputs: [
+    "inputs": [
       {
-        internalType: "uint8",
-        name: "",
-        type: "uint8",
+        "internalType": "contract IToken",
+        "name": "token",
+        "type": "address"
       },
+      {
+        "internalType": "address",
+        "name": "_user",
+        "type": "address"
+      }
     ],
-    stateMutability: "view",
-    type: "function",
+    "name": "getFrozenTokens",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
   },
   {
-    inputs: [],
-    name: "MAX_TRUSTED_ISSUERS",
-    outputs: [
+    "inputs": [
       {
-        internalType: "uint8",
-        name: "",
-        type: "uint8",
-      },
+        "internalType": "contract IToken",
+        "name": "token",
+        "type": "address"
+      }
     ],
-    stateMutability: "view",
-    type: "function",
+    "name": "getTokenDistribution",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
   },
   {
-    inputs: [],
-    name: "PERCENT_DECIMALS",
-    outputs: [
+    "inputs": [
       {
-        internalType: "uint8",
-        name: "",
-        type: "uint8",
-      },
+        "internalType": "address",
+        "name": "_user",
+        "type": "address"
+      }
     ],
-    stateMutability: "view",
-    type: "function",
-  },
-  {
-    inputs: [
+    "name": "getUserHoldings",
+    "outputs": [
       {
-        internalType: "contract IToken",
-        name: "token",
-        type: "address",
-      },
-      {
-        internalType: "address",
-        name: "_user",
-        type: "address",
-      },
-    ],
-    name: "getFrozenTokens",
-    outputs: [
-      {
-        internalType: "uint256",
-        name: "",
-        type: "uint256",
-      },
-    ],
-    stateMutability: "view",
-    type: "function",
-  },
-  {
-    inputs: [
-      {
-        internalType: "contract IToken",
-        name: "token",
-        type: "address",
-      },
-    ],
-    name: "getTokenDistribution",
-    outputs: [
-      {
-        internalType: "uint256",
-        name: "",
-        type: "uint256",
-      },
-    ],
-    stateMutability: "view",
-    type: "function",
-  },
-  {
-    inputs: [
-      {
-        internalType: "address",
-        name: "_user",
-        type: "address",
-      },
-    ],
-    name: "getUserHoldings",
-    outputs: [
-      {
-        components: [
+        "components": [
           {
-            internalType: "address",
-            name: "token",
-            type: "address",
+            "internalType": "address",
+            "name": "token",
+            "type": "address"
           },
           {
-            internalType: "uint256",
-            name: "balance",
-            type: "uint256",
-          },
+            "internalType": "uint256",
+            "name": "balance",
+            "type": "uint256"
+          }
         ],
-        internalType: "struct IBalanceManagement.UserHolding[]",
-        name: "",
-        type: "tuple[]",
-      },
+        "internalType": "struct BalanceManagementStorage.UserHolding[]",
+        "name": "",
+        "type": "tuple[]"
+      }
     ],
-    stateMutability: "view",
-    type: "function",
+    "stateMutability": "view",
+    "type": "function"
   },
   {
-    inputs: [
+    "inputs": [
       {
-        internalType: "contract IToken",
-        name: "token",
-        type: "address",
+        "internalType": "contract IToken",
+        "name": "token",
+        "type": "address"
       },
       {
-        internalType: "address",
-        name: "_user",
-        type: "address",
-      },
+        "internalType": "address",
+        "name": "_user",
+        "type": "address"
+      }
     ],
-    name: "getUserTokenBalance",
-    outputs: [
+    "name": "getUserTokenBalance",
+    "outputs": [
       {
-        internalType: "uint256",
-        name: "",
-        type: "uint256",
-      },
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
     ],
-    stateMutability: "view",
-    type: "function",
+    "stateMutability": "view",
+    "type": "function"
   },
   {
-    inputs: [
+    "inputs": [
       {
-        internalType: "address",
-        name: "_user",
-        type: "address",
+        "internalType": "address",
+        "name": "_user",
+        "type": "address"
       },
       {
-        internalType: "contract IToken",
-        name: "token",
-        type: "address",
-      },
+        "internalType": "contract IToken",
+        "name": "token",
+        "type": "address"
+      }
     ],
-    name: "getUserTokenDistribution",
-    outputs: [
+    "name": "getUserTokenDistribution",
+    "outputs": [
       {
-        internalType: "uint256",
-        name: "result",
-        type: "uint256",
-      },
+        "internalType": "uint256",
+        "name": "result",
+        "type": "uint256"
+      }
     ],
-    stateMutability: "view",
-    type: "function",
+    "stateMutability": "view",
+    "type": "function"
   },
   {
-    inputs: [
+    "inputs": [
       {
-        internalType: "contract IAdminContractUpgradeable",
-        name: "adminContract",
-        type: "address",
+        "internalType": "contract IToken",
+        "name": "token",
+        "type": "address"
       },
+      {
+        "internalType": "address",
+        "name": "_user",
+        "type": "address"
+      }
     ],
-    name: "initialize",
-    outputs: [],
-    stateMutability: "nonpayable",
-    type: "function",
+    "name": "isUserFrozen",
+    "outputs": [
+      {
+        "internalType": "bool",
+        "name": "",
+        "type": "bool"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
   },
   {
-    inputs: [
+    "inputs": [
       {
-        internalType: "contract IToken",
-        name: "token",
-        type: "address",
-      },
-      {
-        internalType: "address",
-        name: "_user",
-        type: "address",
-      },
+        "internalType": "bytes4",
+        "name": "interfaceId",
+        "type": "bytes4"
+      }
     ],
-    name: "isUserFrozen",
-    outputs: [
+    "name": "supportsInterface",
+    "outputs": [
       {
-        internalType: "bool",
-        name: "",
-        type: "bool",
-      },
+        "internalType": "bool",
+        "name": "",
+        "type": "bool"
+      }
     ],
-    stateMutability: "view",
-    type: "function",
+    "stateMutability": "view",
+    "type": "function"
   },
   {
-    inputs: [],
-    name: "owner",
-    outputs: [
+    "inputs": [
       {
-        internalType: "address",
-        name: "",
-        type: "address",
+        "internalType": "contract IToken",
+        "name": "token",
+        "type": "address"
       },
+      {
+        "internalType": "address",
+        "name": "_user",
+        "type": "address"
+      },
+      {
+        "internalType": "uint256",
+        "name": "amount",
+        "type": "uint256"
+      },
+      {
+        "internalType": "bool",
+        "name": "isSubstract",
+        "type": "bool"
+      }
     ],
-    stateMutability: "view",
-    type: "function",
-  },
-  {
-    inputs: [],
-    name: "renounceOwnership",
-    outputs: [],
-    stateMutability: "nonpayable",
-    type: "function",
-  },
-  {
-    inputs: [
-      {
-        internalType: "address",
-        name: "newOwner",
-        type: "address",
-      },
-    ],
-    name: "transferOwnership",
-    outputs: [],
-    stateMutability: "nonpayable",
-    type: "function",
-  },
-  {
-    inputs: [
-      {
-        internalType: "contract IToken",
-        name: "token",
-        type: "address",
-      },
-      {
-        internalType: "address",
-        name: "_user",
-        type: "address",
-      },
-      {
-        internalType: "uint256",
-        name: "amount",
-        type: "uint256",
-      },
-      {
-        internalType: "bool",
-        name: "isSubstract",
-        type: "bool",
-      },
-    ],
-    name: "updateUserHolding",
-    outputs: [],
-    stateMutability: "nonpayable",
-    type: "function",
-  },
+    "name": "updateUserHolding",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  }
 ] as const;

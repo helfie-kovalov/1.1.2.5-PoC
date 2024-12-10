@@ -1,518 +1,411 @@
 export const TIR_ABI = [
   {
-    inputs: [],
-    stateMutability: "nonpayable",
-    type: "constructor",
+    "inputs": [],
+    "name": "EmptyArray",
+    "type": "error"
   },
   {
-    inputs: [],
-    name: "EmptyArray",
-    type: "error",
+    "inputs": [],
+    "name": "IsNotFalse",
+    "type": "error"
   },
   {
-    inputs: [
+    "inputs": [
       {
-        internalType: "uint256",
-        name: "length",
-        type: "uint256",
+        "internalType": "uint256",
+        "name": "length",
+        "type": "uint256"
       },
       {
-        internalType: "uint8",
-        name: "limit",
-        type: "uint8",
-      },
+        "internalType": "uint8",
+        "name": "limit",
+        "type": "uint8"
+      }
     ],
-    name: "MaxClaimTopics",
-    type: "error",
+    "name": "MaxClaimTopics",
+    "type": "error"
   },
   {
-    inputs: [
+    "inputs": [
       {
-        internalType: "uint256",
-        name: "length",
-        type: "uint256",
+        "internalType": "uint256",
+        "name": "length",
+        "type": "uint256"
       },
       {
-        internalType: "uint8",
-        name: "limit",
-        type: "uint8",
-      },
+        "internalType": "uint8",
+        "name": "limit",
+        "type": "uint8"
+      }
     ],
-    name: "MaxTrustedIssuers",
-    type: "error",
+    "name": "MaxTrustedIssuers",
+    "type": "error"
   },
   {
-    inputs: [
+    "inputs": [
       {
-        internalType: "address",
-        name: "issuer",
-        type: "address",
-      },
+        "internalType": "address",
+        "name": "caller",
+        "type": "address"
+      }
     ],
-    name: "NotTrustedIssuer",
-    type: "error",
+    "name": "NotDiamond",
+    "type": "error"
   },
   {
-    inputs: [
+    "inputs": [
       {
-        internalType: "address",
-        name: "issuer",
-        type: "address",
-      },
+        "internalType": "address",
+        "name": "issuer",
+        "type": "address"
+      }
     ],
-    name: "TrustedIssuerExists",
-    type: "error",
+    "name": "NotTrustedIssuer",
+    "type": "error"
   },
   {
-    inputs: [
+    "inputs": [
       {
-        internalType: "address",
-        name: "_address",
-        type: "address",
-      },
+        "internalType": "address",
+        "name": "issuer",
+        "type": "address"
+      }
     ],
-    name: "ZeroAddress",
-    type: "error",
+    "name": "TrustedIssuerExists",
+    "type": "error"
   },
   {
-    anonymous: false,
-    inputs: [
+    "inputs": [
       {
-        indexed: true,
-        internalType: "contract IClaimIssuer",
-        name: "trustedIssuer",
-        type: "address",
-      },
-      {
-        indexed: false,
-        internalType: "uint256[]",
-        name: "claimTopics",
-        type: "uint256[]",
-      },
+        "internalType": "address",
+        "name": "_address",
+        "type": "address"
+      }
     ],
-    name: "ClaimTopicsUpdated",
-    type: "event",
+    "name": "ZeroAddress",
+    "type": "error"
   },
   {
-    anonymous: false,
-    inputs: [
+    "anonymous": false,
+    "inputs": [
       {
-        indexed: false,
-        internalType: "uint8",
-        name: "version",
-        type: "uint8",
+        "indexed": true,
+        "internalType": "contract IClaimIssuer",
+        "name": "trustedIssuer",
+        "type": "address"
       },
+      {
+        "indexed": false,
+        "internalType": "uint256[]",
+        "name": "claimTopics",
+        "type": "uint256[]"
+      }
     ],
-    name: "Initialized",
-    type: "event",
+    "name": "ClaimTopicsUpdated",
+    "type": "event"
   },
   {
-    anonymous: false,
-    inputs: [
+    "anonymous": false,
+    "inputs": [
       {
-        indexed: true,
-        internalType: "address",
-        name: "previousOwner",
-        type: "address",
+        "indexed": false,
+        "internalType": "address",
+        "name": "caller",
+        "type": "address"
       },
       {
-        indexed: true,
-        internalType: "address",
-        name: "newOwner",
-        type: "address",
-      },
+        "indexed": false,
+        "internalType": "address",
+        "name": "diamond",
+        "type": "address"
+      }
     ],
-    name: "OwnershipTransferred",
-    type: "event",
+    "name": "SetDiamond",
+    "type": "event"
   },
   {
-    anonymous: false,
-    inputs: [
+    "anonymous": false,
+    "inputs": [
       {
-        indexed: true,
-        internalType: "contract IClaimIssuer",
-        name: "trustedIssuer",
-        type: "address",
+        "indexed": true,
+        "internalType": "contract IClaimIssuer",
+        "name": "trustedIssuer",
+        "type": "address"
       },
       {
-        indexed: false,
-        internalType: "uint256[]",
-        name: "claimTopics",
-        type: "uint256[]",
-      },
+        "indexed": false,
+        "internalType": "uint256[]",
+        "name": "claimTopics",
+        "type": "uint256[]"
+      }
     ],
-    name: "TrustedIssuerAdded",
-    type: "event",
+    "name": "TrustedIssuerAdded",
+    "type": "event"
   },
   {
-    anonymous: false,
-    inputs: [
+    "anonymous": false,
+    "inputs": [
       {
-        indexed: true,
-        internalType: "contract IClaimIssuer",
-        name: "trustedIssuer",
-        type: "address",
-      },
+        "indexed": true,
+        "internalType": "contract IClaimIssuer",
+        "name": "trustedIssuer",
+        "type": "address"
+      }
     ],
-    name: "TrustedIssuerRemoved",
-    type: "event",
+    "name": "TrustedIssuerRemoved",
+    "type": "event"
   },
   {
-    inputs: [],
-    name: "MAX_CLAIM_TOPICS",
-    outputs: [
+    "inputs": [],
+    "name": "TIR_VERSION",
+    "outputs": [
       {
-        internalType: "uint8",
-        name: "",
-        type: "uint8",
-      },
+        "internalType": "string",
+        "name": "",
+        "type": "string"
+      }
     ],
-    stateMutability: "view",
-    type: "function",
+    "stateMutability": "view",
+    "type": "function"
   },
   {
-    inputs: [],
-    name: "MAX_COUNTRY_REGISTRIES",
-    outputs: [
+    "inputs": [
       {
-        internalType: "uint16",
-        name: "",
-        type: "uint16",
+        "internalType": "contract IClaimIssuer",
+        "name": "_trustedIssuer",
+        "type": "address"
       },
+      {
+        "internalType": "uint256[]",
+        "name": "_claimTopics",
+        "type": "uint256[]"
+      }
     ],
-    stateMutability: "view",
-    type: "function",
+    "name": "addTrustedIssuer",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
   },
   {
-    inputs: [],
-    name: "MAX_IDENTITY_REGISTRIES",
-    outputs: [
+    "inputs": [
       {
-        internalType: "uint16",
-        name: "",
-        type: "uint16",
-      },
+        "internalType": "contract IClaimIssuer",
+        "name": "_trustedIssuer",
+        "type": "address"
+      }
     ],
-    stateMutability: "view",
-    type: "function",
+    "name": "getTrustedIssuerClaimTopics",
+    "outputs": [
+      {
+        "internalType": "uint256[]",
+        "name": "",
+        "type": "uint256[]"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
   },
   {
-    inputs: [],
-    name: "MAX_LINKED_WALLETS",
-    outputs: [
+    "inputs": [],
+    "name": "getTrustedIssuers",
+    "outputs": [
       {
-        internalType: "uint8",
-        name: "",
-        type: "uint8",
-      },
+        "internalType": "contract IClaimIssuer[]",
+        "name": "",
+        "type": "address[]"
+      }
     ],
-    stateMutability: "view",
-    type: "function",
+    "stateMutability": "view",
+    "type": "function"
   },
   {
-    inputs: [],
-    name: "MAX_MODULE_COMPLIANCE",
-    outputs: [
+    "inputs": [
       {
-        internalType: "uint8",
-        name: "",
-        type: "uint8",
-      },
+        "internalType": "uint256",
+        "name": "claimTopic",
+        "type": "uint256"
+      }
     ],
-    stateMutability: "view",
-    type: "function",
+    "name": "getTrustedIssuersForClaimTopic",
+    "outputs": [
+      {
+        "internalType": "contract IClaimIssuer[]",
+        "name": "",
+        "type": "address[]"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
   },
   {
-    inputs: [],
-    name: "MAX_TRUSTED_ISSUERS",
-    outputs: [
+    "inputs": [
       {
-        internalType: "uint8",
-        name: "",
-        type: "uint8",
+        "internalType": "address",
+        "name": "_issuer",
+        "type": "address"
       },
+      {
+        "internalType": "uint256",
+        "name": "_claimTopic",
+        "type": "uint256"
+      }
     ],
-    stateMutability: "view",
-    type: "function",
+    "name": "hasClaimTopic",
+    "outputs": [
+      {
+        "internalType": "bool",
+        "name": "",
+        "type": "bool"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
   },
   {
-    inputs: [],
-    name: "PERCENT_DECIMALS",
-    outputs: [
+    "inputs": [
       {
-        internalType: "uint8",
-        name: "",
-        type: "uint8",
-      },
+        "internalType": "address",
+        "name": "_issuer",
+        "type": "address"
+      }
     ],
-    stateMutability: "view",
-    type: "function",
+    "name": "isTrustedIssuer",
+    "outputs": [
+      {
+        "internalType": "bool",
+        "name": "",
+        "type": "bool"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
   },
   {
-    inputs: [],
-    name: "TIR_VERSION",
-    outputs: [
+    "inputs": [
       {
-        internalType: "string",
-        name: "",
-        type: "string",
-      },
+        "internalType": "address",
+        "name": "_issuer",
+        "type": "address"
+      }
     ],
-    stateMutability: "view",
-    type: "function",
+    "name": "onlyTrustedIssuer",
+    "outputs": [],
+    "stateMutability": "view",
+    "type": "function"
   },
   {
-    inputs: [
+    "inputs": [
       {
-        internalType: "address",
-        name: "operator",
-        type: "address",
-      },
+        "internalType": "contract IClaimIssuer",
+        "name": "_trustedIssuer",
+        "type": "address"
+      }
     ],
-    name: "addOperator",
-    outputs: [],
-    stateMutability: "nonpayable",
-    type: "function",
+    "name": "removeTrustedIssuer",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
   },
   {
-    inputs: [
+    "inputs": [
       {
-        internalType: "contract IClaimIssuer",
-        name: "_trustedIssuer",
-        type: "address",
-      },
-      {
-        internalType: "uint256[]",
-        name: "_claimTopics",
-        type: "uint256[]",
-      },
+        "internalType": "bytes4",
+        "name": "interfaceId",
+        "type": "bytes4"
+      }
     ],
-    name: "addTrustedIssuer",
-    outputs: [],
-    stateMutability: "nonpayable",
-    type: "function",
+    "name": "supportsInterface",
+    "outputs": [
+      {
+        "internalType": "bool",
+        "name": "",
+        "type": "bool"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
   },
   {
-    inputs: [],
-    name: "getOperatorManagement",
-    outputs: [
+    "inputs": [
       {
-        internalType: "contract IOperatorManagement",
-        name: "",
-        type: "address",
-      },
+        "internalType": "address",
+        "name": "operator",
+        "type": "address"
+      }
     ],
-    stateMutability: "view",
-    type: "function",
+    "name": "tirAddOperator",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
   },
   {
-    inputs: [
+    "inputs": [],
+    "name": "tirDiamond",
+    "outputs": [
       {
-        internalType: "contract IClaimIssuer",
-        name: "_trustedIssuer",
-        type: "address",
-      },
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
     ],
-    name: "getTrustedIssuerClaimTopics",
-    outputs: [
-      {
-        internalType: "uint256[]",
-        name: "",
-        type: "uint256[]",
-      },
-    ],
-    stateMutability: "view",
-    type: "function",
+    "stateMutability": "view",
+    "type": "function"
   },
   {
-    inputs: [],
-    name: "getTrustedIssuers",
-    outputs: [
+    "inputs": [
       {
-        internalType: "contract IClaimIssuer[]",
-        name: "",
-        type: "address[]",
-      },
+        "internalType": "address",
+        "name": "diamond",
+        "type": "address"
+      }
     ],
-    stateMutability: "view",
-    type: "function",
+    "name": "tirInitialize",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
   },
   {
-    inputs: [
+    "inputs": [
       {
-        internalType: "uint256",
-        name: "claimTopic",
-        type: "uint256",
-      },
+        "internalType": "address",
+        "name": "operator",
+        "type": "address"
+      }
     ],
-    name: "getTrustedIssuersForClaimTopic",
-    outputs: [
-      {
-        internalType: "contract IClaimIssuer[]",
-        name: "",
-        type: "address[]",
-      },
-    ],
-    stateMutability: "view",
-    type: "function",
+    "name": "tirRemoveOperator",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
   },
   {
-    inputs: [
+    "inputs": [
       {
-        internalType: "address",
-        name: "_issuer",
-        type: "address",
-      },
-      {
-        internalType: "uint256",
-        name: "_claimTopic",
-        type: "uint256",
-      },
+        "internalType": "address",
+        "name": "_address",
+        "type": "address"
+      }
     ],
-    name: "hasClaimTopic",
-    outputs: [
-      {
-        internalType: "bool",
-        name: "",
-        type: "bool",
-      },
-    ],
-    stateMutability: "view",
-    type: "function",
+    "name": "tirSetDiamond",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
   },
   {
-    inputs: [
+    "inputs": [
       {
-        internalType: "contract IAdminContractUpgradeable",
-        name: "admin",
-        type: "address",
+        "internalType": "contract IClaimIssuer",
+        "name": "_trustedIssuer",
+        "type": "address"
       },
+      {
+        "internalType": "uint256[]",
+        "name": "_claimTopics",
+        "type": "uint256[]"
+      }
     ],
-    name: "initialize",
-    outputs: [],
-    stateMutability: "nonpayable",
-    type: "function",
-  },
-  {
-    inputs: [
-      {
-        internalType: "address",
-        name: "_issuer",
-        type: "address",
-      },
-    ],
-    name: "isTrustedIssuer",
-    outputs: [
-      {
-        internalType: "bool",
-        name: "",
-        type: "bool",
-      },
-    ],
-    stateMutability: "view",
-    type: "function",
-  },
-  {
-    inputs: [
-      {
-        internalType: "address",
-        name: "_issuer",
-        type: "address",
-      },
-    ],
-    name: "onlyTrustedIssuer",
-    outputs: [],
-    stateMutability: "view",
-    type: "function",
-  },
-  {
-    inputs: [],
-    name: "owner",
-    outputs: [
-      {
-        internalType: "address",
-        name: "",
-        type: "address",
-      },
-    ],
-    stateMutability: "view",
-    type: "function",
-  },
-  {
-    inputs: [
-      {
-        internalType: "address",
-        name: "operator",
-        type: "address",
-      },
-    ],
-    name: "removeOperator",
-    outputs: [],
-    stateMutability: "nonpayable",
-    type: "function",
-  },
-  {
-    inputs: [
-      {
-        internalType: "contract IClaimIssuer",
-        name: "_trustedIssuer",
-        type: "address",
-      },
-    ],
-    name: "removeTrustedIssuer",
-    outputs: [],
-    stateMutability: "nonpayable",
-    type: "function",
-  },
-  {
-    inputs: [],
-    name: "renounceOwnership",
-    outputs: [],
-    stateMutability: "nonpayable",
-    type: "function",
-  },
-  {
-    inputs: [
-      {
-        internalType: "contract IOperatorManagement",
-        name: "operatorManagement",
-        type: "address",
-      },
-    ],
-    name: "setOperatorManagement",
-    outputs: [],
-    stateMutability: "nonpayable",
-    type: "function",
-  },
-  {
-    inputs: [
-      {
-        internalType: "address",
-        name: "newOwner",
-        type: "address",
-      },
-    ],
-    name: "transferOwnership",
-    outputs: [],
-    stateMutability: "nonpayable",
-    type: "function",
-  },
-  {
-    inputs: [
-      {
-        internalType: "contract IClaimIssuer",
-        name: "_trustedIssuer",
-        type: "address",
-      },
-      {
-        internalType: "uint256[]",
-        name: "_claimTopics",
-        type: "uint256[]",
-      },
-    ],
-    name: "updateIssuerClaimTopics",
-    outputs: [],
-    stateMutability: "nonpayable",
-    type: "function",
-  },
+    "name": "updateIssuerClaimTopics",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  }
 ] as const;

@@ -1,373 +1,292 @@
 export const CTR_ABI = [
   {
-    inputs: [],
-    stateMutability: "nonpayable",
-    type: "constructor",
-  },
-  {
-    inputs: [
+    "inputs": [
       {
-        internalType: "uint256",
-        name: "i",
-        type: "uint256",
+        "internalType": "uint256",
+        "name": "i",
+        "type": "uint256"
       },
       {
-        internalType: "uint256",
-        name: "topic",
-        type: "uint256",
-      },
+        "internalType": "uint256",
+        "name": "topic",
+        "type": "uint256"
+      }
     ],
-    name: "ClaimTopicAlreadyExists",
-    type: "error",
+    "name": "ClaimTopicAlreadyExists",
+    "type": "error"
   },
   {
-    inputs: [
+    "inputs": [],
+    "name": "IsNotFalse",
+    "type": "error"
+  },
+  {
+    "inputs": [
       {
-        internalType: "uint256",
-        name: "length",
-        type: "uint256",
+        "internalType": "uint256",
+        "name": "length",
+        "type": "uint256"
       },
       {
-        internalType: "uint256",
-        name: "limit",
-        type: "uint256",
-      },
+        "internalType": "uint256",
+        "name": "limit",
+        "type": "uint256"
+      }
     ],
-    name: "MaxClaimTopic",
-    type: "error",
+    "name": "MaxClaimTopic",
+    "type": "error"
   },
   {
-    inputs: [
+    "inputs": [
       {
-        internalType: "address",
-        name: "caller",
-        type: "address",
-      },
+        "internalType": "address",
+        "name": "caller",
+        "type": "address"
+      }
     ],
-    name: "NotOperator",
-    type: "error",
+    "name": "NotOperator",
+    "type": "error"
   },
   {
-    inputs: [
+    "inputs": [
       {
-        internalType: "address",
-        name: "_address",
-        type: "address",
-      },
+        "internalType": "address",
+        "name": "caller",
+        "type": "address"
+      }
     ],
-    name: "ZeroAddress",
-    type: "error",
+    "name": "NotTrustedIssuer",
+    "type": "error"
   },
   {
-    anonymous: false,
-    inputs: [
+    "inputs": [
       {
-        indexed: true,
-        internalType: "uint256",
-        name: "claimTopic",
-        type: "uint256",
-      },
+        "internalType": "address",
+        "name": "_address",
+        "type": "address"
+      }
     ],
-    name: "ClaimTopicAdded",
-    type: "event",
+    "name": "ZeroAddress",
+    "type": "error"
   },
   {
-    anonymous: false,
-    inputs: [
+    "anonymous": false,
+    "inputs": [
       {
-        indexed: true,
-        internalType: "uint256",
-        name: "claimTopic",
-        type: "uint256",
-      },
+        "indexed": true,
+        "internalType": "uint256",
+        "name": "claimTopic",
+        "type": "uint256"
+      }
     ],
-    name: "ClaimTopicRemoved",
-    type: "event",
+    "name": "ClaimTopicAdded",
+    "type": "event"
   },
   {
-    anonymous: false,
-    inputs: [
+    "anonymous": false,
+    "inputs": [
       {
-        indexed: false,
-        internalType: "uint8",
-        name: "version",
-        type: "uint8",
-      },
+        "indexed": true,
+        "internalType": "uint256",
+        "name": "claimTopic",
+        "type": "uint256"
+      }
     ],
-    name: "Initialized",
-    type: "event",
+    "name": "ClaimTopicRemoved",
+    "type": "event"
   },
   {
-    anonymous: false,
-    inputs: [
+    "anonymous": false,
+    "inputs": [
       {
-        indexed: true,
-        internalType: "address",
-        name: "previousOwner",
-        type: "address",
+        "indexed": false,
+        "internalType": "address",
+        "name": "caller",
+        "type": "address"
       },
       {
-        indexed: true,
-        internalType: "address",
-        name: "newOwner",
-        type: "address",
-      },
+        "indexed": false,
+        "internalType": "address",
+        "name": "diamond",
+        "type": "address"
+      }
     ],
-    name: "OwnershipTransferred",
-    type: "event",
+    "name": "SetDiamond",
+    "type": "event"
   },
   {
-    anonymous: false,
-    inputs: [
+    "anonymous": false,
+    "inputs": [
       {
-        indexed: true,
-        internalType: "uint256",
-        name: "claimTopic",
-        type: "uint256",
-      },
+        "indexed": true,
+        "internalType": "uint256",
+        "name": "claimTopic",
+        "type": "uint256"
+      }
     ],
-    name: "TokenClaimTopicAdded",
-    type: "event",
+    "name": "TokenClaimTopicAdded",
+    "type": "event"
   },
   {
-    anonymous: false,
-    inputs: [
+    "anonymous": false,
+    "inputs": [
       {
-        indexed: true,
-        internalType: "uint256",
-        name: "claimTopic",
-        type: "uint256",
-      },
+        "indexed": true,
+        "internalType": "uint256",
+        "name": "claimTopic",
+        "type": "uint256"
+      }
     ],
-    name: "TokenClaimTopicRemoved",
-    type: "event",
+    "name": "TokenClaimTopicRemoved",
+    "type": "event"
   },
   {
-    inputs: [],
-    name: "CTR_VERSION",
-    outputs: [
+    "inputs": [],
+    "name": "CTR_VERSION",
+    "outputs": [
       {
-        internalType: "string",
-        name: "",
-        type: "string",
-      },
+        "internalType": "string",
+        "name": "",
+        "type": "string"
+      }
     ],
-    stateMutability: "view",
-    type: "function",
+    "stateMutability": "view",
+    "type": "function"
   },
   {
-    inputs: [],
-    name: "MAX_CLAIM_TOPICS",
-    outputs: [
+    "inputs": [
       {
-        internalType: "uint8",
-        name: "",
-        type: "uint8",
-      },
+        "internalType": "uint256",
+        "name": "_claimTopic",
+        "type": "uint256"
+      }
     ],
-    stateMutability: "view",
-    type: "function",
+    "name": "addClaimTopic",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
   },
   {
-    inputs: [],
-    name: "MAX_COUNTRY_REGISTRIES",
-    outputs: [
+    "inputs": [
       {
-        internalType: "uint16",
-        name: "",
-        type: "uint16",
-      },
+        "internalType": "uint256",
+        "name": "_claimTopic",
+        "type": "uint256"
+      }
     ],
-    stateMutability: "view",
-    type: "function",
+    "name": "addTokenClaimTopic",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
   },
   {
-    inputs: [],
-    name: "MAX_IDENTITY_REGISTRIES",
-    outputs: [
+    "inputs": [],
+    "name": "ctrDiamond",
+    "outputs": [
       {
-        internalType: "uint16",
-        name: "",
-        type: "uint16",
-      },
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
     ],
-    stateMutability: "view",
-    type: "function",
+    "stateMutability": "view",
+    "type": "function"
   },
   {
-    inputs: [],
-    name: "MAX_LINKED_WALLETS",
-    outputs: [
+    "inputs": [
       {
-        internalType: "uint8",
-        name: "",
-        type: "uint8",
-      },
+        "internalType": "address",
+        "name": "diamond",
+        "type": "address"
+      }
     ],
-    stateMutability: "view",
-    type: "function",
+    "name": "ctrInitialize",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
   },
   {
-    inputs: [],
-    name: "MAX_MODULE_COMPLIANCE",
-    outputs: [
+    "inputs": [
       {
-        internalType: "uint8",
-        name: "",
-        type: "uint8",
-      },
+        "internalType": "address",
+        "name": "_address",
+        "type": "address"
+      }
     ],
-    stateMutability: "view",
-    type: "function",
+    "name": "ctrSetDiamond",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
   },
   {
-    inputs: [],
-    name: "MAX_TRUSTED_ISSUERS",
-    outputs: [
+    "inputs": [],
+    "name": "getClaimTopics",
+    "outputs": [
       {
-        internalType: "uint8",
-        name: "",
-        type: "uint8",
-      },
+        "internalType": "uint256[]",
+        "name": "",
+        "type": "uint256[]"
+      }
     ],
-    stateMutability: "view",
-    type: "function",
+    "stateMutability": "view",
+    "type": "function"
   },
   {
-    inputs: [],
-    name: "PERCENT_DECIMALS",
-    outputs: [
+    "inputs": [],
+    "name": "getTokenClaimTopics",
+    "outputs": [
       {
-        internalType: "uint8",
-        name: "",
-        type: "uint8",
-      },
+        "internalType": "uint256[]",
+        "name": "",
+        "type": "uint256[]"
+      }
     ],
-    stateMutability: "view",
-    type: "function",
+    "stateMutability": "view",
+    "type": "function"
   },
   {
-    inputs: [
+    "inputs": [
       {
-        internalType: "uint256",
-        name: "_claimTopic",
-        type: "uint256",
-      },
+        "internalType": "uint256",
+        "name": "_claimTopic",
+        "type": "uint256"
+      }
     ],
-    name: "addClaimTopic",
-    outputs: [],
-    stateMutability: "nonpayable",
-    type: "function",
+    "name": "removeClaimTopic",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
   },
   {
-    inputs: [
+    "inputs": [
       {
-        internalType: "uint256",
-        name: "_claimTopic",
-        type: "uint256",
-      },
+        "internalType": "uint256",
+        "name": "_claimTopic",
+        "type": "uint256"
+      }
     ],
-    name: "addTokenClaimTopic",
-    outputs: [],
-    stateMutability: "nonpayable",
-    type: "function",
+    "name": "removeTokenClaimTopic",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
   },
   {
-    inputs: [],
-    name: "getClaimTopics",
-    outputs: [
+    "inputs": [
       {
-        internalType: "uint256[]",
-        name: "",
-        type: "uint256[]",
-      },
+        "internalType": "bytes4",
+        "name": "interfaceId",
+        "type": "bytes4"
+      }
     ],
-    stateMutability: "view",
-    type: "function",
-  },
-  {
-    inputs: [],
-    name: "getTokenClaimTopics",
-    outputs: [
+    "name": "supportsInterface",
+    "outputs": [
       {
-        internalType: "uint256[]",
-        name: "",
-        type: "uint256[]",
-      },
+        "internalType": "bool",
+        "name": "",
+        "type": "bool"
+      }
     ],
-    stateMutability: "view",
-    type: "function",
-  },
-  {
-    inputs: [
-      {
-        internalType: "contract IAdminContractUpgradeable",
-        name: "admin",
-        type: "address",
-      },
-    ],
-    name: "initialize",
-    outputs: [],
-    stateMutability: "nonpayable",
-    type: "function",
-  },
-  {
-    inputs: [],
-    name: "owner",
-    outputs: [
-      {
-        internalType: "address",
-        name: "",
-        type: "address",
-      },
-    ],
-    stateMutability: "view",
-    type: "function",
-  },
-  {
-    inputs: [
-      {
-        internalType: "uint256",
-        name: "_claimTopic",
-        type: "uint256",
-      },
-    ],
-    name: "removeClaimTopic",
-    outputs: [],
-    stateMutability: "nonpayable",
-    type: "function",
-  },
-  {
-    inputs: [
-      {
-        internalType: "uint256",
-        name: "_claimTopic",
-        type: "uint256",
-      },
-    ],
-    name: "removeTokenClaimTopic",
-    outputs: [],
-    stateMutability: "nonpayable",
-    type: "function",
-  },
-  {
-    inputs: [],
-    name: "renounceOwnership",
-    outputs: [],
-    stateMutability: "nonpayable",
-    type: "function",
-  },
-  {
-    inputs: [
-      {
-        internalType: "address",
-        name: "newOwner",
-        type: "address",
-      },
-    ],
-    name: "transferOwnership",
-    outputs: [],
-    stateMutability: "nonpayable",
-    type: "function",
-  },
+    "stateMutability": "view",
+    "type": "function"
+  }
 ] as const;
