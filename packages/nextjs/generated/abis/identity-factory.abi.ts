@@ -1,473 +1,577 @@
 export const ID_FACTORY_ABI = [
   {
-    "inputs": [
+    inputs: [
       {
-        "internalType": "address",
-        "name": "factory",
-        "type": "address"
-      }
+        internalType: "address",
+        name: "factory",
+        type: "address",
+      },
     ],
-    "name": "AlreadyTokenFactory",
-    "type": "error"
+    name: "AlreadyTokenFactory",
+    type: "error",
   },
   {
-    "inputs": [
+    inputs: [],
+    name: "EmptyArray",
+    type: "error",
+  },
+  {
+    inputs: [
       {
-        "internalType": "uint256",
-        "name": "length",
-        "type": "uint256"
+        internalType: "string",
+        name: "str",
+        type: "string",
+      },
+    ],
+    name: "EmptyString",
+    type: "error",
+  },
+  {
+    inputs: [],
+    name: "IsNotFalse",
+    type: "error",
+  },
+  {
+    inputs: [
+      {
+        internalType: "address",
+        name: "_address",
+        type: "address",
+      },
+    ],
+    name: "IsZeroAddress",
+    type: "error",
+  },
+  {
+    inputs: [
+      {
+        internalType: "uint256",
+        name: "length",
+        type: "uint256",
       },
       {
-        "internalType": "uint8",
-        "name": "limit",
-        "type": "uint8"
-      }
+        internalType: "uint8",
+        name: "limit",
+        type: "uint8",
+      },
     ],
-    "name": "MaxLinkedWallets",
-    "type": "error"
+    name: "MaxLinkedWallets",
+    type: "error",
   },
   {
-    "inputs": [
+    inputs: [
       {
-        "internalType": "address",
-        "name": "sender",
-        "type": "address"
-      }
+        internalType: "address",
+        name: "_address",
+        type: "address",
+      },
     ],
-    "name": "NotLinkedWallet",
-    "type": "error"
+    name: "NonMsgSender",
+    type: "error",
   },
   {
-    "inputs": [
+    inputs: [
       {
-        "internalType": "address",
-        "name": "factory",
-        "type": "address"
-      }
+        internalType: "address",
+        name: "sender",
+        type: "address",
+      },
     ],
-    "name": "NotTokenFactory",
-    "type": "error"
+    name: "NotLinkedWallet",
+    type: "error",
   },
   {
-    "inputs": [
+    inputs: [
       {
-        "internalType": "address",
-        "name": "sender",
-        "type": "address"
-      }
+        internalType: "address",
+        name: "factory",
+        type: "address",
+      },
     ],
-    "name": "NotTrustedIssuer",
-    "type": "error"
+    name: "NotTokenFactory",
+    type: "error",
   },
   {
-    "inputs": [
+    inputs: [
       {
-        "internalType": "address",
-        "name": "sender",
-        "type": "address"
-      }
+        internalType: "address",
+        name: "sender",
+        type: "address",
+      },
     ],
-    "name": "OnlyFactoryOrOwner",
-    "type": "error"
+    name: "NotTrustedIssuer",
+    type: "error",
   },
   {
-    "inputs": [
+    inputs: [
       {
-        "internalType": "string",
-        "name": "salt",
-        "type": "string"
-      }
+        internalType: "address",
+        name: "sender",
+        type: "address",
+      },
     ],
-    "name": "SaltTaken",
-    "type": "error"
+    name: "OnlyFactoryOrOwner",
+    type: "error",
   },
   {
-    "inputs": [
+    inputs: [
       {
-        "internalType": "address",
-        "name": "wallet",
-        "type": "address"
-      }
+        internalType: "string",
+        name: "salt",
+        type: "string",
+      },
     ],
-    "name": "WalletAlreadyListed",
-    "type": "error"
+    name: "SaltTaken",
+    type: "error",
   },
   {
-    "anonymous": false,
-    "inputs": [
+    inputs: [
       {
-        "indexed": true,
-        "internalType": "address",
-        "name": "_addr",
-        "type": "address"
-      }
+        internalType: "address",
+        name: "wallet",
+        type: "address",
+      },
     ],
-    "name": "Deployed",
-    "type": "event"
+    name: "WalletAlreadyListed",
+    type: "error",
   },
   {
-    "anonymous": false,
-    "inputs": [
+    inputs: [
       {
-        "indexed": false,
-        "internalType": "address",
-        "name": "caller",
-        "type": "address"
+        internalType: "address",
+        name: "_address",
+        type: "address",
+      },
+    ],
+    name: "ZeroAddress",
+    type: "error",
+  },
+  {
+    anonymous: false,
+    inputs: [
+      {
+        indexed: true,
+        internalType: "address",
+        name: "_addr",
+        type: "address",
+      },
+    ],
+    name: "Deployed",
+    type: "event",
+  },
+  {
+    anonymous: false,
+    inputs: [
+      {
+        indexed: false,
+        internalType: "address",
+        name: "caller",
+        type: "address",
       },
       {
-        "indexed": false,
-        "internalType": "address",
-        "name": "diamond",
-        "type": "address"
-      }
+        indexed: false,
+        internalType: "address",
+        name: "diamond",
+        type: "address",
+      },
     ],
-    "name": "SetDiamond",
-    "type": "event"
+    name: "SetDiamond",
+    type: "event",
   },
   {
-    "anonymous": false,
-    "inputs": [
+    anonymous: false,
+    inputs: [
       {
-        "indexed": true,
-        "internalType": "address",
-        "name": "factory",
-        "type": "address"
-      }
+        indexed: true,
+        internalType: "address",
+        name: "factory",
+        type: "address",
+      },
     ],
-    "name": "TokenFactoryAdded",
-    "type": "event"
+    name: "TokenFactoryAdded",
+    type: "event",
   },
   {
-    "anonymous": false,
-    "inputs": [
+    anonymous: false,
+    inputs: [
       {
-        "indexed": true,
-        "internalType": "address",
-        "name": "factory",
-        "type": "address"
-      }
+        indexed: true,
+        internalType: "address",
+        name: "factory",
+        type: "address",
+      },
     ],
-    "name": "TokenFactoryRemoved",
-    "type": "event"
+    name: "TokenFactoryRemoved",
+    type: "event",
   },
   {
-    "anonymous": false,
-    "inputs": [
+    anonymous: false,
+    inputs: [
       {
-        "indexed": true,
-        "internalType": "address",
-        "name": "token",
-        "type": "address"
+        indexed: true,
+        internalType: "address",
+        name: "token",
+        type: "address",
       },
       {
-        "indexed": true,
-        "internalType": "address",
-        "name": "identity",
-        "type": "address"
-      }
+        indexed: true,
+        internalType: "address",
+        name: "identity",
+        type: "address",
+      },
     ],
-    "name": "TokenLinked",
-    "type": "event"
+    name: "TokenLinked",
+    type: "event",
   },
   {
-    "anonymous": false,
-    "inputs": [
+    anonymous: false,
+    inputs: [
       {
-        "indexed": true,
-        "internalType": "address",
-        "name": "wallet",
-        "type": "address"
+        indexed: true,
+        internalType: "address",
+        name: "wallet",
+        type: "address",
       },
       {
-        "indexed": true,
-        "internalType": "address",
-        "name": "identity",
-        "type": "address"
-      }
+        indexed: true,
+        internalType: "address",
+        name: "identity",
+        type: "address",
+      },
     ],
-    "name": "WalletLinked",
-    "type": "event"
+    name: "WalletLinked",
+    type: "event",
   },
   {
-    "anonymous": false,
-    "inputs": [
+    anonymous: false,
+    inputs: [
       {
-        "indexed": true,
-        "internalType": "address",
-        "name": "wallet",
-        "type": "address"
+        indexed: true,
+        internalType: "address",
+        name: "wallet",
+        type: "address",
       },
       {
-        "indexed": true,
-        "internalType": "address",
-        "name": "identity",
-        "type": "address"
-      }
+        indexed: true,
+        internalType: "address",
+        name: "identity",
+        type: "address",
+      },
     ],
-    "name": "WalletUnlinked",
-    "type": "event"
+    name: "WalletUnlinked",
+    type: "event",
   },
   {
-    "inputs": [
+    inputs: [],
+    name: "IDFACTORY_VERSION",
+    outputs: [
       {
-        "internalType": "address",
-        "name": "_factory",
-        "type": "address"
-      }
+        internalType: "string",
+        name: "",
+        type: "string",
+      },
     ],
-    "name": "addTokenFactory",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
+    stateMutability: "view",
+    type: "function",
   },
   {
-    "inputs": [
+    inputs: [
       {
-        "internalType": "address",
-        "name": "_wallet",
-        "type": "address"
+        internalType: "address",
+        name: "_factory",
+        type: "address",
+      },
+    ],
+    name: "addTokenFactory",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        internalType: "address",
+        name: "_wallet",
+        type: "address",
       },
       {
-        "internalType": "string",
-        "name": "_salt",
-        "type": "string"
-      }
+        internalType: "string",
+        name: "_salt",
+        type: "string",
+      },
     ],
-    "name": "createIdentity",
-    "outputs": [
+    name: "createIdentity",
+    outputs: [
       {
-        "internalType": "address",
-        "name": "",
-        "type": "address"
-      }
+        internalType: "address",
+        name: "",
+        type: "address",
+      },
     ],
-    "stateMutability": "nonpayable",
-    "type": "function"
+    stateMutability: "nonpayable",
+    type: "function",
   },
   {
-    "inputs": [
+    inputs: [
       {
-        "internalType": "address",
-        "name": "_wallet",
-        "type": "address"
+        internalType: "address",
+        name: "_wallet",
+        type: "address",
       },
       {
-        "internalType": "string",
-        "name": "_salt",
-        "type": "string"
+        internalType: "string",
+        name: "_salt",
+        type: "string",
       },
       {
-        "internalType": "bytes32[]",
-        "name": "_managementKeys",
-        "type": "bytes32[]"
-      }
+        internalType: "bytes32[]",
+        name: "_managementKeys",
+        type: "bytes32[]",
+      },
     ],
-    "name": "createIdentityWithManagementKeys",
-    "outputs": [
+    name: "createIdentityWithManagementKeys",
+    outputs: [
       {
-        "internalType": "address",
-        "name": "",
-        "type": "address"
-      }
+        internalType: "address",
+        name: "",
+        type: "address",
+      },
     ],
-    "stateMutability": "nonpayable",
-    "type": "function"
+    stateMutability: "nonpayable",
+    type: "function",
   },
   {
-    "inputs": [
+    inputs: [
       {
-        "internalType": "address",
-        "name": "_token",
-        "type": "address"
+        internalType: "address",
+        name: "_token",
+        type: "address",
       },
       {
-        "internalType": "string",
-        "name": "_salt",
-        "type": "string"
-      }
+        internalType: "string",
+        name: "_salt",
+        type: "string",
+      },
     ],
-    "name": "createTokenIdentity",
-    "outputs": [
+    name: "createTokenIdentity",
+    outputs: [
       {
-        "internalType": "address",
-        "name": "",
-        "type": "address"
-      }
+        internalType: "address",
+        name: "",
+        type: "address",
+      },
     ],
-    "stateMutability": "nonpayable",
-    "type": "function"
+    stateMutability: "nonpayable",
+    type: "function",
   },
   {
-    "inputs": [
+    inputs: [
       {
-        "internalType": "address",
-        "name": "_wallet",
-        "type": "address"
-      }
+        internalType: "address",
+        name: "_wallet",
+        type: "address",
+      },
     ],
-    "name": "getIdentity",
-    "outputs": [
+    name: "getIdentity",
+    outputs: [
       {
-        "internalType": "address",
-        "name": "",
-        "type": "address"
-      }
+        internalType: "address",
+        name: "",
+        type: "address",
+      },
     ],
-    "stateMutability": "view",
-    "type": "function"
+    stateMutability: "view",
+    type: "function",
   },
   {
-    "inputs": [
+    inputs: [
       {
-        "internalType": "address",
-        "name": "_identity",
-        "type": "address"
-      }
+        internalType: "address",
+        name: "_identity",
+        type: "address",
+      },
     ],
-    "name": "getToken",
-    "outputs": [
+    name: "getToken",
+    outputs: [
       {
-        "internalType": "address",
-        "name": "",
-        "type": "address"
-      }
+        internalType: "address",
+        name: "",
+        type: "address",
+      },
     ],
-    "stateMutability": "view",
-    "type": "function"
+    stateMutability: "view",
+    type: "function",
   },
   {
-    "inputs": [
+    inputs: [
       {
-        "internalType": "address",
-        "name": "_identity",
-        "type": "address"
-      }
+        internalType: "address",
+        name: "_identity",
+        type: "address",
+      },
     ],
-    "name": "getWallets",
-    "outputs": [
+    name: "getWallets",
+    outputs: [
       {
-        "internalType": "address[]",
-        "name": "",
-        "type": "address[]"
-      }
+        internalType: "address[]",
+        name: "",
+        type: "address[]",
+      },
     ],
-    "stateMutability": "view",
-    "type": "function"
+    stateMutability: "view",
+    type: "function",
   },
   {
-    "inputs": [],
-    "name": "idfDiamond",
-    "outputs": [
+    inputs: [],
+    name: "idfDiamond",
+    outputs: [
       {
-        "internalType": "address",
-        "name": "",
-        "type": "address"
-      }
+        internalType: "address",
+        name: "",
+        type: "address",
+      },
     ],
-    "stateMutability": "view",
-    "type": "function"
+    stateMutability: "view",
+    type: "function",
   },
   {
-    "inputs": [
+    inputs: [
       {
-        "internalType": "address",
-        "name": "_address",
-        "type": "address"
-      }
+        internalType: "address",
+        name: "diamond",
+        type: "address",
+      },
+      {
+        internalType: "address",
+        name: "ia",
+        type: "address",
+      },
     ],
-    "name": "idfSetDiamond",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
+    name: "idfInitialize",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
   },
   {
-    "inputs": [],
-    "name": "implementationAuthority",
-    "outputs": [
+    inputs: [
       {
-        "internalType": "address",
-        "name": "",
-        "type": "address"
-      }
+        internalType: "address",
+        name: "_address",
+        type: "address",
+      },
     ],
-    "stateMutability": "view",
-    "type": "function"
+    name: "idfSetDiamond",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
   },
   {
-    "inputs": [
+    inputs: [],
+    name: "implementationAuthority",
+    outputs: [
       {
-        "internalType": "string",
-        "name": "_salt",
-        "type": "string"
-      }
+        internalType: "address",
+        name: "",
+        type: "address",
+      },
     ],
-    "name": "isSaltTaken",
-    "outputs": [
-      {
-        "internalType": "bool",
-        "name": "",
-        "type": "bool"
-      }
-    ],
-    "stateMutability": "view",
-    "type": "function"
+    stateMutability: "view",
+    type: "function",
   },
   {
-    "inputs": [
+    inputs: [
       {
-        "internalType": "address",
-        "name": "_factory",
-        "type": "address"
-      }
+        internalType: "string",
+        name: "_salt",
+        type: "string",
+      },
     ],
-    "name": "isTokenFactory",
-    "outputs": [
+    name: "isSaltTaken",
+    outputs: [
       {
-        "internalType": "bool",
-        "name": "",
-        "type": "bool"
-      }
+        internalType: "bool",
+        name: "",
+        type: "bool",
+      },
     ],
-    "stateMutability": "view",
-    "type": "function"
+    stateMutability: "view",
+    type: "function",
   },
   {
-    "inputs": [
+    inputs: [
       {
-        "internalType": "address",
-        "name": "_newWallet",
-        "type": "address"
-      }
+        internalType: "address",
+        name: "_factory",
+        type: "address",
+      },
     ],
-    "name": "linkWallet",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
+    name: "isTokenFactory",
+    outputs: [
+      {
+        internalType: "bool",
+        name: "",
+        type: "bool",
+      },
+    ],
+    stateMutability: "view",
+    type: "function",
   },
   {
-    "inputs": [
+    inputs: [
       {
-        "internalType": "address",
-        "name": "_factory",
-        "type": "address"
-      }
+        internalType: "address",
+        name: "_newWallet",
+        type: "address",
+      },
     ],
-    "name": "removeTokenFactory",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
+    name: "linkWallet",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
   },
   {
-    "inputs": [
+    inputs: [
       {
-        "internalType": "address",
-        "name": "_oldWallet",
-        "type": "address"
-      }
+        internalType: "address",
+        name: "_factory",
+        type: "address",
+      },
     ],
-    "name": "unlinkWallet",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-  }
+    name: "removeTokenFactory",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        internalType: "bytes4",
+        name: "interfaceId",
+        type: "bytes4",
+      },
+    ],
+    name: "supportsInterface",
+    outputs: [
+      {
+        internalType: "bool",
+        name: "",
+        type: "bool",
+      },
+    ],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        internalType: "address",
+        name: "_oldWallet",
+        type: "address",
+      },
+    ],
+    name: "unlinkWallet",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
 ] as const;

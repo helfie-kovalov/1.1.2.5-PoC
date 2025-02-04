@@ -1,808 +1,808 @@
 export const DVD_ABI = [
   {
-    "inputs": [
+    inputs: [
       {
-        "internalType": "address",
-        "name": "sender",
-        "type": "address"
-      }
+        internalType: "address",
+        name: "sender",
+        type: "address",
+      },
     ],
-    "name": "CantCancel",
-    "type": "error"
+    name: "CantCancel",
+    type: "error",
   },
   {
-    "inputs": [
+    inputs: [
       {
-        "internalType": "bytes32",
-        "name": "_transferID",
-        "type": "bytes32"
+        internalType: "bytes32",
+        name: "_transferID",
+        type: "bytes32",
       },
       {
-        "internalType": "enum DVDTransferManagerFacetStorage.IsExecuted",
-        "name": "isExecuted",
-        "type": "uint8"
-      }
+        internalType: "enum DVDTransferManagerFacetStorage.IsExecuted",
+        name: "isExecuted",
+        type: "uint8",
+      },
     ],
-    "name": "CantExecuteOrder",
-    "type": "error"
+    name: "CantExecuteOrder",
+    type: "error",
   },
   {
-    "inputs": [
+    inputs: [
       {
-        "internalType": "address",
-        "name": "sender",
-        "type": "address"
-      }
+        internalType: "address",
+        name: "sender",
+        type: "address",
+      },
     ],
-    "name": "CantTakeTransfer",
-    "type": "error"
+    name: "CantTakeTransfer",
+    type: "error",
   },
   {
-    "inputs": [
+    inputs: [
       {
-        "internalType": "uint256",
-        "name": "price",
-        "type": "uint256"
+        internalType: "uint256",
+        name: "price",
+        type: "uint256",
       },
       {
-        "internalType": "uint256",
-        "name": "validPrice",
-        "type": "uint256"
-      }
+        internalType: "uint256",
+        name: "validPrice",
+        type: "uint256",
+      },
     ],
-    "name": "InvalidBuyPrice",
-    "type": "error"
+    name: "InvalidBuyPrice",
+    type: "error",
   },
   {
-    "inputs": [],
-    "name": "IsNotFalse",
-    "type": "error"
+    inputs: [],
+    name: "IsNotFalse",
+    type: "error",
   },
   {
-    "inputs": [
+    inputs: [
       {
-        "internalType": "address",
-        "name": "sender",
-        "type": "address"
+        internalType: "address",
+        name: "sender",
+        type: "address",
       },
       {
-        "internalType": "uint256",
-        "name": "tokenAmount",
-        "type": "uint256"
-      }
+        internalType: "uint256",
+        name: "tokenAmount",
+        type: "uint256",
+      },
     ],
-    "name": "NotEnoughAllowance",
-    "type": "error"
+    name: "NotEnoughAllowance",
+    type: "error",
   },
   {
-    "inputs": [
+    inputs: [
       {
-        "internalType": "uint256",
-        "name": "balance",
-        "type": "uint256"
+        internalType: "uint256",
+        name: "balance",
+        type: "uint256",
       },
       {
-        "internalType": "uint256",
-        "name": "tokenAmount",
-        "type": "uint256"
-      }
+        internalType: "uint256",
+        name: "tokenAmount",
+        type: "uint256",
+      },
     ],
-    "name": "NotEnoughBalance",
-    "type": "error"
+    name: "NotEnoughBalance",
+    type: "error",
   },
   {
-    "inputs": [
+    inputs: [
       {
-        "internalType": "address",
-        "name": "sender",
-        "type": "address"
-      }
+        internalType: "address",
+        name: "sender",
+        type: "address",
+      },
     ],
-    "name": "NotTrustedIssuer",
-    "type": "error"
+    name: "NotTrustedIssuer",
+    type: "error",
   },
   {
-    "inputs": [
+    inputs: [
       {
-        "internalType": "address",
-        "name": "_address",
-        "type": "address"
-      }
+        internalType: "address",
+        name: "_address",
+        type: "address",
+      },
     ],
-    "name": "ZeroAddress",
-    "type": "error"
+    name: "ZeroAddress",
+    type: "error",
   },
   {
-    "inputs": [
+    inputs: [
       {
-        "internalType": "uint256",
-        "name": "_amount",
-        "type": "uint256"
-      }
+        internalType: "uint256",
+        name: "_amount",
+        type: "uint256",
+      },
     ],
-    "name": "ZeroUint",
-    "type": "error"
+    name: "ZeroUint",
+    type: "error",
   },
   {
-    "anonymous": false,
-    "inputs": [
+    anonymous: false,
+    inputs: [
       {
-        "indexed": true,
-        "internalType": "bytes32",
-        "name": "transferID",
-        "type": "bytes32"
-      }
+        indexed: true,
+        internalType: "bytes32",
+        name: "transferID",
+        type: "bytes32",
+      },
     ],
-    "name": "DVDTransferCancelled",
-    "type": "event"
+    name: "DVDTransferCancelled",
+    type: "event",
   },
   {
-    "anonymous": false,
-    "inputs": [
+    anonymous: false,
+    inputs: [
       {
-        "indexed": true,
-        "internalType": "bytes32",
-        "name": "transferID",
-        "type": "bytes32"
-      }
+        indexed: true,
+        internalType: "bytes32",
+        name: "transferID",
+        type: "bytes32",
+      },
     ],
-    "name": "DVDTransferExecuted",
-    "type": "event"
+    name: "DVDTransferExecuted",
+    type: "event",
   },
   {
-    "anonymous": false,
-    "inputs": [
+    anonymous: false,
+    inputs: [
       {
-        "indexed": true,
-        "internalType": "bytes32",
-        "name": "transferID",
-        "type": "bytes32"
+        indexed: true,
+        internalType: "bytes32",
+        name: "transferID",
+        type: "bytes32",
       },
       {
-        "indexed": false,
-        "internalType": "address",
-        "name": "maker",
-        "type": "address"
+        indexed: false,
+        internalType: "address",
+        name: "maker",
+        type: "address",
       },
       {
-        "indexed": true,
-        "internalType": "address",
-        "name": "token1",
-        "type": "address"
+        indexed: true,
+        internalType: "address",
+        name: "token1",
+        type: "address",
       },
       {
-        "indexed": false,
-        "internalType": "uint256",
-        "name": "token1Amount",
-        "type": "uint256"
+        indexed: false,
+        internalType: "uint256",
+        name: "token1Amount",
+        type: "uint256",
       },
       {
-        "indexed": false,
-        "internalType": "address",
-        "name": "taker",
-        "type": "address"
+        indexed: false,
+        internalType: "address",
+        name: "taker",
+        type: "address",
       },
       {
-        "indexed": true,
-        "internalType": "address",
-        "name": "token2",
-        "type": "address"
+        indexed: true,
+        internalType: "address",
+        name: "token2",
+        type: "address",
       },
       {
-        "indexed": false,
-        "internalType": "uint256",
-        "name": "token2Amount",
-        "type": "uint256"
-      }
+        indexed: false,
+        internalType: "uint256",
+        name: "token2Amount",
+        type: "uint256",
+      },
     ],
-    "name": "DVDTransferInitiated",
-    "type": "event"
+    name: "DVDTransferInitiated",
+    type: "event",
   },
   {
-    "anonymous": false,
-    "inputs": [
+    anonymous: false,
+    inputs: [
       {
-        "indexed": true,
-        "internalType": "bytes32",
-        "name": "parity",
-        "type": "bytes32"
+        indexed: true,
+        internalType: "bytes32",
+        name: "parity",
+        type: "bytes32",
       },
       {
-        "indexed": false,
-        "internalType": "address",
-        "name": "token1",
-        "type": "address"
+        indexed: false,
+        internalType: "address",
+        name: "token1",
+        type: "address",
       },
       {
-        "indexed": false,
-        "internalType": "address",
-        "name": "token2",
-        "type": "address"
+        indexed: false,
+        internalType: "address",
+        name: "token2",
+        type: "address",
       },
       {
-        "indexed": false,
-        "internalType": "uint256",
-        "name": "fee1",
-        "type": "uint256"
+        indexed: false,
+        internalType: "uint256",
+        name: "fee1",
+        type: "uint256",
       },
       {
-        "indexed": false,
-        "internalType": "uint256",
-        "name": "fee2",
-        "type": "uint256"
+        indexed: false,
+        internalType: "uint256",
+        name: "fee2",
+        type: "uint256",
       },
       {
-        "indexed": false,
-        "internalType": "uint256",
-        "name": "feeBase",
-        "type": "uint256"
+        indexed: false,
+        internalType: "uint256",
+        name: "feeBase",
+        type: "uint256",
       },
       {
-        "indexed": false,
-        "internalType": "address",
-        "name": "fee1Wallet",
-        "type": "address"
+        indexed: false,
+        internalType: "address",
+        name: "fee1Wallet",
+        type: "address",
       },
       {
-        "indexed": false,
-        "internalType": "address",
-        "name": "fee2Wallet",
-        "type": "address"
-      }
+        indexed: false,
+        internalType: "address",
+        name: "fee2Wallet",
+        type: "address",
+      },
     ],
-    "name": "FeeModified",
-    "type": "event"
+    name: "FeeModified",
+    type: "event",
   },
   {
-    "anonymous": false,
-    "inputs": [
+    anonymous: false,
+    inputs: [
       {
-        "indexed": false,
-        "internalType": "uint256",
-        "name": "fee",
-        "type": "uint256"
+        indexed: false,
+        internalType: "uint256",
+        name: "fee",
+        type: "uint256",
       },
       {
-        "indexed": false,
-        "internalType": "address",
-        "name": "sender",
-        "type": "address"
+        indexed: false,
+        internalType: "address",
+        name: "sender",
+        type: "address",
       },
       {
-        "indexed": true,
-        "internalType": "uint256",
-        "name": "timestamp",
-        "type": "uint256"
-      }
+        indexed: true,
+        internalType: "uint256",
+        name: "timestamp",
+        type: "uint256",
+      },
     ],
-    "name": "SetCommonFee",
-    "type": "event"
+    name: "SetCommonFee",
+    type: "event",
   },
   {
-    "anonymous": false,
-    "inputs": [
+    anonymous: false,
+    inputs: [
       {
-        "indexed": false,
-        "internalType": "address",
-        "name": "sender",
-        "type": "address"
+        indexed: false,
+        internalType: "address",
+        name: "sender",
+        type: "address",
       },
       {
-        "indexed": false,
-        "internalType": "address",
-        "name": "feed",
-        "type": "address"
-      }
+        indexed: false,
+        internalType: "address",
+        name: "feed",
+        type: "address",
+      },
     ],
-    "name": "SetDataFeed",
-    "type": "event"
+    name: "SetDataFeed",
+    type: "event",
   },
   {
-    "anonymous": false,
-    "inputs": [
+    anonymous: false,
+    inputs: [
       {
-        "indexed": false,
-        "internalType": "address",
-        "name": "caller",
-        "type": "address"
+        indexed: false,
+        internalType: "address",
+        name: "caller",
+        type: "address",
       },
       {
-        "indexed": false,
-        "internalType": "address",
-        "name": "diamond",
-        "type": "address"
-      }
+        indexed: false,
+        internalType: "address",
+        name: "diamond",
+        type: "address",
+      },
     ],
-    "name": "SetDiamond",
-    "type": "event"
+    name: "SetDiamond",
+    type: "event",
   },
   {
-    "anonymous": false,
-    "inputs": [
+    anonymous: false,
+    inputs: [
       {
-        "indexed": true,
-        "internalType": "address",
-        "name": "token",
-        "type": "address"
+        indexed: true,
+        internalType: "address",
+        name: "token",
+        type: "address",
       },
       {
-        "indexed": false,
-        "internalType": "uint256",
-        "name": "fee",
-        "type": "uint256"
+        indexed: false,
+        internalType: "uint256",
+        name: "fee",
+        type: "uint256",
       },
       {
-        "indexed": false,
-        "internalType": "address",
-        "name": "sender",
-        "type": "address"
+        indexed: false,
+        internalType: "address",
+        name: "sender",
+        type: "address",
       },
       {
-        "indexed": true,
-        "internalType": "uint256",
-        "name": "timestamp",
-        "type": "uint256"
-      }
+        indexed: true,
+        internalType: "uint256",
+        name: "timestamp",
+        type: "uint256",
+      },
     ],
-    "name": "SetTokenFee",
-    "type": "event"
+    name: "SetTokenFee",
+    type: "event",
   },
   {
-    "inputs": [],
-    "name": "DVD_VERSION",
-    "outputs": [
+    inputs: [],
+    name: "DVD_VERSION",
+    outputs: [
       {
-        "internalType": "string",
-        "name": "",
-        "type": "string"
-      }
+        internalType: "string",
+        name: "",
+        type: "string",
+      },
     ],
-    "stateMutability": "view",
-    "type": "function"
+    stateMutability: "view",
+    type: "function",
   },
   {
-    "inputs": [
+    inputs: [
       {
-        "internalType": "uint256",
-        "name": "amount",
-        "type": "uint256"
+        internalType: "uint256",
+        name: "amount",
+        type: "uint256",
       },
       {
-        "internalType": "address",
-        "name": "tokenAddress",
-        "type": "address"
-      }
+        internalType: "address",
+        name: "tokenAddress",
+        type: "address",
+      },
     ],
-    "name": "calculateFee",
-    "outputs": [
+    name: "calculateFee",
+    outputs: [
       {
-        "internalType": "uint256",
-        "name": "fee",
-        "type": "uint256"
-      }
+        internalType: "uint256",
+        name: "fee",
+        type: "uint256",
+      },
     ],
-    "stateMutability": "view",
-    "type": "function"
+    stateMutability: "view",
+    type: "function",
   },
   {
-    "inputs": [
+    inputs: [
       {
-        "internalType": "address",
-        "name": "_token1",
-        "type": "address"
+        internalType: "address",
+        name: "_token1",
+        type: "address",
       },
       {
-        "internalType": "address",
-        "name": "_token2",
-        "type": "address"
-      }
+        internalType: "address",
+        name: "_token2",
+        type: "address",
+      },
     ],
-    "name": "calculateParity",
-    "outputs": [
+    name: "calculateParity",
+    outputs: [
       {
-        "internalType": "bytes32",
-        "name": "",
-        "type": "bytes32"
-      }
+        internalType: "bytes32",
+        name: "",
+        type: "bytes32",
+      },
     ],
-    "stateMutability": "pure",
-    "type": "function"
+    stateMutability: "pure",
+    type: "function",
   },
   {
-    "inputs": [
+    inputs: [
       {
-        "internalType": "uint256",
-        "name": "_nonce",
-        "type": "uint256"
+        internalType: "uint256",
+        name: "_nonce",
+        type: "uint256",
       },
       {
-        "internalType": "address",
-        "name": "_maker",
-        "type": "address"
+        internalType: "address",
+        name: "_maker",
+        type: "address",
       },
       {
-        "internalType": "address",
-        "name": "_token1",
-        "type": "address"
+        internalType: "address",
+        name: "_token1",
+        type: "address",
       },
       {
-        "internalType": "uint256",
-        "name": "_token1Amount",
-        "type": "uint256"
+        internalType: "uint256",
+        name: "_token1Amount",
+        type: "uint256",
       },
       {
-        "internalType": "address",
-        "name": "_taker",
-        "type": "address"
+        internalType: "address",
+        name: "_taker",
+        type: "address",
       },
       {
-        "internalType": "address",
-        "name": "_token2",
-        "type": "address"
+        internalType: "address",
+        name: "_token2",
+        type: "address",
       },
       {
-        "internalType": "uint256",
-        "name": "_token2Amount",
-        "type": "uint256"
-      }
+        internalType: "uint256",
+        name: "_token2Amount",
+        type: "uint256",
+      },
     ],
-    "name": "calculateTransferID",
-    "outputs": [
+    name: "calculateTransferID",
+    outputs: [
       {
-        "internalType": "bytes32",
-        "name": "",
-        "type": "bytes32"
-      }
+        internalType: "bytes32",
+        name: "",
+        type: "bytes32",
+      },
     ],
-    "stateMutability": "pure",
-    "type": "function"
+    stateMutability: "pure",
+    type: "function",
   },
   {
-    "inputs": [
+    inputs: [
       {
-        "internalType": "bytes32",
-        "name": "_transferID",
-        "type": "bytes32"
-      }
+        internalType: "bytes32",
+        name: "_transferID",
+        type: "bytes32",
+      },
     ],
-    "name": "cancelDVDTransfer",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
+    name: "cancelDVDTransfer",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
   },
   {
-    "inputs": [],
-    "name": "dvdDiamond",
-    "outputs": [
+    inputs: [],
+    name: "dvdDiamond",
+    outputs: [
       {
-        "internalType": "address",
-        "name": "",
-        "type": "address"
-      }
+        internalType: "address",
+        name: "",
+        type: "address",
+      },
     ],
-    "stateMutability": "view",
-    "type": "function"
+    stateMutability: "view",
+    type: "function",
   },
   {
-    "inputs": [
+    inputs: [
       {
-        "internalType": "address",
-        "name": "diamond",
-        "type": "address"
+        internalType: "address",
+        name: "diamond",
+        type: "address",
       },
       {
-        "internalType": "uint256",
-        "name": "commonFee",
-        "type": "uint256"
+        internalType: "uint256",
+        name: "commonFee",
+        type: "uint256",
       },
       {
-        "internalType": "address",
-        "name": "feed",
-        "type": "address"
-      }
+        internalType: "address",
+        name: "feed",
+        type: "address",
+      },
     ],
-    "name": "dvdInitialize",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
+    name: "dvdInitialize",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
   },
   {
-    "inputs": [
+    inputs: [
       {
-        "internalType": "address",
-        "name": "_address",
-        "type": "address"
-      }
+        internalType: "address",
+        name: "_address",
+        type: "address",
+      },
     ],
-    "name": "dvdSetDiamond",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
+    name: "dvdSetDiamond",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
   },
   {
-    "inputs": [
+    inputs: [
       {
-        "internalType": "address",
-        "name": "token",
-        "type": "address"
+        internalType: "address",
+        name: "token",
+        type: "address",
       },
       {
-        "internalType": "uint256",
-        "name": "sellAmount",
-        "type": "uint256"
-      }
+        internalType: "uint256",
+        name: "sellAmount",
+        type: "uint256",
+      },
     ],
-    "name": "evaluateBuyerPrice",
-    "outputs": [
+    name: "evaluateBuyerPrice",
+    outputs: [
       {
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-      }
+        internalType: "uint256",
+        name: "",
+        type: "uint256",
+      },
     ],
-    "stateMutability": "view",
-    "type": "function"
+    stateMutability: "view",
+    type: "function",
   },
   {
-    "inputs": [],
-    "name": "getChainlinkDataFeedLatestAnswer",
-    "outputs": [
+    inputs: [],
+    name: "getChainlinkDataFeedLatestAnswer",
+    outputs: [
       {
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-      }
+        internalType: "uint256",
+        name: "",
+        type: "uint256",
+      },
     ],
-    "stateMutability": "view",
-    "type": "function"
+    stateMutability: "view",
+    type: "function",
   },
   {
-    "inputs": [],
-    "name": "getCommonFee",
-    "outputs": [
+    inputs: [],
+    name: "getCommonFee",
+    outputs: [
       {
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-      }
+        internalType: "uint256",
+        name: "",
+        type: "uint256",
+      },
     ],
-    "stateMutability": "view",
-    "type": "function"
+    stateMutability: "view",
+    type: "function",
   },
   {
-    "inputs": [],
-    "name": "getDataFeed",
-    "outputs": [
+    inputs: [],
+    name: "getDataFeed",
+    outputs: [
       {
-        "internalType": "contract AggregatorV3Interface",
-        "name": "",
-        "type": "address"
-      }
+        internalType: "contract AggregatorV3Interface",
+        name: "",
+        type: "address",
+      },
     ],
-    "stateMutability": "view",
-    "type": "function"
+    stateMutability: "view",
+    type: "function",
   },
   {
-    "inputs": [
+    inputs: [
       {
-        "internalType": "bytes32",
-        "name": "transferId",
-        "type": "bytes32"
-      }
+        internalType: "bytes32",
+        name: "transferId",
+        type: "bytes32",
+      },
     ],
-    "name": "getToken1ToDelivery",
-    "outputs": [
+    name: "getToken1ToDelivery",
+    outputs: [
       {
-        "components": [
+        components: [
           {
-            "internalType": "address",
-            "name": "counterpart",
-            "type": "address"
+            internalType: "address",
+            name: "counterpart",
+            type: "address",
           },
           {
-            "internalType": "address",
-            "name": "token",
-            "type": "address"
+            internalType: "address",
+            name: "token",
+            type: "address",
           },
           {
-            "internalType": "uint256",
-            "name": "amount",
-            "type": "uint256"
+            internalType: "uint256",
+            name: "amount",
+            type: "uint256",
           },
           {
-            "internalType": "enum DVDTransferManagerFacetStorage.IsExecuted",
-            "name": "isExecuted",
-            "type": "uint8"
-          }
+            internalType: "enum DVDTransferManagerFacetStorage.IsExecuted",
+            name: "isExecuted",
+            type: "uint8",
+          },
         ],
-        "internalType": "struct DVDTransferManagerFacetStorage.Delivery",
-        "name": "",
-        "type": "tuple"
-      }
+        internalType: "struct DVDTransferManagerFacetStorage.Delivery",
+        name: "",
+        type: "tuple",
+      },
     ],
-    "stateMutability": "view",
-    "type": "function"
+    stateMutability: "view",
+    type: "function",
   },
   {
-    "inputs": [
+    inputs: [
       {
-        "internalType": "bytes32",
-        "name": "transferId",
-        "type": "bytes32"
-      }
+        internalType: "bytes32",
+        name: "transferId",
+        type: "bytes32",
+      },
     ],
-    "name": "getToken2ToDelivery",
-    "outputs": [
+    name: "getToken2ToDelivery",
+    outputs: [
       {
-        "components": [
+        components: [
           {
-            "internalType": "address",
-            "name": "counterpart",
-            "type": "address"
+            internalType: "address",
+            name: "counterpart",
+            type: "address",
           },
           {
-            "internalType": "address",
-            "name": "token",
-            "type": "address"
+            internalType: "address",
+            name: "token",
+            type: "address",
           },
           {
-            "internalType": "uint256",
-            "name": "amount",
-            "type": "uint256"
+            internalType: "uint256",
+            name: "amount",
+            type: "uint256",
           },
           {
-            "internalType": "enum DVDTransferManagerFacetStorage.IsExecuted",
-            "name": "isExecuted",
-            "type": "uint8"
-          }
+            internalType: "enum DVDTransferManagerFacetStorage.IsExecuted",
+            name: "isExecuted",
+            type: "uint8",
+          },
         ],
-        "internalType": "struct DVDTransferManagerFacetStorage.Delivery",
-        "name": "",
-        "type": "tuple"
-      }
+        internalType: "struct DVDTransferManagerFacetStorage.Delivery",
+        name: "",
+        type: "tuple",
+      },
     ],
-    "stateMutability": "view",
-    "type": "function"
+    stateMutability: "view",
+    type: "function",
   },
   {
-    "inputs": [
+    inputs: [
       {
-        "internalType": "address",
-        "name": "tokenAddress",
-        "type": "address"
-      }
+        internalType: "address",
+        name: "tokenAddress",
+        type: "address",
+      },
     ],
-    "name": "getTokenFee",
-    "outputs": [
+    name: "getTokenFee",
+    outputs: [
       {
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-      }
+        internalType: "uint256",
+        name: "",
+        type: "uint256",
+      },
     ],
-    "stateMutability": "view",
-    "type": "function"
+    stateMutability: "view",
+    type: "function",
   },
   {
-    "inputs": [],
-    "name": "getTxNonce",
-    "outputs": [
+    inputs: [],
+    name: "getTxNonce",
+    outputs: [
       {
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-      }
+        internalType: "uint256",
+        name: "",
+        type: "uint256",
+      },
     ],
-    "stateMutability": "view",
-    "type": "function"
+    stateMutability: "view",
+    type: "function",
   },
   {
-    "inputs": [
+    inputs: [
       {
-        "internalType": "address",
-        "name": "_token1",
-        "type": "address"
+        internalType: "address",
+        name: "_token1",
+        type: "address",
       },
       {
-        "internalType": "uint256",
-        "name": "_token1Amount",
-        "type": "uint256"
+        internalType: "uint256",
+        name: "_token1Amount",
+        type: "uint256",
       },
       {
-        "internalType": "address",
-        "name": "_counterpart",
-        "type": "address"
+        internalType: "address",
+        name: "_counterpart",
+        type: "address",
       },
       {
-        "internalType": "address",
-        "name": "_token2",
-        "type": "address"
+        internalType: "address",
+        name: "_token2",
+        type: "address",
       },
       {
-        "internalType": "uint256",
-        "name": "_token2Amount",
-        "type": "uint256"
-      }
+        internalType: "uint256",
+        name: "_token2Amount",
+        type: "uint256",
+      },
     ],
-    "name": "initiateDVDTransfer",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
+    name: "initiateDVDTransfer",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
   },
   {
-    "inputs": [
+    inputs: [
       {
-        "internalType": "uint256",
-        "name": "fee",
-        "type": "uint256"
-      }
+        internalType: "uint256",
+        name: "fee",
+        type: "uint256",
+      },
     ],
-    "name": "setCommonFee",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
+    name: "setCommonFee",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
   },
   {
-    "inputs": [
+    inputs: [
       {
-        "internalType": "address",
-        "name": "feed",
-        "type": "address"
-      }
+        internalType: "address",
+        name: "feed",
+        type: "address",
+      },
     ],
-    "name": "setDataFeed",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
+    name: "setDataFeed",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
   },
   {
-    "inputs": [
+    inputs: [
       {
-        "internalType": "address",
-        "name": "tokenAddress",
-        "type": "address"
+        internalType: "address",
+        name: "tokenAddress",
+        type: "address",
       },
       {
-        "internalType": "uint256",
-        "name": "fee",
-        "type": "uint256"
-      }
+        internalType: "uint256",
+        name: "fee",
+        type: "uint256",
+      },
     ],
-    "name": "setTokenFee",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
+    name: "setTokenFee",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
   },
   {
-    "inputs": [
+    inputs: [
       {
-        "internalType": "bytes4",
-        "name": "interfaceId",
-        "type": "bytes4"
-      }
+        internalType: "bytes4",
+        name: "interfaceId",
+        type: "bytes4",
+      },
     ],
-    "name": "supportsInterface",
-    "outputs": [
+    name: "supportsInterface",
+    outputs: [
       {
-        "internalType": "bool",
-        "name": "",
-        "type": "bool"
-      }
+        internalType: "bool",
+        name: "",
+        type: "bool",
+      },
     ],
-    "stateMutability": "view",
-    "type": "function"
+    stateMutability: "view",
+    type: "function",
   },
   {
-    "inputs": [
+    inputs: [
       {
-        "internalType": "bytes32",
-        "name": "_transferID",
-        "type": "bytes32"
-      }
+        internalType: "bytes32",
+        name: "_transferID",
+        type: "bytes32",
+      },
     ],
-    "name": "takeDVDTransfer",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-  }
+    name: "takeDVDTransfer",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
 ] as const;

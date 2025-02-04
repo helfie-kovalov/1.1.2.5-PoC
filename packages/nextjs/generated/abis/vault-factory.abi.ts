@@ -1,4 +1,4 @@
-export const TOKEN_FACTORY_ABI = [
+export const VAULT_FACTORY_ABI = [
   {
     inputs: [],
     name: "IsNotFalse",
@@ -54,19 +54,6 @@ export const TOKEN_FACTORY_ABI = [
       {
         indexed: true,
         internalType: "address",
-        name: "_module",
-        type: "address",
-      },
-    ],
-    name: "AddedModule",
-    type: "event",
-  },
-  {
-    anonymous: false,
-    inputs: [
-      {
-        indexed: true,
-        internalType: "address",
         name: "_addr",
         type: "address",
       },
@@ -112,14 +99,14 @@ export const TOKEN_FACTORY_ABI = [
       {
         indexed: true,
         internalType: "address",
-        name: "_token",
+        name: "_vault",
         type: "address",
       },
       {
-        indexed: false,
-        internalType: "address",
-        name: "_mc",
-        type: "address",
+        indexed: true,
+        internalType: "enum IVaultStorage.VaultType",
+        name: "vaultType",
+        type: "uint8",
       },
       {
         indexed: true,
@@ -128,12 +115,12 @@ export const TOKEN_FACTORY_ABI = [
         type: "bytes32",
       },
     ],
-    name: "TokenDeployed",
+    name: "VaultDeployed",
     type: "event",
   },
   {
     inputs: [],
-    name: "TOKEN_FACTORY_VERSION",
+    name: "VAULT_FACTORY_VERSION",
     outputs: [
       {
         internalType: "string",
@@ -159,47 +146,32 @@ export const TOKEN_FACTORY_ABI = [
             type: "string",
           },
           {
-            internalType: "uint8",
-            name: "decimals",
-            type: "uint8",
+            internalType: "uint256",
+            name: "maxStableCapacity",
+            type: "uint256",
           },
           {
-            internalType: "uint256[]",
-            name: "claimTopics",
-            type: "uint256[]",
+            internalType: "uint256",
+            name: "maxAssetsCapacity",
+            type: "uint256",
+          },
+          {
+            internalType: "enum IVaultStorage.VaultType",
+            name: "vaultType",
+            type: "uint8",
           },
           {
             internalType: "address",
             name: "ONCHAINID",
             type: "address",
           },
-          {
-            internalType: "address[]",
-            name: "complianceModules",
-            type: "address[]",
-          },
-          {
-            internalType: "bytes[]",
-            name: "complianceSettings",
-            type: "bytes[]",
-          },
         ],
-        internalType: "struct ITokenFactoryFacet.TokenDetails",
-        name: "_tokenDetails",
+        internalType: "struct IVaultFactoryFacet.VaultDetails",
+        name: "_vaultDetails",
         type: "tuple",
       },
-      {
-        internalType: "uint256",
-        name: "price",
-        type: "uint256",
-      },
-      {
-        internalType: "address",
-        name: "oracle",
-        type: "address",
-      },
     ],
-    name: "deployToken",
+    name: "deployVault",
     outputs: [],
     stateMutability: "nonpayable",
     type: "function",
@@ -212,7 +184,7 @@ export const TOKEN_FACTORY_ABI = [
         type: "bytes32",
       },
     ],
-    name: "getToken",
+    name: "getVault",
     outputs: [
       {
         internalType: "address",
@@ -241,12 +213,12 @@ export const TOKEN_FACTORY_ABI = [
         type: "string",
       },
       {
-        internalType: "uint8",
-        name: "decimals",
+        internalType: "enum IVaultStorage.VaultType",
+        name: "vaultType",
         type: "uint8",
       },
     ],
-    name: "getTokenSalt",
+    name: "getVaultSalt",
     outputs: [
       {
         internalType: "bytes32",
@@ -259,20 +231,7 @@ export const TOKEN_FACTORY_ABI = [
   },
   {
     inputs: [],
-    name: "implementationAuthorityModularCompliance",
-    outputs: [
-      {
-        internalType: "address",
-        name: "",
-        type: "address",
-      },
-    ],
-    stateMutability: "view",
-    type: "function",
-  },
-  {
-    inputs: [],
-    name: "implementationAuthorityToken",
+    name: "implementationAuthorityVault",
     outputs: [
       {
         internalType: "address",
@@ -304,7 +263,7 @@ export const TOKEN_FACTORY_ABI = [
   },
   {
     inputs: [],
-    name: "tffDiamond",
+    name: "vffDiamond",
     outputs: [
       {
         internalType: "address",
@@ -324,16 +283,11 @@ export const TOKEN_FACTORY_ABI = [
       },
       {
         internalType: "address",
-        name: "iaToken",
-        type: "address",
-      },
-      {
-        internalType: "address",
-        name: "iaMc",
+        name: "iaVault",
         type: "address",
       },
     ],
-    name: "tffInitialize",
+    name: "vffInitialize",
     outputs: [],
     stateMutability: "nonpayable",
     type: "function",
@@ -346,7 +300,7 @@ export const TOKEN_FACTORY_ABI = [
         type: "address",
       },
     ],
-    name: "tffSetDiamond",
+    name: "vffSetDiamond",
     outputs: [],
     stateMutability: "nonpayable",
     type: "function",

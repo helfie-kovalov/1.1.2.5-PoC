@@ -1,621 +1,682 @@
 export const TIME_TRANSFER_LIMIT_ABI = [
   {
-    "inputs": [],
-    "stateMutability": "nonpayable",
-    "type": "constructor"
+    inputs: [],
+    stateMutability: "nonpayable",
+    type: "constructor",
   },
   {
-    "inputs": [
+    inputs: [
       {
-        "internalType": "address",
-        "name": "_compliance",
-        "type": "address"
-      }
+        internalType: "address",
+        name: "target",
+        type: "address",
+      },
     ],
-    "name": "ComplianceAlreadyBound",
-    "type": "error"
+    name: "AddressEmptyCode",
+    type: "error",
   },
   {
-    "inputs": [
+    inputs: [
       {
-        "internalType": "address",
-        "name": "_compliance",
-        "type": "address"
-      }
+        internalType: "address",
+        name: "_compliance",
+        type: "address",
+      },
     ],
-    "name": "ComplianceNotBound",
-    "type": "error"
+    name: "ComplianceAlreadyBound",
+    type: "error",
   },
   {
-    "inputs": [
+    inputs: [
       {
-        "internalType": "address",
-        "name": "compliance",
-        "type": "address"
+        internalType: "address",
+        name: "_compliance",
+        type: "address",
+      },
+    ],
+    name: "ComplianceNotBound",
+    type: "error",
+  },
+  {
+    inputs: [
+      {
+        internalType: "address",
+        name: "implementation",
+        type: "address",
+      },
+    ],
+    name: "ERC1967InvalidImplementation",
+    type: "error",
+  },
+  {
+    inputs: [],
+    name: "ERC1967NonPayable",
+    type: "error",
+  },
+  {
+    inputs: [],
+    name: "FailedCall",
+    type: "error",
+  },
+  {
+    inputs: [],
+    name: "InvalidInitialization",
+    type: "error",
+  },
+  {
+    inputs: [
+      {
+        internalType: "address",
+        name: "compliance",
+        type: "address",
       },
       {
-        "internalType": "uint8",
-        "name": "arraySize",
-        "type": "uint8"
-      }
+        internalType: "uint8",
+        name: "arraySize",
+        type: "uint8",
+      },
     ],
-    "name": "LimitsArraySizeExceeded",
-    "type": "error"
+    name: "LimitsArraySizeExceeded",
+    type: "error",
   },
   {
-    "inputs": [
+    inputs: [],
+    name: "NotInitializing",
+    type: "error",
+  },
+  {
+    inputs: [
       {
-        "internalType": "address",
-        "name": "caller",
-        "type": "address"
+        internalType: "address",
+        name: "caller",
+        type: "address",
       },
       {
-        "internalType": "address",
-        "name": "_compliance",
-        "type": "address"
-      }
+        internalType: "address",
+        name: "_compliance",
+        type: "address",
+      },
     ],
-    "name": "OnlyComplianceCaller",
-    "type": "error"
+    name: "OnlyComplianceCaller",
+    type: "error",
   },
   {
-    "inputs": [
+    inputs: [
       {
-        "internalType": "address",
-        "name": "_address",
-        "type": "address"
-      }
+        internalType: "address",
+        name: "owner",
+        type: "address",
+      },
     ],
-    "name": "ZeroAddress",
-    "type": "error"
+    name: "OwnableInvalidOwner",
+    type: "error",
   },
   {
-    "anonymous": false,
-    "inputs": [
+    inputs: [
       {
-        "indexed": false,
-        "internalType": "address",
-        "name": "previousAdmin",
-        "type": "address"
+        internalType: "address",
+        name: "account",
+        type: "address",
+      },
+    ],
+    name: "OwnableUnauthorizedAccount",
+    type: "error",
+  },
+  {
+    inputs: [],
+    name: "UUPSUnauthorizedCallContext",
+    type: "error",
+  },
+  {
+    inputs: [
+      {
+        internalType: "bytes32",
+        name: "slot",
+        type: "bytes32",
+      },
+    ],
+    name: "UUPSUnsupportedProxiableUUID",
+    type: "error",
+  },
+  {
+    inputs: [
+      {
+        internalType: "address",
+        name: "_address",
+        type: "address",
+      },
+    ],
+    name: "ZeroAddress",
+    type: "error",
+  },
+  {
+    anonymous: false,
+    inputs: [
+      {
+        indexed: true,
+        internalType: "address",
+        name: "_compliance",
+        type: "address",
+      },
+    ],
+    name: "ComplianceBound",
+    type: "event",
+  },
+  {
+    anonymous: false,
+    inputs: [
+      {
+        indexed: true,
+        internalType: "address",
+        name: "_compliance",
+        type: "address",
+      },
+    ],
+    name: "ComplianceUnbound",
+    type: "event",
+  },
+  {
+    anonymous: false,
+    inputs: [
+      {
+        indexed: false,
+        internalType: "bool",
+        name: "init",
+        type: "bool",
+      },
+    ],
+    name: "Init",
+    type: "event",
+  },
+  {
+    anonymous: false,
+    inputs: [
+      {
+        indexed: false,
+        internalType: "uint64",
+        name: "version",
+        type: "uint64",
+      },
+    ],
+    name: "Initialized",
+    type: "event",
+  },
+  {
+    anonymous: false,
+    inputs: [
+      {
+        indexed: true,
+        internalType: "address",
+        name: "previousOwner",
+        type: "address",
       },
       {
-        "indexed": false,
-        "internalType": "address",
-        "name": "newAdmin",
-        "type": "address"
-      }
+        indexed: true,
+        internalType: "address",
+        name: "newOwner",
+        type: "address",
+      },
     ],
-    "name": "AdminChanged",
-    "type": "event"
+    name: "OwnershipTransferred",
+    type: "event",
   },
   {
-    "anonymous": false,
-    "inputs": [
+    anonymous: false,
+    inputs: [
       {
-        "indexed": true,
-        "internalType": "address",
-        "name": "beacon",
-        "type": "address"
-      }
-    ],
-    "name": "BeaconUpgraded",
-    "type": "event"
-  },
-  {
-    "anonymous": false,
-    "inputs": [
-      {
-        "indexed": true,
-        "internalType": "address",
-        "name": "_compliance",
-        "type": "address"
-      }
-    ],
-    "name": "ComplianceBound",
-    "type": "event"
-  },
-  {
-    "anonymous": false,
-    "inputs": [
-      {
-        "indexed": true,
-        "internalType": "address",
-        "name": "_compliance",
-        "type": "address"
-      }
-    ],
-    "name": "ComplianceUnbound",
-    "type": "event"
-  },
-  {
-    "anonymous": false,
-    "inputs": [
-      {
-        "indexed": false,
-        "internalType": "uint8",
-        "name": "version",
-        "type": "uint8"
-      }
-    ],
-    "name": "Initialized",
-    "type": "event"
-  },
-  {
-    "anonymous": false,
-    "inputs": [
-      {
-        "indexed": true,
-        "internalType": "address",
-        "name": "previousOwner",
-        "type": "address"
+        indexed: true,
+        internalType: "address",
+        name: "compliance",
+        type: "address",
       },
       {
-        "indexed": true,
-        "internalType": "address",
-        "name": "newOwner",
-        "type": "address"
-      }
-    ],
-    "name": "OwnershipTransferred",
-    "type": "event"
-  },
-  {
-    "anonymous": false,
-    "inputs": [
-      {
-        "indexed": true,
-        "internalType": "address",
-        "name": "compliance",
-        "type": "address"
+        indexed: false,
+        internalType: "uint32",
+        name: "limitTime",
+        type: "uint32",
       },
       {
-        "indexed": false,
-        "internalType": "uint32",
-        "name": "limitTime",
-        "type": "uint32"
+        indexed: false,
+        internalType: "uint256",
+        name: "limitValue",
+        type: "uint256",
       },
-      {
-        "indexed": false,
-        "internalType": "uint256",
-        "name": "limitValue",
-        "type": "uint256"
-      }
     ],
-    "name": "TimeTransferLimitUpdated",
-    "type": "event"
+    name: "TimeTransferLimitUpdated",
+    type: "event",
   },
   {
-    "anonymous": false,
-    "inputs": [
+    anonymous: false,
+    inputs: [
       {
-        "indexed": true,
-        "internalType": "address",
-        "name": "implementation",
-        "type": "address"
-      }
+        indexed: true,
+        internalType: "address",
+        name: "implementation",
+        type: "address",
+      },
     ],
-    "name": "Upgraded",
-    "type": "event"
+    name: "Upgraded",
+    type: "event",
   },
   {
-    "inputs": [],
-    "name": "TIME_LIMIT_COUNTER",
-    "outputs": [
+    inputs: [],
+    name: "TIME_LIMIT_COUNTER",
+    outputs: [
       {
-        "internalType": "uint8",
-        "name": "",
-        "type": "uint8"
-      }
+        internalType: "uint8",
+        name: "",
+        type: "uint8",
+      },
     ],
-    "stateMutability": "view",
-    "type": "function"
+    stateMutability: "view",
+    type: "function",
   },
   {
-    "inputs": [
+    inputs: [],
+    name: "UPGRADE_INTERFACE_VERSION",
+    outputs: [
       {
-        "internalType": "address",
-        "name": "_compliance",
-        "type": "address"
-      }
+        internalType: "string",
+        name: "",
+        type: "string",
+      },
     ],
-    "name": "bindCompliance",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
+    stateMutability: "view",
+    type: "function",
   },
   {
-    "inputs": [
+    inputs: [
       {
-        "internalType": "address",
-        "name": "",
-        "type": "address"
-      }
+        internalType: "address",
+        name: "_compliance",
+        type: "address",
+      },
     ],
-    "name": "canComplianceBind",
-    "outputs": [
-      {
-        "internalType": "bool",
-        "name": "",
-        "type": "bool"
-      }
-    ],
-    "stateMutability": "view",
-    "type": "function"
+    name: "bindCompliance",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
   },
   {
-    "inputs": [
+    inputs: [
       {
-        "internalType": "address",
-        "name": "_compliance",
-        "type": "address"
-      }
+        internalType: "address",
+        name: "",
+        type: "address",
+      },
     ],
-    "name": "getTimeTransferLimits",
-    "outputs": [
+    name: "canComplianceBind",
+    outputs: [
       {
-        "components": [
+        internalType: "bool",
+        name: "",
+        type: "bool",
+      },
+    ],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        internalType: "address",
+        name: "_compliance",
+        type: "address",
+      },
+    ],
+    name: "getTimeTransferLimits",
+    outputs: [
+      {
+        components: [
           {
-            "internalType": "uint32",
-            "name": "limitTime",
-            "type": "uint32"
+            internalType: "uint32",
+            name: "limitTime",
+            type: "uint32",
           },
           {
-            "internalType": "uint256",
-            "name": "limitValue",
-            "type": "uint256"
-          }
+            internalType: "uint256",
+            name: "limitValue",
+            type: "uint256",
+          },
         ],
-        "internalType": "struct ITimeTransfersLimitsModule.Limit[]",
-        "name": "limits",
-        "type": "tuple[]"
-      }
+        internalType: "struct ITimeTransfersLimitsModule.Limit[]",
+        name: "limits",
+        type: "tuple[]",
+      },
     ],
-    "stateMutability": "view",
-    "type": "function"
+    stateMutability: "view",
+    type: "function",
   },
   {
-    "inputs": [
+    inputs: [
       {
-        "internalType": "address",
-        "name": "owner",
-        "type": "address"
-      }
+        internalType: "address",
+        name: "owner",
+        type: "address",
+      },
     ],
-    "name": "initialize",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
+    name: "initialize",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
   },
   {
-    "inputs": [
+    inputs: [
       {
-        "internalType": "address",
-        "name": "_compliance",
-        "type": "address"
-      }
+        internalType: "address",
+        name: "_compliance",
+        type: "address",
+      },
     ],
-    "name": "isComplianceBound",
-    "outputs": [
+    name: "isComplianceBound",
+    outputs: [
       {
-        "internalType": "bool",
-        "name": "",
-        "type": "bool"
-      }
+        internalType: "bool",
+        name: "",
+        type: "bool",
+      },
     ],
-    "stateMutability": "view",
-    "type": "function"
+    stateMutability: "view",
+    type: "function",
   },
   {
-    "inputs": [],
-    "name": "isPlugAndPlay",
-    "outputs": [
+    inputs: [],
+    name: "isPlugAndPlay",
+    outputs: [
       {
-        "internalType": "bool",
-        "name": "",
-        "type": "bool"
-      }
+        internalType: "bool",
+        name: "",
+        type: "bool",
+      },
     ],
-    "stateMutability": "pure",
-    "type": "function"
+    stateMutability: "pure",
+    type: "function",
   },
   {
-    "inputs": [
+    inputs: [
       {
-        "internalType": "address",
-        "name": "",
-        "type": "address"
+        internalType: "address",
+        name: "",
+        type: "address",
       },
       {
-        "internalType": "uint32",
-        "name": "",
-        "type": "uint32"
-      }
+        internalType: "uint32",
+        name: "",
+        type: "uint32",
+      },
     ],
-    "name": "limitValues",
-    "outputs": [
+    name: "limitValues",
+    outputs: [
       {
-        "internalType": "bool",
-        "name": "attributedLimit",
-        "type": "bool"
+        internalType: "bool",
+        name: "attributedLimit",
+        type: "bool",
       },
       {
-        "internalType": "uint8",
-        "name": "limitIndex",
-        "type": "uint8"
-      }
+        internalType: "uint8",
+        name: "limitIndex",
+        type: "uint8",
+      },
     ],
-    "stateMutability": "view",
-    "type": "function"
+    stateMutability: "view",
+    type: "function",
   },
   {
-    "inputs": [
+    inputs: [
       {
-        "internalType": "address",
-        "name": "_from",
-        "type": "address"
+        internalType: "address",
+        name: "_from",
+        type: "address",
       },
       {
-        "internalType": "uint256",
-        "name": "_value",
-        "type": "uint256"
-      }
+        internalType: "uint256",
+        name: "_value",
+        type: "uint256",
+      },
     ],
-    "name": "moduleBurnAction",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
+    name: "moduleBurnAction",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
   },
   {
-    "inputs": [
+    inputs: [
       {
-        "internalType": "address",
-        "name": "_from",
-        "type": "address"
+        internalType: "address",
+        name: "_from",
+        type: "address",
       },
       {
-        "internalType": "address",
-        "name": "",
-        "type": "address"
+        internalType: "address",
+        name: "",
+        type: "address",
       },
       {
-        "internalType": "uint256",
-        "name": "_value",
-        "type": "uint256"
+        internalType: "uint256",
+        name: "_value",
+        type: "uint256",
       },
       {
-        "internalType": "address",
-        "name": "_compliance",
-        "type": "address"
-      }
+        internalType: "address",
+        name: "_compliance",
+        type: "address",
+      },
     ],
-    "name": "moduleCheck",
-    "outputs": [
+    name: "moduleCheck",
+    outputs: [
       {
-        "internalType": "bool",
-        "name": "",
-        "type": "bool"
-      }
+        internalType: "bool",
+        name: "",
+        type: "bool",
+      },
     ],
-    "stateMutability": "view",
-    "type": "function"
+    stateMutability: "view",
+    type: "function",
   },
   {
-    "inputs": [
+    inputs: [
       {
-        "internalType": "address",
-        "name": "_to",
-        "type": "address"
+        internalType: "address",
+        name: "_to",
+        type: "address",
       },
       {
-        "internalType": "uint256",
-        "name": "_value",
-        "type": "uint256"
-      }
+        internalType: "uint256",
+        name: "_value",
+        type: "uint256",
+      },
     ],
-    "name": "moduleMintAction",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
+    name: "moduleMintAction",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
   },
   {
-    "inputs": [
+    inputs: [
       {
-        "internalType": "address",
-        "name": "_from",
-        "type": "address"
+        internalType: "address",
+        name: "_from",
+        type: "address",
       },
       {
-        "internalType": "address",
-        "name": "",
-        "type": "address"
+        internalType: "address",
+        name: "",
+        type: "address",
       },
       {
-        "internalType": "uint256",
-        "name": "_value",
-        "type": "uint256"
-      }
+        internalType: "uint256",
+        name: "_value",
+        type: "uint256",
+      },
     ],
-    "name": "moduleTransferAction",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
+    name: "moduleTransferAction",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
   },
   {
-    "inputs": [],
-    "name": "name",
-    "outputs": [
+    inputs: [],
+    name: "name",
+    outputs: [
       {
-        "internalType": "string",
-        "name": "_name",
-        "type": "string"
-      }
+        internalType: "string",
+        name: "_name",
+        type: "string",
+      },
     ],
-    "stateMutability": "pure",
-    "type": "function"
+    stateMutability: "pure",
+    type: "function",
   },
   {
-    "inputs": [],
-    "name": "owner",
-    "outputs": [
+    inputs: [],
+    name: "owner",
+    outputs: [
       {
-        "internalType": "address",
-        "name": "",
-        "type": "address"
-      }
+        internalType: "address",
+        name: "",
+        type: "address",
+      },
     ],
-    "stateMutability": "view",
-    "type": "function"
+    stateMutability: "view",
+    type: "function",
   },
   {
-    "inputs": [],
-    "name": "renounceOwnership",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
+    inputs: [],
+    name: "renounceOwnership",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
   },
   {
-    "inputs": [
+    inputs: [
       {
-        "components": [
+        components: [
           {
-            "internalType": "uint32",
-            "name": "limitTime",
-            "type": "uint32"
+            internalType: "uint32",
+            name: "limitTime",
+            type: "uint32",
           },
           {
-            "internalType": "uint256",
-            "name": "limitValue",
-            "type": "uint256"
-          }
+            internalType: "uint256",
+            name: "limitValue",
+            type: "uint256",
+          },
         ],
-        "internalType": "struct ITimeTransfersLimitsModule.Limit",
-        "name": "_limit",
-        "type": "tuple"
-      }
+        internalType: "struct ITimeTransfersLimitsModule.Limit",
+        name: "_limit",
+        type: "tuple",
+      },
     ],
-    "name": "setTimeTransferLimit",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
+    name: "setTimeTransferLimit",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
   },
   {
-    "inputs": [
+    inputs: [
       {
-        "internalType": "address",
-        "name": "",
-        "type": "address"
+        internalType: "address",
+        name: "",
+        type: "address",
       },
       {
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-      }
+        internalType: "uint256",
+        name: "",
+        type: "uint256",
+      },
     ],
-    "name": "transferLimits",
-    "outputs": [
+    name: "transferLimits",
+    outputs: [
       {
-        "internalType": "uint32",
-        "name": "limitTime",
-        "type": "uint32"
+        internalType: "uint32",
+        name: "limitTime",
+        type: "uint32",
       },
       {
-        "internalType": "uint256",
-        "name": "limitValue",
-        "type": "uint256"
-      }
+        internalType: "uint256",
+        name: "limitValue",
+        type: "uint256",
+      },
     ],
-    "stateMutability": "view",
-    "type": "function"
+    stateMutability: "view",
+    type: "function",
   },
   {
-    "inputs": [
+    inputs: [
       {
-        "internalType": "address",
-        "name": "newOwner",
-        "type": "address"
-      }
+        internalType: "address",
+        name: "newOwner",
+        type: "address",
+      },
     ],
-    "name": "transferOwnership",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
+    name: "transferOwnership",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
   },
   {
-    "inputs": [
+    inputs: [
       {
-        "internalType": "address",
-        "name": "_compliance",
-        "type": "address"
-      }
+        internalType: "address",
+        name: "_compliance",
+        type: "address",
+      },
     ],
-    "name": "unbindCompliance",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
+    name: "unbindCompliance",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
   },
   {
-    "inputs": [
+    inputs: [
       {
-        "internalType": "address",
-        "name": "newImplementation",
-        "type": "address"
-      }
+        internalType: "address",
+        name: "newImplementation",
+        type: "address",
+      },
+      {
+        internalType: "bytes",
+        name: "data",
+        type: "bytes",
+      },
     ],
-    "name": "upgradeTo",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
+    name: "upgradeToAndCall",
+    outputs: [],
+    stateMutability: "payable",
+    type: "function",
   },
   {
-    "inputs": [
+    inputs: [
       {
-        "internalType": "address",
-        "name": "newImplementation",
-        "type": "address"
+        internalType: "address",
+        name: "",
+        type: "address",
       },
       {
-        "internalType": "bytes",
-        "name": "data",
-        "type": "bytes"
-      }
+        internalType: "address",
+        name: "",
+        type: "address",
+      },
+      {
+        internalType: "uint32",
+        name: "",
+        type: "uint32",
+      },
     ],
-    "name": "upgradeToAndCall",
-    "outputs": [],
-    "stateMutability": "payable",
-    "type": "function"
+    name: "usersCounters",
+    outputs: [
+      {
+        internalType: "uint256",
+        name: "value",
+        type: "uint256",
+      },
+      {
+        internalType: "uint256",
+        name: "timer",
+        type: "uint256",
+      },
+    ],
+    stateMutability: "view",
+    type: "function",
   },
-  {
-    "inputs": [
-      {
-        "internalType": "address",
-        "name": "",
-        "type": "address"
-      },
-      {
-        "internalType": "address",
-        "name": "",
-        "type": "address"
-      },
-      {
-        "internalType": "uint32",
-        "name": "",
-        "type": "uint32"
-      }
-    ],
-    "name": "usersCounters",
-    "outputs": [
-      {
-        "internalType": "uint256",
-        "name": "value",
-        "type": "uint256"
-      },
-      {
-        "internalType": "uint256",
-        "name": "timer",
-        "type": "uint256"
-      }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-  }
 ] as const;
