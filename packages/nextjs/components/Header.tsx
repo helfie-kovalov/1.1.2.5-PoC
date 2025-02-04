@@ -32,6 +32,7 @@ export const Header = () => {
   const publicClient = usePublicClient();
   const [tokenAddress, setTokenAddress] = useState("");
   const [identityAddress, setIdentityAddress] = useState("");
+  const [vaultAddress, setVaultAddress] = useState("");
   async function handleLoadToken() {
     if (tokenAddress !== "") {
       const mc = await publicClient.readContract({
@@ -46,6 +47,11 @@ export const Header = () => {
   async function handleLoadIdentity() {
     if (identityAddress !== "") {
       contracts[11155111][0].contracts.Identity.address = identityAddress;
+    }
+  }
+  async function handleLoadVault() {
+    if (vaultAddress !== "") {
+      contracts[11155111][0].contracts.Vault.address = vaultAddress;
     }
   }
 
@@ -108,7 +114,19 @@ export const Header = () => {
             className="input input-bordered w-28"
           />
           <button onClick={handleLoadToken} className="btn btn-warning btn-sm">
-            Load Token
+            Token
+          </button>
+        </div>
+        <div className="flex items-center gap-2">
+          <input
+            type="text"
+            placeholder="Vault Addr"
+            value={vaultAddress}
+            onChange={e => setVaultAddress(e.target.value)}
+            className="input input-bordered w-28"
+          />
+          <button onClick={handleLoadVault} className="btn btn-warning btn-sm">
+            Vault
           </button>
         </div>
         <RainbowKitCustomConnectButton />
