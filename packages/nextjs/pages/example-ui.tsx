@@ -5,12 +5,14 @@ import { IR_ABI } from "~~/generated/abis/ir.abi";
 import { COUNTRY_ALLOW_ABI } from "~~/generated/abis/modules/country-allow.abi";
 import { TIME_TRANSFER_LIMIT_ABI } from "~~/generated/abis/modules/transfer-limit.abi";
 import contracts from "~~/generated/deployedContracts";
+import { COUNTRIES } from "~~/utils/countries";
 
 interface TokenDetails {
   name: string;
   symbol: string;
   decimals: string;
   ONCHAINID: string;
+  claimTopics: string;
   complianceModules: string;
   complianceSettings: string;
 }
@@ -28,6 +30,7 @@ const TokenDetailsInput = () => {
     symbol: "GT",
     decimals: "18",
     ONCHAINID: zeroAddress,
+    claimTopics: ``,
     complianceModules: `${contracts[11155111][0].contracts.CountryAllowModule.address},${contracts[11155111][0].contracts.TimeTransferModule.address}`,
     complianceSettings: ``,
   });
@@ -37,7 +40,10 @@ const TokenDetailsInput = () => {
   const [errors, setErrors] = useState<Errors>({});
 
   const getSenderCountry = async () => {
-    const country = await publicClient.readContract({
+    if (!address) {
+      return 380;
+    }
+    const country = await publicClient?.readContract({
       abi: IR_ABI,
       address: contracts[11155111][0].contracts.IdentityRegistry.address,
       functionName: "investorCountry",
@@ -109,13 +115,15 @@ const TokenDetailsInput = () => {
     }
     const complianceModulesArray = tokenDetails.complianceModules.split(",").filter(Boolean);
     const complianceSettingsArray = tokenDetails.complianceSettings.split(",").filter(Boolean);
+    const claimTopicsArray = tokenDetails.claimTopics.split(",").filter(Boolean);
 
     const complianceModulesString =
       complianceModulesArray.length > 0 ? `["${complianceModulesArray.join('","')}"]` : "[]";
     const complianceSettingsString =
       complianceSettingsArray.length > 0 ? `["${complianceSettingsArray.join('","')}"]` : "[]";
+    const claimTopicsString = claimTopicsArray.length > 0 ? `["${claimTopicsArray.join('","')}"]` : "[]";
 
-    const tupleString = `["${tokenDetails.name}", "${tokenDetails.symbol}", ${tokenDetails.decimals}, "${tokenDetails.ONCHAINID}", ${complianceModulesString}, ${complianceSettingsString}]`;
+    const tupleString = `["${tokenDetails.name}", "${tokenDetails.symbol}", ${tokenDetails.decimals}, ${claimTopicsString}, "${tokenDetails.ONCHAINID}", ${complianceModulesString}, ${complianceSettingsString}]`;
 
     navigator.clipboard
       .writeText(tupleString)
@@ -186,6 +194,17 @@ const TokenDetailsInput = () => {
           {errors.ONCHAINID && <p className="text-red-500 text-xs">{errors.ONCHAINID}</p>}
         </div>
         <div title="Modules to bind to the compliance">
+          <label className="block text-sm font-medium">Claim Topics (uint256[] - comma separated):</label>
+          <textarea
+            name="claimTopics"
+            value={tokenDetails.claimTopics}
+            onChange={handleChange}
+            className="mt-1 p-2 w-full border rounded-md"
+            placeholder="0x1234...5678,0x1234...5678"
+          ></textarea>
+          {errors.claimTopics && <p className="text-red-500 text-xs">{errors.claimTopics}</p>}
+        </div>
+        <div title="Modules to bind to the compliance">
           <label className="block text-sm font-medium">Compliance Modules (Address[] - comma separated):</label>
           <textarea
             name="complianceModules"
@@ -200,14 +219,23 @@ const TokenDetailsInput = () => {
           <div className="flex row items-center">
             <div className="flex row items-center p-2 w-full">
               <label className="block text-sm font-medium m-1 p-2">Country:</label>
-              <input
-                type="text"
-                name="Country"
-                value={country}
-                onChange={e => setCountry(e.target.value)}
-                className="mt-1 p-2 w-full border rounded-md"
-                placeholder="267"
-              />
+              <select
+                className="p-2 w-full"
+                placeholder="Country"
+                onChange={e => {
+                  if (e.target.value !== "") {
+                    setCountry(e.target.value);
+                  }
+                }}
+              >
+                {COUNTRIES.map((element: any) => {
+                  return (
+                    <option key={element.name} value={element.code.toString()}>
+                      {element.name}
+                    </option>
+                  );
+                })}
+              </select>
             </div>
             <button
               type="button"
@@ -233,14 +261,14 @@ const TokenDetailsInput = () => {
           </div>
           <div className="flex column items-center">
             <div className="flex row items-center w-2/4 p-2">
-              <label className="block text-sm font-medium m-1 p-1">Time:</label>
+              <label className="block text-sm font-medium m-1 p-1">Time (secs):</label>
               <input
                 type="text"
                 name="Time is secs"
                 value={time}
                 onChange={e => setTime(e.target.value)}
                 className="mt-1 p-2 w-full border rounded-md"
-                placeholder="0x1234...5678"
+                placeholder="86400"
               />
             </div>
             <div className="flex row items-center w-2/4 p-2">
@@ -251,7 +279,7 @@ const TokenDetailsInput = () => {
                 value={amount}
                 onChange={e => setAmount(e.target.value)}
                 className="mt-1 p-2 w-full border rounded-md"
-                placeholder="0x1234...5678"
+                placeholder="123"
               />
             </div>
             <button
