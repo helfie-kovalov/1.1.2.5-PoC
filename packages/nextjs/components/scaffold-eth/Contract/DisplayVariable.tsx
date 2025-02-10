@@ -56,7 +56,7 @@ export const DisplayVariable = ({ contractAddress, abiFunction, refreshDisplayVa
           >
             {abiFunction.name === "getClaimTopics" && Array.isArray(result)
               ? (result as Array<bigint>)?.map(el => `${el} = ${getClaimTopicName(el)}`).toString()
-              : abiFunction.name === "getTokenClaimTopics"
+              : abiFunction.name === "getGeneralTokenClaimTopics"
               ? (result as Array<bigint>)?.map(el => `${el} = ${getTokenClaimTopicName(el)}`).toString()
               : abiFunction.name === "totalSupply"
               ? result?.toString()
