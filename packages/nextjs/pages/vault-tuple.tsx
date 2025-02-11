@@ -1,5 +1,5 @@
 import React, { ChangeEvent, useState } from "react";
-import { zeroAddress } from "viem";
+import { parseEther, zeroAddress } from "viem";
 
 enum VaultType {
   STABLE,
@@ -70,10 +70,8 @@ const VaultDetailsInput = () => {
     }
 
     const tupleString =
-      `["${vaultDetails.name}", "${vaultDetails.symbol}", ${vaultDetails.maxStableCapacity.toString()}, ` +
-      `${vaultDetails.maxAssetsCapacity.toString()}, ${vaultDetails.vaultType}, "${
-        vaultDetails.ONCHAINID
-      }"]`;
+      `["${vaultDetails.name}", "${vaultDetails.symbol}", ${parseEther(vaultDetails.maxStableCapacity.toString())}, ` +
+      `${parseEther(vaultDetails.maxAssetsCapacity.toString())}, ${vaultDetails.vaultType}, "${vaultDetails.ONCHAINID}"]`;
     navigator.clipboard
       .writeText(tupleString)
       .then(() => {
@@ -146,11 +144,11 @@ const VaultDetailsInput = () => {
             className="mt-1 p-2 w-full border rounded-md"
             onChange={e => {
               let value = VaultType.BOTH;
-              if(e.target.value === "0") {
+              if (e.target.value === "0") {
                 value = VaultType.STABLE;
-              } else if(e.target.value === "1") {
+              } else if (e.target.value === "1") {
                 value = VaultType.RWA;
-              } else if(e.target.value === "2") {
+              } else if (e.target.value === "2") {
                 value = VaultType.BOTH;
               }
               vaultDetails.vaultType = value;
