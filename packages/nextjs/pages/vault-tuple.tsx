@@ -1,5 +1,5 @@
 import React, { ChangeEvent, useState } from "react";
-import { parseEther, zeroAddress } from "viem";
+import { zeroAddress } from "viem";
 
 enum VaultType {
   STABLE,
