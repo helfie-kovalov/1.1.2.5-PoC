@@ -70,6 +70,12 @@ export const Header = () => {
         </NavLink>
       </li>
       <li>
+        <NavLink href="/vault-tuple">
+          <SparklesIcon className="h-4 w-4" />
+          Vault Tuple
+        </NavLink>
+      </li>
+      <li>
         <NavLink href="/claim-data">
           <SparklesIcon className="h-4 w-4" />
           Sign
