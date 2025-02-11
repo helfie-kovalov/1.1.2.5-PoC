@@ -25,75 +25,75 @@ const contracts = {
       name: "sepolia",
       contracts: {
         Admin: {
-          address: "0x3aBcC74126978188353e740006E0CF788205594B",
+          address: "0xB0E7aeAC38222257c21E4F2E4f5b04CdB9d83330",
           abi: ADMIN_ABI,
         },
         TrustedIssuersRegistry: {
-          address: "0x3aBcC74126978188353e740006E0CF788205594B",
+          address: "0xB0E7aeAC38222257c21E4F2E4f5b04CdB9d83330",
           abi: TIR_ABI,
         },
         ClaimTopicsRegistry: {
-          address: "0x3aBcC74126978188353e740006E0CF788205594B",
+          address: "0xB0E7aeAC38222257c21E4F2E4f5b04CdB9d83330",
           abi: CTR_ABI,
         },
         IdentityRegistryStorage: {
-          address: "0x3aBcC74126978188353e740006E0CF788205594B",
+          address: "0xB0E7aeAC38222257c21E4F2E4f5b04CdB9d83330",
           abi: IRS_ABI,
         },
         IdentityRegistry: {
-          address: "0x3aBcC74126978188353e740006E0CF788205594B",
+          address: "0xB0E7aeAC38222257c21E4F2E4f5b04CdB9d83330",
           abi: IR_ABI,
         },
         OperatorManagement: {
-          address: "0x3aBcC74126978188353e740006E0CF788205594B",
+          address: "0xB0E7aeAC38222257c21E4F2E4f5b04CdB9d83330",
           abi: OM_ABI,
         },
         BalanceManagement: {
-          address: "0x3aBcC74126978188353e740006E0CF788205594B",
+          address: "0xB0E7aeAC38222257c21E4F2E4f5b04CdB9d83330",
           abi: BM_ABI,
         },
         IdFactory: {
-          address: "0x3aBcC74126978188353e740006E0CF788205594B",
+          address: "0xB0E7aeAC38222257c21E4F2E4f5b04CdB9d83330",
           abi: ID_FACTORY_ABI,
         },
         ModularCompliance: {
-          address: "0x4e203DDe594b9Ba94fa001E6dD3AfeA47D623094",
+          address: "0xA46CE6a7e0947426C8Bd7338D14D16234b5f4c5B",
           abi: MODULAR_COMPLIANCE_ABI,
         },
         Token: {
-          address: "0x108e9fFacca75fb7ec56D5fCC38c5e46883faCa2",
+          address: "0x8Bf856912Cf88EC9150399f6534ADf049410Bf32",
           abi: TOKEN_ABI,
         },
         Identity: {
-          address: "0xB3441E4b362F2578870163e9C9b0c58Af9bd1AE7",
+          address: "0x7a1Ca37f48113b92e79D8EF05Cb756678b5E7171",
           abi: IDENTITY_ABI,
         },
         CountryAllowModule: {
-          address: "0x5ebc85bbb279dF5d40E2f1563A0621A472a8EBC5",
+          address: "0x6736dF96d918B173Ca4cEb47B4e06ADeda8cb8E5",
           abi: COUNTRY_ALLOW_ABI,
         },
         CountryRestrictModule: {
-          address: "0xF856116c787E760606B6ed8285aE4c914E415B62",
+          address: "0x1Ce43F8628FD967c58B7C7e84c839B4b59d5CE77",
           abi: COUNTRY_RESTRICT_ABI,
         },
         TimeTransferModule: {
-          address: "0xA7b61FAE94a0935BD52A725D7c74CbeFeC4c0978",
+          address: "0xde350340E01F3aA042d88f64f02b6166a88D7730",
           abi: TIME_TRANSFER_LIMIT_ABI,
         },
         TokenFactory: {
-          address: "0x3aBcC74126978188353e740006E0CF788205594B",
+          address: "0xB0E7aeAC38222257c21E4F2E4f5b04CdB9d83330",
           abi: TOKEN_FACTORY_ABI,
         },
         Vault: {
-          address: "0x3CcEc1ebC2f654392aC709383Ab18a3129Ce148F",
+          address: "0xCEdfA090925BB2216F675e1417086Ef8E2a8412c",
           abi: VAULT_ABI,
         },
         VaultFactory: {
-          address: "0x3aBcC74126978188353e740006E0CF788205594B",
+          address: "0xB0E7aeAC38222257c21E4F2E4f5b04CdB9d83330",
           abi: VAULT_FACTORY_ABI,
         },
         DVDTransferManager: {
-          address: "0x3aBcC74126978188353e740006E0CF788205594B",
+          address: "0xB0E7aeAC38222257c21E4F2E4f5b04CdB9d83330",
           abi: DVD_ABI,
         },
         USDT: {
