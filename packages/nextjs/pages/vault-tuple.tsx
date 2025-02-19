@@ -70,8 +70,12 @@ const VaultDetailsInput = () => {
     }
 
     const tupleString =
-      `["${vaultDetails.name}", "${vaultDetails.symbol}", ${parseEther(vaultDetails.maxStableCapacity.toString())}, ` +
-      `${parseEther(vaultDetails.maxAssetsCapacity.toString())}, ${vaultDetails.vaultType}, "${vaultDetails.ONCHAINID}"]`;
+      `["${vaultDetails.name}", "${vaultDetails.symbol}", ${parseEther(
+        vaultDetails.maxStableCapacity.toString(),
+      ).toString()}, ` +
+      `${parseEther(vaultDetails.maxAssetsCapacity.toString()).toString()}, ${vaultDetails.vaultType}, "${
+        vaultDetails.ONCHAINID
+      }"]`;
     navigator.clipboard
       .writeText(tupleString)
       .then(() => {

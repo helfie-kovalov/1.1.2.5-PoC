@@ -3,7 +3,12 @@ export const VAULT_ABI = [
     inputs: [
       {
         internalType: "address",
-        name: "diamond",
+        name: "admin",
+        type: "address",
+      },
+      {
+        internalType: "address",
+        name: "sender",
         type: "address",
       },
       {
@@ -290,17 +295,6 @@ export const VAULT_ABI = [
       },
     ],
     name: "OwnableUnauthorizedAccount",
-    type: "error",
-  },
-  {
-    inputs: [
-      {
-        internalType: "address",
-        name: "token",
-        type: "address",
-      },
-    ],
-    name: "SafeERC20FailedOperation",
     type: "error",
   },
   {
@@ -792,7 +786,7 @@ export const VAULT_ABI = [
         type: "uint8",
       },
     ],
-    stateMutability: "view",
+    stateMutability: "pure",
     type: "function",
   },
   {
@@ -892,6 +886,58 @@ export const VAULT_ABI = [
   },
   {
     inputs: [],
+    name: "getCurrentAssetsCapacity",
+    outputs: [
+      {
+        internalType: "uint256",
+        name: "",
+        type: "uint256",
+      },
+    ],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [],
+    name: "getCurrentStableCapacity",
+    outputs: [
+      {
+        internalType: "uint256",
+        name: "",
+        type: "uint256",
+      },
+    ],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [],
+    name: "getMaxAssetsCapacity",
+    outputs: [
+      {
+        internalType: "uint256",
+        name: "",
+        type: "uint256",
+      },
+    ],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [],
+    name: "getMaxStableCapacity",
+    outputs: [
+      {
+        internalType: "uint256",
+        name: "",
+        type: "uint256",
+      },
+    ],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [],
     name: "getVaultClaimTopics",
     outputs: [
       {
@@ -920,7 +966,12 @@ export const VAULT_ABI = [
     inputs: [
       {
         internalType: "address",
-        name: "diamond",
+        name: "admin",
+        type: "address",
+      },
+      {
+        internalType: "address",
+        name: "sender",
         type: "address",
       },
       {
@@ -957,6 +1008,19 @@ export const VAULT_ABI = [
     name: "initialize",
     outputs: [],
     stateMutability: "nonpayable",
+    type: "function",
+  },
+  {
+    inputs: [],
+    name: "isVaultFull",
+    outputs: [
+      {
+        internalType: "bool",
+        name: "",
+        type: "bool",
+      },
+    ],
+    stateMutability: "view",
     type: "function",
   },
   {
