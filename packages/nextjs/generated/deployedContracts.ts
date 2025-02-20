@@ -85,7 +85,7 @@ const contracts = {
           abi: TOKEN_FACTORY_ABI,
         },
         Vault: {
-          address: "0x01956EF1ECe13D76B5B244510026DaF0dAa4b878",
+          address: "0x2aCD9F2a157b3A69ee8944786D376c1563599d81",
           abi: VAULT_ABI,
         },
         VaultFactory: {
